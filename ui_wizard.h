@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wizard.ui'
 **
-** Created: Fri May 4 13:40:57 2012
-**      by: Qt User Interface Compiler version 4.8.0
+** Created: Mon May 7 09:52:06 2012
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -60,7 +60,7 @@ public:
         mainFrame->setFrameShadow(QFrame::Plain);
         imgWizard = new QLabel(mainFrame);
         imgWizard->setObjectName(QString::fromUtf8("imgWizard"));
-        imgWizard->setGeometry(QRect(10, 0, 141, 281));
+        imgWizard->setGeometry(QRect(10, 0, 141, 271));
         imgWizard->setPixmap(QPixmap(QString::fromUtf8(":/Images/games-solve (1).png")));
         verticalLayoutWidget = new QWidget(mainFrame);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));

@@ -16,7 +16,9 @@ public:
     ~Wizard();
 
 public slots:
-    void launchWizard();
+
+private slots:
+    void launchSelection();
 
 private:
     Ui::Wizard *ui;

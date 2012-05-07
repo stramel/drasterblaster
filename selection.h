@@ -15,6 +15,10 @@ public:
     explicit Selection(QWidget *parent = 0);
     ~Selection();
     
+private slots:
+    void launchWizard();
+    void launchAdvanced();
+
 private:
     Ui::Selection *ui;
 };
