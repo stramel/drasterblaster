@@ -9,22 +9,20 @@ QT       += core gui
 TARGET = dRasterBlaster
 TEMPLATE = app
 
-SOURCES += main.cpp\
+SOURCES +=\
         mainwindow.cpp \
-    src/driver.cpp \
-    src/resampler.cpp \
-    src/reprojector.cpp \
-    src/rasterchunk.cpp \
-    src/projectedraster.cpp \
-    src/main.cpp
+    init.cpp \
+    selection.cpp \
+    wizard.cpp
 
 HEADERS  += mainwindow.h \
-    src/resampler.hh \
-    src/reprojector.hh \
-    src/rasterchunk.hh \
-    src/projectedraster.hh \
-    src/driver.hh \
-    src/sharedptr.hh
+    selection.h \
+    wizard.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    selection.ui \
+    wizard.ui
+
+RESOURCES += \
+    resources.qrc
 

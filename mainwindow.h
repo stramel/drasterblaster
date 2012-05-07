@@ -17,6 +17,21 @@ public:
     
 private:
     Ui::MainWindow *ui;
+    void CreateConnections();
+
+private slots:
+    void openRaster();
+    void saveReprojection();
+    void loadProjectionInfo();
+    void saveProjectionInfo();
+    void togglePreview();
+    void userGuide();
+    void editAuthor();
+    void about();
+    void aboutQt();
+    void editInputParams(int);
+    void fillEnable(int);
+    void noDataEnabale(int);
 };
 
 #endif // MAINWINDOW_H
