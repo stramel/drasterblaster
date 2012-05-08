@@ -25,6 +25,8 @@ private slots:
     void loadParams();
     void saveParams();
     void togglePreview();
+    void fillEnable(int);
+    void noDataEnable(int);
 };
 
 #endif // ADVANCED_H
