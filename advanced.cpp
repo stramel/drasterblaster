@@ -55,12 +55,61 @@ void Advanced::prepareUi()
 
 void Advanced::loadParams()
 {
+    QFileDialog dialogRaster;
+        dialogRaster.setFileMode(QFileDialog::ExistingFile);
+        dialogRaster.setDirectory(QDir::toNativeSeparators(QCoreApplication::applicationDirPath()));
+        dialogRaster.setFilter(QDir::Files);
+        dialogRaster.setWindowTitle("Load Projection Parameters");
+        dialogRaster.setNameFilter("Config files (*.config)");
+        dialogRaster.exec();
 
+        QString filename = dialogRaster.selectedFiles().first();
+        if (filename.isEmpty())
+            return;
+        else
+        {
+            QFile file(filename);
+            if (!file.open(QIODevice::ReadOnly))
+            {
+                QMessageBox::information(this, tr("Unable to open file"), file.errorString());
+                return;
+            }
+            QDataStream in(&file);
+            in.setVersion(12);
+            //in >> ;//Read in DATA here
+
+            ui->fileName->setText(filename);
+
+        }
 }
 
 void Advanced::saveParams()
 {
+    QFileDialog dialogRaster;
+        dialogRaster.setAcceptMode(QFileDialog::AcceptSave);
+        dialogRaster.setFileMode(QFileDialog::AnyFile);
+        dialogRaster.setDirectory(QDir::toNativeSeparators(QCoreApplication::applicationDirPath()));
+        dialogRaster.setFilter(QDir::Files);
+        dialogRaster.setWindowTitle("Save Projection Parameters");
+        dialogRaster.setNameFilter("Config files (*.config)");
+        dialogRaster.exec();
 
+        QString filename = dialogRaster.selectedFiles().first();
+        if (filename.isEmpty())
+            return;
+        else
+        {
+            QFile file(filename);
+            if (!file.open(QIODevice::WriteOnly))
+            {
+                QMessageBox::information(this, tr("Unable to open file"), file.errorString());
+                return;
+            }
+
+            QDataStream out (&file);
+            out.setVersion(12);
+            //out << ;//Write DATA here
+        }
 }
 
 void Advanced::openRaster()
@@ -119,6 +168,7 @@ void Advanced::saveReprojection()
             QDataStream out (&file);
             out.setVersion(12);
             //out << ;//Write DATA here
+            file.close();
         }
 }
 
