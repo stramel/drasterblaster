@@ -1,28 +1,27 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2012-04-23T12:26:26
+# Project created by QtCreator 2012-05-07T15:23:24
 #
 #-------------------------------------------------
 
 QT       += core gui
 
-TARGET = dRasterBlaster
+TARGET = dRasterBlaster1
 TEMPLATE = app
 
-SOURCES +=\
-        mainwindow.cpp \
-    init.cpp \
-    selection.cpp \
+
+SOURCES += main.cpp\
+        selection.cpp \
+    advanced.cpp \
     wizard.cpp
 
-HEADERS  += mainwindow.h \
-    selection.h \
+HEADERS  += selection.h \
+    advanced.h \
     wizard.h
 
-FORMS    += mainwindow.ui \
-    selection.ui \
+FORMS    += selection.ui \
+    advanced.ui \
     wizard.ui
 
 RESOURCES += \
     resources.qrc
-

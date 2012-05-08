@@ -1,14 +1,14 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindow.ui'
+** Form generated from reading UI file 'advanced.ui'
 **
-** Created: Fri May 4 13:23:26 2012
-**      by: Qt User Interface Compiler version 4.8.0
+** Created: Tue May 8 10:38:01 2012
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_MAINWINDOW_H
-#define UI_MAINWINDOW_H
+#ifndef UI_ADVANCED_H
+#define UI_ADVANCED_H
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
@@ -30,21 +30,31 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_Advanced
 {
 public:
     QAction *actionOpen;
     QAction *actionSave_Reprojection;
-    QAction *actionRaster_Wizard;
+    QAction *actionSelection_Screen;
     QAction *actionExit;
+    QAction *actionLoad_Projection_Info;
+    QAction *actionSave_Projection_Info;
+    QAction *actionToggle_Preview;
     QAction *actionEdit_Author;
     QAction *actionUser_Guide;
     QAction *actionAbout_dRasterBlaster;
     QAction *actionAbout_Qt;
-    QAction *actionSave_Projection_Info;
-    QAction *actionLoad_Projection_Info;
-    QAction *actionToggle_Preview;
-    QWidget *Content;
+    QWidget *centralwidget;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *hLayoutTitle;
+    QLabel *ReprojectionInformation;
+    QSpacerItem *horizontalSpacer;
+    QCheckBox *editInputParams;
+    QWidget *horizontalLayoutWidget_7;
+    QHBoxLayout *hLayoutStatus;
+    QLabel *labelStatus;
+    QSpacerItem *horizontalSpacer_5;
+    QProgressBar *progressBar;
     QTabWidget *tabWidget;
     QWidget *tabRasterInfo;
     QWidget *horizontalLayoutWidget_2;
@@ -85,79 +95,130 @@ public:
     QComboBox *sheroidSelector;
     QSpacerItem *horizontalSpacer_6;
     QWidget *tabProjectionInfo;
-    QWidget *horizontalLayoutWidget_7;
-    QHBoxLayout *hLayoutStatus;
-    QLabel *labelStatus;
-    QSpacerItem *horizontalSpacer_5;
-    QProgressBar *progressBar;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *hLayoutTitle;
-    QLabel *ReprojectionInformation;
-    QSpacerItem *horizontalSpacer;
-    QCheckBox *editInputParams;
     QMenuBar *menuBar;
     QMenu *menuFile;
-    QMenu *menuHelp;
     QMenu *menuOptions;
+    QMenu *menuHelp;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *Advanced)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(510, 328);
-        actionOpen = new QAction(MainWindow);
+        if (Advanced->objectName().isEmpty())
+            Advanced->setObjectName(QString::fromUtf8("Advanced"));
+        Advanced->resize(640, 480);
+        actionOpen = new QAction(Advanced);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
-        actionSave_Reprojection = new QAction(MainWindow);
+        QFont font;
+        font.setPointSize(10);
+        actionOpen->setFont(font);
+        actionSave_Reprojection = new QAction(Advanced);
         actionSave_Reprojection->setObjectName(QString::fromUtf8("actionSave_Reprojection"));
-        actionRaster_Wizard = new QAction(MainWindow);
-        actionRaster_Wizard->setObjectName(QString::fromUtf8("actionRaster_Wizard"));
-        actionExit = new QAction(MainWindow);
+        actionSave_Reprojection->setFont(font);
+        actionSelection_Screen = new QAction(Advanced);
+        actionSelection_Screen->setObjectName(QString::fromUtf8("actionSelection_Screen"));
+        actionSelection_Screen->setFont(font);
+        actionExit = new QAction(Advanced);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
-        actionEdit_Author = new QAction(MainWindow);
-        actionEdit_Author->setObjectName(QString::fromUtf8("actionEdit_Author"));
-        actionUser_Guide = new QAction(MainWindow);
-        actionUser_Guide->setObjectName(QString::fromUtf8("actionUser_Guide"));
-        actionAbout_dRasterBlaster = new QAction(MainWindow);
-        actionAbout_dRasterBlaster->setObjectName(QString::fromUtf8("actionAbout_dRasterBlaster"));
-        actionAbout_Qt = new QAction(MainWindow);
-        actionAbout_Qt->setObjectName(QString::fromUtf8("actionAbout_Qt"));
-        actionSave_Projection_Info = new QAction(MainWindow);
-        actionSave_Projection_Info->setObjectName(QString::fromUtf8("actionSave_Projection_Info"));
-        actionLoad_Projection_Info = new QAction(MainWindow);
+        actionExit->setFont(font);
+        actionLoad_Projection_Info = new QAction(Advanced);
         actionLoad_Projection_Info->setObjectName(QString::fromUtf8("actionLoad_Projection_Info"));
-        actionToggle_Preview = new QAction(MainWindow);
+        actionLoad_Projection_Info->setFont(font);
+        actionSave_Projection_Info = new QAction(Advanced);
+        actionSave_Projection_Info->setObjectName(QString::fromUtf8("actionSave_Projection_Info"));
+        actionSave_Projection_Info->setFont(font);
+        actionToggle_Preview = new QAction(Advanced);
         actionToggle_Preview->setObjectName(QString::fromUtf8("actionToggle_Preview"));
-        Content = new QWidget(MainWindow);
-        Content->setObjectName(QString::fromUtf8("Content"));
-        tabWidget = new QTabWidget(Content);
+        actionToggle_Preview->setFont(font);
+        actionEdit_Author = new QAction(Advanced);
+        actionEdit_Author->setObjectName(QString::fromUtf8("actionEdit_Author"));
+        actionEdit_Author->setFont(font);
+        actionUser_Guide = new QAction(Advanced);
+        actionUser_Guide->setObjectName(QString::fromUtf8("actionUser_Guide"));
+        actionUser_Guide->setFont(font);
+        actionAbout_dRasterBlaster = new QAction(Advanced);
+        actionAbout_dRasterBlaster->setObjectName(QString::fromUtf8("actionAbout_dRasterBlaster"));
+        actionAbout_dRasterBlaster->setFont(font);
+        actionAbout_Qt = new QAction(Advanced);
+        actionAbout_Qt->setObjectName(QString::fromUtf8("actionAbout_Qt"));
+        actionAbout_Qt->setFont(font);
+        centralwidget = new QWidget(Advanced);
+        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        horizontalLayoutWidget = new QWidget(centralwidget);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(30, 40, 471, 31));
+        hLayoutTitle = new QHBoxLayout(horizontalLayoutWidget);
+        hLayoutTitle->setObjectName(QString::fromUtf8("hLayoutTitle"));
+        hLayoutTitle->setContentsMargins(0, 0, 0, 0);
+        ReprojectionInformation = new QLabel(horizontalLayoutWidget);
+        ReprojectionInformation->setObjectName(QString::fromUtf8("ReprojectionInformation"));
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setWeight(75);
+        ReprojectionInformation->setFont(font1);
+
+        hLayoutTitle->addWidget(ReprojectionInformation);
+
+        horizontalSpacer = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        hLayoutTitle->addItem(horizontalSpacer);
+
+        editInputParams = new QCheckBox(horizontalLayoutWidget);
+        editInputParams->setObjectName(QString::fromUtf8("editInputParams"));
+        QFont font2;
+        font2.setBold(true);
+        font2.setWeight(75);
+        editInputParams->setFont(font2);
+
+        hLayoutTitle->addWidget(editInputParams);
+
+        horizontalLayoutWidget_7 = new QWidget(centralwidget);
+        horizontalLayoutWidget_7->setObjectName(QString::fromUtf8("horizontalLayoutWidget_7"));
+        horizontalLayoutWidget_7->setGeometry(QRect(90, 350, 471, 31));
+        hLayoutStatus = new QHBoxLayout(horizontalLayoutWidget_7);
+        hLayoutStatus->setObjectName(QString::fromUtf8("hLayoutStatus"));
+        hLayoutStatus->setContentsMargins(0, 0, 0, 0);
+        labelStatus = new QLabel(horizontalLayoutWidget_7);
+        labelStatus->setObjectName(QString::fromUtf8("labelStatus"));
+
+        hLayoutStatus->addWidget(labelStatus);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        hLayoutStatus->addItem(horizontalSpacer_5);
+
+        progressBar = new QProgressBar(horizontalLayoutWidget_7);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setMinimumSize(QSize(200, 0));
+        progressBar->setMaximumSize(QSize(200, 16777215));
+        progressBar->setValue(0);
+
+        hLayoutStatus->addWidget(progressBar);
+
+        tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(10, 40, 491, 241));
+        tabWidget->setGeometry(QRect(80, 110, 491, 241));
         tabRasterInfo = new QWidget();
         tabRasterInfo->setObjectName(QString::fromUtf8("tabRasterInfo"));
         horizontalLayoutWidget_2 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
         horizontalLayoutWidget_2->setGeometry(QRect(10, 10, 471, 31));
         hLayoutFile = new QHBoxLayout(horizontalLayoutWidget_2);
-        hLayoutFile->setSpacing(6);
-        hLayoutFile->setContentsMargins(11, 11, 11, 11);
         hLayoutFile->setObjectName(QString::fromUtf8("hLayoutFile"));
         hLayoutFile->setContentsMargins(0, 0, 0, 0);
         labelFileName = new QLabel(horizontalLayoutWidget_2);
         labelFileName->setObjectName(QString::fromUtf8("labelFileName"));
         labelFileName->setMaximumSize(QSize(70, 16777215));
-        QFont font;
-        font.setPointSize(10);
-        font.setBold(true);
-        font.setWeight(75);
-        labelFileName->setFont(font);
+        QFont font3;
+        font3.setPointSize(10);
+        font3.setBold(true);
+        font3.setWeight(75);
+        labelFileName->setFont(font3);
 
         hLayoutFile->addWidget(labelFileName);
 
         fileName = new QLabel(horizontalLayoutWidget_2);
         fileName->setObjectName(QString::fromUtf8("fileName"));
-        QFont font1;
-        font1.setPointSize(10);
-        fileName->setFont(font1);
+        fileName->setFont(font);
 
         hLayoutFile->addWidget(fileName);
 
@@ -165,15 +226,10 @@ public:
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
         horizontalLayoutWidget_3->setGeometry(QRect(10, 50, 471, 31));
         hLayoutRowCol = new QHBoxLayout(horizontalLayoutWidget_3);
-        hLayoutRowCol->setSpacing(6);
-        hLayoutRowCol->setContentsMargins(11, 11, 11, 11);
         hLayoutRowCol->setObjectName(QString::fromUtf8("hLayoutRowCol"));
         hLayoutRowCol->setContentsMargins(0, 0, 0, 0);
         labelRows = new QLabel(horizontalLayoutWidget_3);
         labelRows->setObjectName(QString::fromUtf8("labelRows"));
-        QFont font2;
-        font2.setBold(true);
-        font2.setWeight(75);
         labelRows->setFont(font2);
 
         hLayoutRowCol->addWidget(labelRows);
@@ -210,8 +266,6 @@ public:
         horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
         horizontalLayoutWidget_4->setGeometry(QRect(10, 110, 471, 31));
         hLayoutPixels = new QHBoxLayout(horizontalLayoutWidget_4);
-        hLayoutPixels->setSpacing(6);
-        hLayoutPixels->setContentsMargins(11, 11, 11, 11);
         hLayoutPixels->setObjectName(QString::fromUtf8("hLayoutPixels"));
         hLayoutPixels->setContentsMargins(0, 0, 0, 0);
         labelPixelSize = new QLabel(horizontalLayoutWidget_4);
@@ -256,8 +310,6 @@ public:
         horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
         horizontalLayoutWidget_5->setGeometry(QRect(10, 140, 471, 31));
         hLayoutFill = new QHBoxLayout(horizontalLayoutWidget_5);
-        hLayoutFill->setSpacing(6);
-        hLayoutFill->setContentsMargins(11, 11, 11, 11);
         hLayoutFill->setObjectName(QString::fromUtf8("hLayoutFill"));
         hLayoutFill->setContentsMargins(0, 0, 0, 0);
         labelFillValue = new QLabel(horizontalLayoutWidget_5);
@@ -289,8 +341,6 @@ public:
         horizontalLayoutWidget_6->setObjectName(QString::fromUtf8("horizontalLayoutWidget_6"));
         horizontalLayoutWidget_6->setGeometry(QRect(10, 170, 471, 31));
         hLayoutNoData = new QHBoxLayout(horizontalLayoutWidget_6);
-        hLayoutNoData->setSpacing(6);
-        hLayoutNoData->setContentsMargins(11, 11, 11, 11);
         hLayoutNoData->setObjectName(QString::fromUtf8("hLayoutNoData"));
         hLayoutNoData->setContentsMargins(0, 0, 0, 0);
         labelNoDataValue = new QLabel(horizontalLayoutWidget_6);
@@ -322,8 +372,6 @@ public:
         horizontalLayoutWidget_8->setObjectName(QString::fromUtf8("horizontalLayoutWidget_8"));
         horizontalLayoutWidget_8->setGeometry(QRect(10, 80, 471, 31));
         hLayoutSheroid = new QHBoxLayout(horizontalLayoutWidget_8);
-        hLayoutSheroid->setSpacing(6);
-        hLayoutSheroid->setContentsMargins(11, 11, 11, 11);
         hLayoutSheroid->setObjectName(QString::fromUtf8("hLayoutSheroid"));
         hLayoutSheroid->setContentsMargins(0, 0, 0, 0);
         labelSheroid = new QLabel(horizontalLayoutWidget_8);
@@ -346,70 +394,18 @@ public:
         tabProjectionInfo = new QWidget();
         tabProjectionInfo->setObjectName(QString::fromUtf8("tabProjectionInfo"));
         tabWidget->addTab(tabProjectionInfo, QString());
-        horizontalLayoutWidget_7 = new QWidget(Content);
-        horizontalLayoutWidget_7->setObjectName(QString::fromUtf8("horizontalLayoutWidget_7"));
-        horizontalLayoutWidget_7->setGeometry(QRect(20, 280, 471, 31));
-        hLayoutStatus = new QHBoxLayout(horizontalLayoutWidget_7);
-        hLayoutStatus->setSpacing(6);
-        hLayoutStatus->setContentsMargins(11, 11, 11, 11);
-        hLayoutStatus->setObjectName(QString::fromUtf8("hLayoutStatus"));
-        hLayoutStatus->setContentsMargins(0, 0, 0, 0);
-        labelStatus = new QLabel(horizontalLayoutWidget_7);
-        labelStatus->setObjectName(QString::fromUtf8("labelStatus"));
-
-        hLayoutStatus->addWidget(labelStatus);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        hLayoutStatus->addItem(horizontalSpacer_5);
-
-        progressBar = new QProgressBar(horizontalLayoutWidget_7);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        progressBar->setMinimumSize(QSize(200, 0));
-        progressBar->setMaximumSize(QSize(200, 16777215));
-        progressBar->setValue(0);
-
-        hLayoutStatus->addWidget(progressBar);
-
-        horizontalLayoutWidget = new QWidget(Content);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(20, 0, 471, 31));
-        hLayoutTitle = new QHBoxLayout(horizontalLayoutWidget);
-        hLayoutTitle->setSpacing(6);
-        hLayoutTitle->setContentsMargins(11, 11, 11, 11);
-        hLayoutTitle->setObjectName(QString::fromUtf8("hLayoutTitle"));
-        hLayoutTitle->setContentsMargins(0, 0, 0, 0);
-        ReprojectionInformation = new QLabel(horizontalLayoutWidget);
-        ReprojectionInformation->setObjectName(QString::fromUtf8("ReprojectionInformation"));
-        QFont font3;
-        font3.setPointSize(12);
-        font3.setBold(true);
-        font3.setWeight(75);
-        ReprojectionInformation->setFont(font3);
-
-        hLayoutTitle->addWidget(ReprojectionInformation);
-
-        horizontalSpacer = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        hLayoutTitle->addItem(horizontalSpacer);
-
-        editInputParams = new QCheckBox(horizontalLayoutWidget);
-        editInputParams->setObjectName(QString::fromUtf8("editInputParams"));
-        editInputParams->setFont(font2);
-
-        hLayoutTitle->addWidget(editInputParams);
-
-        MainWindow->setCentralWidget(Content);
-        menuBar = new QMenuBar(MainWindow);
+        Advanced->setCentralWidget(centralwidget);
+        menuBar = new QMenuBar(Advanced);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 510, 18));
+        menuBar->setGeometry(QRect(0, 0, 640, 21));
+        menuBar->setFont(font);
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
-        menuHelp = new QMenu(menuBar);
-        menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
         menuOptions = new QMenu(menuBar);
         menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
-        MainWindow->setMenuBar(menuBar);
+        menuHelp = new QMenu(menuBar);
+        menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
+        Advanced->setMenuBar(menuBar);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuOptions->menuAction());
@@ -417,90 +413,90 @@ public:
         menuFile->addAction(actionOpen);
         menuFile->addAction(actionSave_Reprojection);
         menuFile->addSeparator();
-        menuFile->addAction(actionRaster_Wizard);
+        menuFile->addAction(actionSelection_Screen);
         menuFile->addSeparator();
         menuFile->addAction(actionExit);
+        menuOptions->addAction(actionLoad_Projection_Info);
+        menuOptions->addAction(actionSave_Projection_Info);
+        menuOptions->addSeparator();
+        menuOptions->addAction(actionToggle_Preview);
         menuHelp->addAction(actionEdit_Author);
         menuHelp->addAction(actionUser_Guide);
         menuHelp->addSeparator();
         menuHelp->addAction(actionAbout_dRasterBlaster);
         menuHelp->addAction(actionAbout_Qt);
-        menuOptions->addAction(actionLoad_Projection_Info);
-        menuOptions->addAction(actionSave_Projection_Info);
-        menuOptions->addSeparator();
-        menuOptions->addAction(actionToggle_Preview);
 
-        retranslateUi(MainWindow);
+        retranslateUi(Advanced);
 
         tabWidget->setCurrentIndex(0);
 
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(Advanced);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *Advanced)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "dRasterBlaster (v .1)", 0, QApplication::UnicodeUTF8));
-        actionOpen->setText(QApplication::translate("MainWindow", "Open", 0, QApplication::UnicodeUTF8));
-        actionSave_Reprojection->setText(QApplication::translate("MainWindow", "Save Reprojection", 0, QApplication::UnicodeUTF8));
-        actionRaster_Wizard->setText(QApplication::translate("MainWindow", "Raster Wizard", 0, QApplication::UnicodeUTF8));
-        actionExit->setText(QApplication::translate("MainWindow", "Exit", 0, QApplication::UnicodeUTF8));
-        actionEdit_Author->setText(QApplication::translate("MainWindow", "Edit Author", 0, QApplication::UnicodeUTF8));
-        actionUser_Guide->setText(QApplication::translate("MainWindow", "User Guide", 0, QApplication::UnicodeUTF8));
-        actionAbout_dRasterBlaster->setText(QApplication::translate("MainWindow", "About dRasterBlaster", 0, QApplication::UnicodeUTF8));
-        actionAbout_Qt->setText(QApplication::translate("MainWindow", "About Qt", 0, QApplication::UnicodeUTF8));
-        actionSave_Projection_Info->setText(QApplication::translate("MainWindow", "Save Projection Info", 0, QApplication::UnicodeUTF8));
-        actionLoad_Projection_Info->setText(QApplication::translate("MainWindow", "Load Projection Info", 0, QApplication::UnicodeUTF8));
-        actionToggle_Preview->setText(QApplication::translate("MainWindow", "Toggle Preview", 0, QApplication::UnicodeUTF8));
-        labelFileName->setText(QApplication::translate("MainWindow", "File Name:", 0, QApplication::UnicodeUTF8));
-        fileName->setText(QApplication::translate("MainWindow", "veg_geographic_1deg.img", 0, QApplication::UnicodeUTF8));
-        labelRows->setText(QApplication::translate("MainWindow", "Rows", 0, QApplication::UnicodeUTF8));
-        labelCols->setText(QApplication::translate("MainWindow", "Columns", 0, QApplication::UnicodeUTF8));
-        labelPixelSize->setText(QApplication::translate("MainWindow", "Pixel Size", 0, QApplication::UnicodeUTF8));
+        Advanced->setWindowTitle(QApplication::translate("Advanced", "MainWindow", 0, QApplication::UnicodeUTF8));
+        actionOpen->setText(QApplication::translate("Advanced", "Open", 0, QApplication::UnicodeUTF8));
+        actionSave_Reprojection->setText(QApplication::translate("Advanced", "Save Reprojection", 0, QApplication::UnicodeUTF8));
+        actionSelection_Screen->setText(QApplication::translate("Advanced", "Selection Screen", 0, QApplication::UnicodeUTF8));
+        actionExit->setText(QApplication::translate("Advanced", "Exit", 0, QApplication::UnicodeUTF8));
+        actionLoad_Projection_Info->setText(QApplication::translate("Advanced", "Load Projection Info", 0, QApplication::UnicodeUTF8));
+        actionSave_Projection_Info->setText(QApplication::translate("Advanced", "Save Projection Info", 0, QApplication::UnicodeUTF8));
+        actionToggle_Preview->setText(QApplication::translate("Advanced", "Toggle Preview", 0, QApplication::UnicodeUTF8));
+        actionEdit_Author->setText(QApplication::translate("Advanced", "Edit Author Info", 0, QApplication::UnicodeUTF8));
+        actionUser_Guide->setText(QApplication::translate("Advanced", "User Guide", 0, QApplication::UnicodeUTF8));
+        actionAbout_dRasterBlaster->setText(QApplication::translate("Advanced", "About dRasterBlaster", 0, QApplication::UnicodeUTF8));
+        actionAbout_Qt->setText(QApplication::translate("Advanced", "About Qt", 0, QApplication::UnicodeUTF8));
+        ReprojectionInformation->setText(QApplication::translate("Advanced", "Reprojection Information", 0, QApplication::UnicodeUTF8));
+        editInputParams->setText(QApplication::translate("Advanced", "Edit Input Parameters", 0, QApplication::UnicodeUTF8));
+        labelStatus->setText(QApplication::translate("Advanced", "Status/Error Info", 0, QApplication::UnicodeUTF8));
+        labelFileName->setText(QApplication::translate("Advanced", "File Name:", 0, QApplication::UnicodeUTF8));
+        fileName->setText(QApplication::translate("Advanced", "veg_geographic_1deg.img", 0, QApplication::UnicodeUTF8));
+        labelRows->setText(QApplication::translate("Advanced", "Rows", 0, QApplication::UnicodeUTF8));
+        labelCols->setText(QApplication::translate("Advanced", "Columns", 0, QApplication::UnicodeUTF8));
+        labelPixelSize->setText(QApplication::translate("Advanced", "Pixel Size", 0, QApplication::UnicodeUTF8));
         pixelUnits->clear();
         pixelUnits->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Arcsecond(s)", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Arcminute(s)", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Degree(s)", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Meter(s)", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Arcsecond(s)", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Arcminute(s)", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Degree(s)", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Meter(s)", 0, QApplication::UnicodeUTF8)
         );
-        labelPixelType->setText(QApplication::translate("MainWindow", "Pixel Type", 0, QApplication::UnicodeUTF8));
+        labelPixelType->setText(QApplication::translate("Advanced", "Pixel Type", 0, QApplication::UnicodeUTF8));
         pixelType->clear();
         pixelType->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Signed 8-Bit Integer", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Unsigned 8-Bit Integer", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Signed 16-Bit Integer", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Unsigned 16-Bit Integer", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Signed 32-Bit Integer", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Unsigned 32-Bit Integer", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Signed 32-Bit IEEE Float", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Signed 64-Bit IEEE Float", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Signed 8-Bit Integer", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Unsigned 8-Bit Integer", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Signed 16-Bit Integer", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Unsigned 16-Bit Integer", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Signed 32-Bit Integer", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Unsigned 32-Bit Integer", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Signed 32-Bit IEEE Float", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Signed 64-Bit IEEE Float", 0, QApplication::UnicodeUTF8)
         );
-        labelFillValue->setText(QApplication::translate("MainWindow", "Fill Value", 0, QApplication::UnicodeUTF8));
+        labelFillValue->setText(QApplication::translate("Advanced", "Fill Value", 0, QApplication::UnicodeUTF8));
         fillEnable->setText(QString());
-        labelNoDataValue->setText(QApplication::translate("MainWindow", "No Data Value", 0, QApplication::UnicodeUTF8));
+        labelNoDataValue->setText(QApplication::translate("Advanced", "No Data Value", 0, QApplication::UnicodeUTF8));
         noDataValueEnable->setText(QString());
-        labelSheroid->setText(QApplication::translate("MainWindow", "Sheroid", 0, QApplication::UnicodeUTF8));
+        labelSheroid->setText(QApplication::translate("Advanced", "Sheroid", 0, QApplication::UnicodeUTF8));
         sheroidSelector->clear();
         sheroidSelector->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Sphere of Radius 6,370,997 meters", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("Advanced", "Sphere of Radius 6,370,997 meters", 0, QApplication::UnicodeUTF8)
         );
-        tabWidget->setTabText(tabWidget->indexOf(tabRasterInfo), QApplication::translate("MainWindow", "Raster Info", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tabProjectionInfo), QApplication::translate("MainWindow", "Projection Info", 0, QApplication::UnicodeUTF8));
-        labelStatus->setText(QApplication::translate("MainWindow", "Status/Error Info", 0, QApplication::UnicodeUTF8));
-        ReprojectionInformation->setText(QApplication::translate("MainWindow", "Reprojection Information", 0, QApplication::UnicodeUTF8));
-        editInputParams->setText(QApplication::translate("MainWindow", "Edit Input Parameters", 0, QApplication::UnicodeUTF8));
-        menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
-        menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0, QApplication::UnicodeUTF8));
-        menuOptions->setTitle(QApplication::translate("MainWindow", "Options", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tabRasterInfo), QApplication::translate("Advanced", "Raster Info", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tabProjectionInfo), QApplication::translate("Advanced", "Projection Info", 0, QApplication::UnicodeUTF8));
+        menuFile->setTitle(QApplication::translate("Advanced", "File", 0, QApplication::UnicodeUTF8));
+        menuOptions->setTitle(QApplication::translate("Advanced", "Options", 0, QApplication::UnicodeUTF8));
+        menuHelp->setTitle(QApplication::translate("Advanced", "Help", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class Advanced: public Ui_Advanced {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_MAINWINDOW_H
+#endif // UI_ADVANCED_H

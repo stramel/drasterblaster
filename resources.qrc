@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>Images/preferences-other.png</file>
-        <file>Images/games-solve (1).png</file>
+        <file>Images/wizard.png</file>
+        <file>Images/advanced.png</file>
     </qresource>
 </RCC>

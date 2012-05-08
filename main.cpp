@@ -4,9 +4,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Selection s;
-    s.setWindowTitle("dRasterBlaster (v .1)");
-    s.show();
+    Selection w;
+    w.show();
     
     return a.exec();
 }
+
