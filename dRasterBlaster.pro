@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-TARGET = dRasterBlaster1
+TARGET = dRasterBlaster
 TEMPLATE = app
 
 
@@ -25,3 +25,6 @@ FORMS    += selection.ui \
 
 RESOURCES += \
     resources.qrc
+
+RC_FILE += \
+    icon.rc
