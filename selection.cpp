@@ -11,22 +11,7 @@ Selection::Selection(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->btnRasterWizard, SIGNAL(clicked()), this, SLOT(showWizard()));
-    connect(ui->btnRasterWizard, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->btnAdvanced, SIGNAL(clicked()), this, SLOT(showAdvanced()));
-    connect(ui->btnAdvanced, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->actionAbout_dRasterBlaster, SIGNAL(triggered()), this, SLOT(about()));
-    connect(ui->actionAbout_Qt, SIGNAL(triggered()), this, SLOT(aboutQt()));
-    connect(ui->actionEdit_Author, SIGNAL(triggered()), this, SLOT(showEditAuthor()));
-    connect(ui->actionUser_Guide, SIGNAL(triggered()), this, SLOT(showUserGuide()));
-    connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()));
-
-    ui->actionLoad_Projection_Info->setEnabled(false);
-    ui->actionSave_Projection_Info->setEnabled(false);
-    ui->actionToggle_Preview->setEnabled(false);
-    ui->actionOpen->setEnabled(false);
-    ui->actionSave_Reprojection->setEnabled(false);
-    ui->actionSelection_Screen->setEnabled(false);
+    prepareUi();
 }
 
 Selection::~Selection()
@@ -39,8 +24,6 @@ void Selection::showWizard()
     Wizard *w = new Wizard();
     w->setWindowTitle("Wizard - dRasterBlaster (v0.1)");
     w->show();
-    //w->activateWindow();
-    //w->raise();
 }
 
 void Selection::showAdvanced()
@@ -48,8 +31,14 @@ void Selection::showAdvanced()
     Advanced *a = new Advanced();
     a->setWindowTitle("Advanced - dRasterBlaster (v0.1)");
     a->show();
-    //a->activateWindow();
-    //a->raise();
+}
+
+void Selection::showSelection()
+{
+
+    Selection *s = new Selection();
+    s->setWindowTitle("dRasterBlaster (v0.1)");
+    s->show();
 }
 
 void Selection::showEditAuthor()
@@ -72,39 +61,22 @@ void Selection::aboutQt()
 
 }
 
-void Selection::showSelection()
+void Selection::prepareUi()
 {
+    connect(ui->btnRasterWizard, SIGNAL(clicked()), this, SLOT(showWizard()));
+    connect(ui->btnRasterWizard, SIGNAL(clicked()), this, SLOT(close()));
+    connect(ui->btnAdvanced, SIGNAL(clicked()), this, SLOT(showAdvanced()));
+    connect(ui->btnAdvanced, SIGNAL(clicked()), this, SLOT(close()));
+    connect(ui->actionAbout_dRasterBlaster, SIGNAL(triggered()), this, SLOT(about()));
+    connect(ui->actionAbout_Qt, SIGNAL(triggered()), this, SLOT(aboutQt()));
+    connect(ui->actionEdit_Author, SIGNAL(triggered()), this, SLOT(showEditAuthor()));
+    connect(ui->actionUser_Guide, SIGNAL(triggered()), this, SLOT(showUserGuide()));
+    connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()));
 
-    Selection *s = new Selection();
-    s->setWindowTitle("dRasterBlaster (v0.1)");
-    s->show();
+    ui->actionLoad_Projection_Info->setEnabled(false);
+    ui->actionSave_Projection_Info->setEnabled(false);
+    ui->actionToggle_Preview->setEnabled(false);
+    ui->actionOpen->setEnabled(false);
+    ui->actionSave_Reprojection->setEnabled(false);
+    ui->actionSelection_Screen->setEnabled(false);
 }
-
-void Selection::openRaster()
-{
-
-}
-
-void Selection::saveReprojection()
-{
-
-}
-
-
-void Selection::loadParams()
-{
-
-}
-
-
-void Selection::saveParams()
-{
-
-}
-
-
-void Selection::togglePreview()
-{
-
-}
-

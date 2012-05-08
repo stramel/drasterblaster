@@ -18,10 +18,14 @@ public:
 private:
     Ui::Wizard *ui;
     int page;
+    void prepareUi();
 
 private slots:
     void nextPage();
     void prevPage();
+    void openRaster();
+    void saveReprojection();
+    void showPreview();
 
 signals:
     void indexChanged(int);

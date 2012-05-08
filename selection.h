@@ -21,14 +21,11 @@ public slots:
     void about();
     void aboutQt();
     void showSelection();
-    void openRaster();
-    void saveReprojection();
-    void loadParams();
-    void saveParams();
-    void togglePreview();
+
     
 private:
     Ui::Selection *ui;
+    void prepareUi();
 
 private slots:
     void showWizard();

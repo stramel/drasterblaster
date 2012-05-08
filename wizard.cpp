@@ -8,6 +8,16 @@ Wizard::Wizard(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    prepareUi();
+}
+
+Wizard::~Wizard()
+{
+    delete ui;
+}
+
+void Wizard::prepareUi()
+{
     page=0;
 
     ui->actionLoad_Projection_Info->setEnabled(false);
@@ -34,11 +44,6 @@ Wizard::Wizard(QWidget *parent) :
     connect(ui->actionAbout_Qt, SIGNAL(triggered()), s, SLOT(aboutQt()));
     connect(ui->actionEdit_Author, SIGNAL(triggered()), s, SLOT(showEditAuthor()));
     connect(ui->actionUser_Guide, SIGNAL(triggered()), s, SLOT(showUserGuide()));
-}
-
-Wizard::~Wizard()
-{
-    delete ui;
 }
 
 void Wizard::nextPage()
@@ -71,4 +76,18 @@ void Wizard::prevPage()
 }
 
 
+void Wizard::openRaster()
+{
+
+}
+
+void Wizard::saveReprojection()
+{
+
+}
+
+void Wizard::showPreview()
+{
+
+}
 
