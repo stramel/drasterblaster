@@ -97,28 +97,12 @@
      <number>0</number>
     </property>
     <widget class="QWidget" name="WelcomeScreen">
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>10</y>
-        <width>131</width>
-        <height>401</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="resources.qrc">:/Images/wizard.png</pixmap>
-      </property>
-     </widget>
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>260</x>
         <y>10</y>
-        <width>421</width>
+        <width>381</width>
         <height>401</height>
        </rect>
       </property>
@@ -200,13 +184,28 @@
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
       </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>261</width>
+         <height>381</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+      </widget>
      </widget>
      <zorder>frame</zorder>
-     <zorder>label</zorder>
      <zorder>verticalLayoutWidget</zorder>
     </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QFrame" name="frame_2">
+    <widget class="QWidget" name="OpenRaster">
+     <widget class="QFrame" name="Heading">
       <property name="geometry">
        <rect>
         <x>-1</x>
@@ -224,8 +223,50 @@
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
       </property>
+      <widget class="QLabel" name="labelPageTitle">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>3</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>22</y>
+         <width>301</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Select the raster to open</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="page"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -277,56 +318,100 @@
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/document-open-516.png</normaloff>:/Images/document-open-516.png</iconset>
+   </property>
    <property name="text">
     <string>Open</string>
    </property>
   </action>
   <action name="actionSave_Reprojection">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/document-save-516.png</normaloff>:/Images/document-save-516.png</iconset>
+   </property>
    <property name="text">
     <string>Save Reprojection</string>
    </property>
   </action>
   <action name="actionSelection_Screen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/mail-mark-task.png</normaloff>:/Images/mail-mark-task.png</iconset>
+   </property>
    <property name="text">
     <string>Selection Screen</string>
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/document-close-316.png</normaloff>:/Images/document-close-316.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
   </action>
   <action name="actionLoad_Projection_Info">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/svn-commit.png</normaloff>:/Images/svn-commit.png</iconset>
+   </property>
    <property name="text">
     <string>Load Projection Info</string>
    </property>
   </action>
   <action name="actionSave_Projection_Info">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/svn-update.png</normaloff>:/Images/svn-update.png</iconset>
+   </property>
    <property name="text">
     <string>Save Projection Info</string>
    </property>
   </action>
   <action name="actionToggle_Preview">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/system-search-4.png</normaloff>:/Images/system-search-4.png</iconset>
+   </property>
    <property name="text">
     <string>Toggle Preview</string>
    </property>
   </action>
   <action name="actionEdit_Author">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/configure-2.png</normaloff>:/Images/configure-2.png</iconset>
+   </property>
    <property name="text">
     <string>Edit Author Info</string>
    </property>
   </action>
   <action name="actionUser_Guide">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/documentation.png</normaloff>:/Images/documentation.png</iconset>
+   </property>
    <property name="text">
     <string>User Guide</string>
    </property>
   </action>
   <action name="actionAbout_dRasterBlaster">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/icon_16x16x32.png</normaloff>:/Images/icon_16x16x32.png</iconset>
+   </property>
    <property name="text">
     <string>About dRasterBlaster</string>
    </property>
   </action>
   <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/qt-logo.png</normaloff>:/Images/qt-logo.png</iconset>
+   </property>
    <property name="text">
     <string>About Qt</string>
    </property>

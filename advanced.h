@@ -2,6 +2,8 @@
 #define ADVANCED_H
 
 #include <QMainWindow>
+#include <sharedptr.hh>
+#include <projectedraster.hh>
 
 namespace Ui {
 class Advanced;

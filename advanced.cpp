@@ -131,7 +131,7 @@ void Advanced::openRaster()
     QString filename = dialogRaster.selectedFiles().first();
     if (!filename.isEmpty())
     {
-        in = shared_ptr<ProjectedRaster>(new ProjectedRaster(filename));
+        in = shared_ptr<ProjectedRaster>(new ProjectedRaster(filename.toStdString()));
 
         if (in->isReady() == true)
         {
@@ -200,9 +200,9 @@ void Advanced::noDataEnable(int value)
 
 void Advanced::fillForm()
 {
-    ui->Rows->setText(in->rows);
-    ui->Cols->setText(in->cols);
-    ui->pixelSize->setText(in->pixel_size);
+    ui->Rows->setText(QString::number(in->rows));
+    ui->Cols->setText(QString::number(in->cols));
+    ui->pixelSize->setText(QString::number(in->pixel_size));
     //Pixel Type
     switch(in->type)
     {
@@ -230,8 +230,10 @@ void Advanced::fillForm()
             break;
         case 11: //CFloat64 - Complex Float64
             break;
+        case 12: //TypeCount
+            break;
     }
 
-    ui->Latitude->setText(in->ul_x);
-    ui->Longitude->setText(in->ul_y);
+    ui->Latitude->setText(QString::number(in->ul_x));
+    ui->Longitude->setText(QString::number(in->ul_y));
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'advanced.ui'
 **
-** Created: Tue May 8 10:38:01 2012
+** Created: Wed May 9 11:44:30 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -25,6 +25,7 @@
 #include <QtGui/QMenuBar>
 #include <QtGui/QProgressBar>
 #include <QtGui/QSpacerItem>
+#include <QtGui/QStackedWidget>
 #include <QtGui/QTabWidget>
 #include <QtGui/QWidget>
 
@@ -94,7 +95,18 @@ public:
     QLabel *labelSheroid;
     QComboBox *sheroidSelector;
     QSpacerItem *horizontalSpacer_6;
+    QWidget *horizontalLayoutWidget_9;
+    QHBoxLayout *hLayoutUL;
+    QLabel *labelULlat;
+    QLineEdit *Latitude;
+    QSpacerItem *horizontalSpacer_9;
+    QLabel *labelULlon;
+    QLineEdit *Longitude;
+    QSpacerItem *horizontalSpacer_10;
     QWidget *tabProjectionInfo;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QWidget *page_2;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuOptions;
@@ -107,17 +119,26 @@ public:
         Advanced->resize(640, 480);
         actionOpen = new QAction(Advanced);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Images/document-open-516.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOpen->setIcon(icon);
         QFont font;
         font.setPointSize(10);
         actionOpen->setFont(font);
         actionSave_Reprojection = new QAction(Advanced);
         actionSave_Reprojection->setObjectName(QString::fromUtf8("actionSave_Reprojection"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/Images/document-save-516.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_Reprojection->setIcon(icon1);
         actionSave_Reprojection->setFont(font);
         actionSelection_Screen = new QAction(Advanced);
         actionSelection_Screen->setObjectName(QString::fromUtf8("actionSelection_Screen"));
         actionSelection_Screen->setFont(font);
         actionExit = new QAction(Advanced);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Images/document-close-316.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionExit->setIcon(icon2);
         actionExit->setFont(font);
         actionLoad_Projection_Info = new QAction(Advanced);
         actionLoad_Projection_Info->setObjectName(QString::fromUtf8("actionLoad_Projection_Info"));
@@ -144,7 +165,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayoutWidget = new QWidget(centralwidget);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(30, 40, 471, 31));
+        horizontalLayoutWidget->setGeometry(QRect(10, 10, 621, 51));
         hLayoutTitle = new QHBoxLayout(horizontalLayoutWidget);
         hLayoutTitle->setObjectName(QString::fromUtf8("hLayoutTitle"));
         hLayoutTitle->setContentsMargins(0, 0, 0, 0);
@@ -173,7 +194,7 @@ public:
 
         horizontalLayoutWidget_7 = new QWidget(centralwidget);
         horizontalLayoutWidget_7->setObjectName(QString::fromUtf8("horizontalLayoutWidget_7"));
-        horizontalLayoutWidget_7->setGeometry(QRect(90, 350, 471, 31));
+        horizontalLayoutWidget_7->setGeometry(QRect(20, 430, 611, 31));
         hLayoutStatus = new QHBoxLayout(horizontalLayoutWidget_7);
         hLayoutStatus->setObjectName(QString::fromUtf8("hLayoutStatus"));
         hLayoutStatus->setContentsMargins(0, 0, 0, 0);
@@ -196,20 +217,21 @@ public:
 
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(80, 110, 491, 241));
+        tabWidget->setGeometry(QRect(10, 60, 621, 371));
+        tabWidget->setFont(font);
         tabRasterInfo = new QWidget();
         tabRasterInfo->setObjectName(QString::fromUtf8("tabRasterInfo"));
         horizontalLayoutWidget_2 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(10, 10, 471, 31));
+        horizontalLayoutWidget_2->setGeometry(QRect(10, 10, 591, 31));
         hLayoutFile = new QHBoxLayout(horizontalLayoutWidget_2);
         hLayoutFile->setObjectName(QString::fromUtf8("hLayoutFile"));
         hLayoutFile->setContentsMargins(0, 0, 0, 0);
         labelFileName = new QLabel(horizontalLayoutWidget_2);
         labelFileName->setObjectName(QString::fromUtf8("labelFileName"));
-        labelFileName->setMaximumSize(QSize(70, 16777215));
+        labelFileName->setMaximumSize(QSize(85, 16777215));
         QFont font3;
-        font3.setPointSize(10);
+        font3.setPointSize(11);
         font3.setBold(true);
         font3.setWeight(75);
         labelFileName->setFont(font3);
@@ -218,13 +240,15 @@ public:
 
         fileName = new QLabel(horizontalLayoutWidget_2);
         fileName->setObjectName(QString::fromUtf8("fileName"));
-        fileName->setFont(font);
+        QFont font4;
+        font4.setPointSize(11);
+        fileName->setFont(font4);
 
         hLayoutFile->addWidget(fileName);
 
         horizontalLayoutWidget_3 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(10, 50, 471, 31));
+        horizontalLayoutWidget_3->setGeometry(QRect(10, 50, 591, 31));
         hLayoutRowCol = new QHBoxLayout(horizontalLayoutWidget_3);
         hLayoutRowCol->setObjectName(QString::fromUtf8("hLayoutRowCol"));
         hLayoutRowCol->setContentsMargins(0, 0, 0, 0);
@@ -264,7 +288,7 @@ public:
 
         horizontalLayoutWidget_4 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
-        horizontalLayoutWidget_4->setGeometry(QRect(10, 110, 471, 31));
+        horizontalLayoutWidget_4->setGeometry(QRect(10, 130, 591, 31));
         hLayoutPixels = new QHBoxLayout(horizontalLayoutWidget_4);
         hLayoutPixels->setObjectName(QString::fromUtf8("hLayoutPixels"));
         hLayoutPixels->setContentsMargins(0, 0, 0, 0);
@@ -308,7 +332,7 @@ public:
 
         horizontalLayoutWidget_5 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
-        horizontalLayoutWidget_5->setGeometry(QRect(10, 140, 471, 31));
+        horizontalLayoutWidget_5->setGeometry(QRect(10, 210, 591, 31));
         hLayoutFill = new QHBoxLayout(horizontalLayoutWidget_5);
         hLayoutFill->setObjectName(QString::fromUtf8("hLayoutFill"));
         hLayoutFill->setContentsMargins(0, 0, 0, 0);
@@ -339,7 +363,7 @@ public:
 
         horizontalLayoutWidget_6 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_6->setObjectName(QString::fromUtf8("horizontalLayoutWidget_6"));
-        horizontalLayoutWidget_6->setGeometry(QRect(10, 170, 471, 31));
+        horizontalLayoutWidget_6->setGeometry(QRect(10, 250, 591, 31));
         hLayoutNoData = new QHBoxLayout(horizontalLayoutWidget_6);
         hLayoutNoData->setObjectName(QString::fromUtf8("hLayoutNoData"));
         hLayoutNoData->setContentsMargins(0, 0, 0, 0);
@@ -370,7 +394,7 @@ public:
 
         horizontalLayoutWidget_8 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_8->setObjectName(QString::fromUtf8("horizontalLayoutWidget_8"));
-        horizontalLayoutWidget_8->setGeometry(QRect(10, 80, 471, 31));
+        horizontalLayoutWidget_8->setGeometry(QRect(10, 90, 591, 31));
         hLayoutSheroid = new QHBoxLayout(horizontalLayoutWidget_8);
         hLayoutSheroid->setObjectName(QString::fromUtf8("hLayoutSheroid"));
         hLayoutSheroid->setContentsMargins(0, 0, 0, 0);
@@ -390,9 +414,58 @@ public:
 
         hLayoutSheroid->addItem(horizontalSpacer_6);
 
+        horizontalLayoutWidget_9 = new QWidget(tabRasterInfo);
+        horizontalLayoutWidget_9->setObjectName(QString::fromUtf8("horizontalLayoutWidget_9"));
+        horizontalLayoutWidget_9->setGeometry(QRect(10, 170, 591, 31));
+        hLayoutUL = new QHBoxLayout(horizontalLayoutWidget_9);
+        hLayoutUL->setObjectName(QString::fromUtf8("hLayoutUL"));
+        hLayoutUL->setContentsMargins(0, 0, 0, 0);
+        labelULlat = new QLabel(horizontalLayoutWidget_9);
+        labelULlat->setObjectName(QString::fromUtf8("labelULlat"));
+        labelULlat->setFont(font2);
+
+        hLayoutUL->addWidget(labelULlat);
+
+        Latitude = new QLineEdit(horizontalLayoutWidget_9);
+        Latitude->setObjectName(QString::fromUtf8("Latitude"));
+        Latitude->setMinimumSize(QSize(100, 0));
+        Latitude->setAcceptDrops(false);
+
+        hLayoutUL->addWidget(Latitude);
+
+        horizontalSpacer_9 = new QSpacerItem(10, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        hLayoutUL->addItem(horizontalSpacer_9);
+
+        labelULlon = new QLabel(horizontalLayoutWidget_9);
+        labelULlon->setObjectName(QString::fromUtf8("labelULlon"));
+        labelULlon->setFont(font2);
+
+        hLayoutUL->addWidget(labelULlon);
+
+        Longitude = new QLineEdit(horizontalLayoutWidget_9);
+        Longitude->setObjectName(QString::fromUtf8("Longitude"));
+        Longitude->setMinimumSize(QSize(100, 0));
+        Longitude->setAcceptDrops(false);
+
+        hLayoutUL->addWidget(Longitude);
+
+        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        hLayoutUL->addItem(horizontalSpacer_10);
+
         tabWidget->addTab(tabRasterInfo, QString());
         tabProjectionInfo = new QWidget();
         tabProjectionInfo->setObjectName(QString::fromUtf8("tabProjectionInfo"));
+        stackedWidget = new QStackedWidget(tabProjectionInfo);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        stackedWidget->setGeometry(QRect(10, 10, 591, 321));
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QString::fromUtf8("page_2"));
+        stackedWidget->addWidget(page_2);
         tabWidget->addTab(tabProjectionInfo, QString());
         Advanced->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(Advanced);
@@ -484,6 +557,8 @@ public:
         sheroidSelector->insertItems(0, QStringList()
          << QApplication::translate("Advanced", "Sphere of Radius 6,370,997 meters", 0, QApplication::UnicodeUTF8)
         );
+        labelULlat->setText(QApplication::translate("Advanced", "UL Latitude", 0, QApplication::UnicodeUTF8));
+        labelULlon->setText(QApplication::translate("Advanced", "UL Longitude", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tabRasterInfo), QApplication::translate("Advanced", "Raster Info", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tabProjectionInfo), QApplication::translate("Advanced", "Projection Info", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("Advanced", "File", 0, QApplication::UnicodeUTF8));

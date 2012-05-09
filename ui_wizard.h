@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wizard.ui'
 **
-** Created: Tue May 8 10:18:30 2012
+** Created: Wed May 9 11:44:30 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -60,8 +60,11 @@ public:
     QSpacerItem *verticalSpacer;
     QLabel *label_4;
     QFrame *frame;
-    QWidget *page_2;
-    QFrame *frame_2;
+    QWidget *OpenRaster;
+    QFrame *Heading;
+    QLabel *labelPageTitle;
+    QLabel *labelPageDesc;
+    QWidget *page;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuOptions;
@@ -74,12 +77,21 @@ public:
         Wizard->resize(640, 480);
         actionOpen = new QAction(Wizard);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Images/document-open-516.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOpen->setIcon(icon);
         actionSave_Reprojection = new QAction(Wizard);
         actionSave_Reprojection->setObjectName(QString::fromUtf8("actionSave_Reprojection"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/Images/document-save-516.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_Reprojection->setIcon(icon1);
         actionSelection_Screen = new QAction(Wizard);
         actionSelection_Screen->setObjectName(QString::fromUtf8("actionSelection_Screen"));
         actionExit = new QAction(Wizard);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Images/document-close-316.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionExit->setIcon(icon2);
         actionLoad_Projection_Info = new QAction(Wizard);
         actionLoad_Projection_Info->setObjectName(QString::fromUtf8("actionLoad_Projection_Info"));
         actionSave_Projection_Info = new QAction(Wizard);
@@ -184,15 +196,31 @@ public:
         frame->raise();
         label->raise();
         verticalLayoutWidget->raise();
-        page_2 = new QWidget();
-        page_2->setObjectName(QString::fromUtf8("page_2"));
-        frame_2 = new QFrame(page_2);
-        frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(-1, -1, 642, 51));
-        frame_2->setStyleSheet(QString::fromUtf8("background-color:#fff;"));
-        frame_2->setFrameShape(QFrame::Box);
-        frame_2->setFrameShadow(QFrame::Plain);
-        stackedWidget->addWidget(page_2);
+        OpenRaster = new QWidget();
+        OpenRaster->setObjectName(QString::fromUtf8("OpenRaster"));
+        Heading = new QFrame(OpenRaster);
+        Heading->setObjectName(QString::fromUtf8("Heading"));
+        Heading->setGeometry(QRect(-1, -1, 642, 51));
+        Heading->setStyleSheet(QString::fromUtf8("background-color:#fff;"));
+        Heading->setFrameShape(QFrame::Box);
+        Heading->setFrameShadow(QFrame::Plain);
+        labelPageTitle = new QLabel(Heading);
+        labelPageTitle->setObjectName(QString::fromUtf8("labelPageTitle"));
+        labelPageTitle->setGeometry(QRect(20, 3, 171, 20));
+        QFont font3;
+        font3.setPointSize(10);
+        font3.setBold(true);
+        font3.setWeight(75);
+        labelPageTitle->setFont(font3);
+        labelPageDesc = new QLabel(Heading);
+        labelPageDesc->setObjectName(QString::fromUtf8("labelPageDesc"));
+        labelPageDesc->setGeometry(QRect(40, 22, 301, 21));
+        labelPageDesc->setFont(font);
+        labelPageDesc->setWordWrap(true);
+        stackedWidget->addWidget(OpenRaster);
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        stackedWidget->addWidget(page);
         Wizard->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Wizard);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -227,7 +255,7 @@ public:
 
         retranslateUi(Wizard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Wizard);
@@ -254,6 +282,8 @@ public:
         label_2->setText(QApplication::translate("Wizard", "Welcome to         Raster Wizard", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("Wizard", "This will guide you to reprojecting a raster.", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("Wizard", "Click next, to Continue...", 0, QApplication::UnicodeUTF8));
+        labelPageTitle->setText(QApplication::translate("Wizard", "Open Raster", 0, QApplication::UnicodeUTF8));
+        labelPageDesc->setText(QApplication::translate("Wizard", "Select the raster to open", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("Wizard", "File", 0, QApplication::UnicodeUTF8));
         menuOptions->setTitle(QApplication::translate("Wizard", "Options", 0, QApplication::UnicodeUTF8));
         menuHelp->setTitle(QApplication::translate("Wizard", "Help", 0, QApplication::UnicodeUTF8));

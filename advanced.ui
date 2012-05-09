@@ -299,7 +299,7 @@
         <widget class="QLineEdit" name="pixelSize">
          <property name="minimumSize">
           <size>
-           <width>75</width>
+           <width>100</width>
            <height>0</height>
           </size>
          </property>
@@ -318,7 +318,7 @@
         <widget class="QComboBox" name="pixelUnits">
          <property name="minimumSize">
           <size>
-           <width>90</width>
+           <width>100</width>
            <height>0</height>
           </size>
          </property>
@@ -327,6 +327,9 @@
            <width>90</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="currentIndex">
+          <number>1</number>
          </property>
          <item>
           <property name="text">
@@ -380,15 +383,18 @@
         <widget class="QComboBox" name="pixelType">
          <property name="minimumSize">
           <size>
-           <width>150</width>
+           <width>165</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>150</width>
+           <width>165</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="currentIndex">
+          <number>7</number>
          </property>
          <item>
           <property name="text">
@@ -814,6 +820,10 @@
    </property>
   </action>
   <action name="actionSelection_Screen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/mail-mark-task.png</normaloff>:/Images/mail-mark-task.png</iconset>
+   </property>
    <property name="text">
     <string>Selection Screen</string>
    </property>
@@ -824,6 +834,10 @@
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/document-close-316.png</normaloff>:/Images/document-close-316.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
@@ -834,6 +848,10 @@
    </property>
   </action>
   <action name="actionLoad_Projection_Info">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/svn-commit.png</normaloff>:/Images/svn-commit.png</iconset>
+   </property>
    <property name="text">
     <string>Load Projection Info</string>
    </property>
@@ -844,6 +862,10 @@
    </property>
   </action>
   <action name="actionSave_Projection_Info">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/svn-update.png</normaloff>:/Images/svn-update.png</iconset>
+   </property>
    <property name="text">
     <string>Save Projection Info</string>
    </property>
@@ -854,6 +876,10 @@
    </property>
   </action>
   <action name="actionToggle_Preview">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/system-search-4.png</normaloff>:/Images/system-search-4.png</iconset>
+   </property>
    <property name="text">
     <string>Toggle Preview</string>
    </property>
@@ -864,6 +890,10 @@
    </property>
   </action>
   <action name="actionEdit_Author">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/configure-2.png</normaloff>:/Images/configure-2.png</iconset>
+   </property>
    <property name="text">
     <string>Edit Author Info</string>
    </property>
@@ -874,6 +904,10 @@
    </property>
   </action>
   <action name="actionUser_Guide">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/documentation.png</normaloff>:/Images/documentation.png</iconset>
+   </property>
    <property name="text">
     <string>User Guide</string>
    </property>
@@ -884,6 +918,10 @@
    </property>
   </action>
   <action name="actionAbout_dRasterBlaster">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/icon_16x16x32.png</normaloff>:/Images/icon_16x16x32.png</iconset>
+   </property>
    <property name="text">
     <string>About dRasterBlaster</string>
    </property>
@@ -894,6 +932,10 @@
    </property>
   </action>
   <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/qt-logo.png</normaloff>:/Images/qt-logo.png</iconset>
+   </property>
    <property name="text">
     <string>About Qt</string>
    </property>

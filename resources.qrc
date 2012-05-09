@@ -1,9 +1,18 @@
 <RCC>
     <qresource prefix="/">
-        <file>Images/wizard.png</file>
         <file>Images/advanced.png</file>
         <file>Images/document-open-516.png</file>
         <file>Images/document-save-516.png</file>
-        <file>Images/document-save-316.png</file>
+        <file>Images/document-close-316.png</file>
+        <file>Images/configure-2.png</file>
+        <file>Images/mail-mark-task.png</file>
+        <file>Images/svn-commit.png</file>
+        <file>Images/svn-update.png</file>
+        <file>Images/tools-wizard256.png</file>
+        <file>Images/qt-logo.png</file>
+        <file>Images/documentation.png</file>
+        <file>Images/icon_16x16x32.png</file>
+        <file>Images/system-search-4.png</file>
+        <file>Images/view-preview.png</file>
     </qresource>
 </RCC>
