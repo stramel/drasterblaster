@@ -32,12 +32,10 @@ SOURCES += main.cpp\
     gctp_cpp/Mollweide.cpp \
     gctp_cpp/miller.cpp \
     gctp_cpp/mercator.cpp \
-    gctp_cpp/main.cpp \
     gctp_cpp/lambertcc.cpp \
     gctp_cpp/lambertazimuth.cpp \
     gctp_cpp/sinusoidal.cpp \
     gctp_cpp/robinson.cpp \
-    gctp_cpp/ProjectionFactory.cpp \
     gctp_cpp/projection.cpp \
     gctp_cpp/polyconic.cpp \
     gctp_cpp/polarstereo.cpp \
@@ -77,7 +75,6 @@ HEADERS  += selection.h \
     gctp_cpp/intmollweide.h \
     gctp_cpp/sinusoidal.h \
     gctp_cpp/robinson.h \
-    gctp_cpp/ProjectionFactory.h \
     gctp_cpp/projection.h \
     gctp_cpp/polyconic.h \
     gctp_cpp/polarstereo.h \
@@ -102,7 +99,6 @@ RESOURCES += \
 RC_FILE += \
     icon.rc
 
-unix:LIBS += -L$PWD/lib/ -llibrasterblaster
 win32:LIBS += D:/cygwin/home/mstramel/drasterblaster/lib/librasterblaster.lib
 
 INCLUDEPATH = D:/cygwin/home/mstramel/drasterblaster/include/

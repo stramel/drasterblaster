@@ -94,7 +94,7 @@
      <enum>QFrame::Box</enum>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="WelcomeScreen">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -748,7 +748,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="Rows">
          <property name="maximumSize">
           <size>
            <width>100</width>
@@ -789,7 +789,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLineEdit" name="Cols">
          <property name="maximumSize">
           <size>
            <width>100</width>
@@ -830,7 +830,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="sheroidSelector_2">
+        <widget class="QComboBox" name="sheroid">
          <property name="minimumSize">
           <size>
            <width>225</width>
@@ -876,7 +876,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_3">
+        <widget class="QLineEdit" name="pixelSize">
          <property name="maximumSize">
           <size>
            <width>100</width>
@@ -891,7 +891,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="pixelUnits_2">
+        <widget class="QComboBox" name="pixelUnits">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -961,7 +961,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="pixelType_2">
+        <widget class="QComboBox" name="pixelType">
          <property name="minimumSize">
           <size>
            <width>165</width>
@@ -1051,7 +1051,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="Latitude_2">
+        <widget class="QLineEdit" name="Latitude">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1101,7 +1101,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="Latitude_3">
+        <widget class="QLineEdit" name="Longitude">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1157,14 +1157,14 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="fillEnable_2">
+        <widget class="QCheckBox" name="fillEnable">
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="FillValue_2">
+        <widget class="QLineEdit" name="FillValue">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1221,14 +1221,14 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="noDataValueEnable_2">
+        <widget class="QCheckBox" name="noDataValueEnable">
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="noDataValue_2">
+        <widget class="QLineEdit" name="noDataValue">
          <property name="enabled">
           <bool>false</bool>
          </property>

@@ -43,6 +43,19 @@ void Wizard::prepareUi()
     connect(ui->actionAbout_Qt, SIGNAL(triggered()), s, SLOT(aboutQt()));
     connect(ui->actionEdit_Author, SIGNAL(triggered()), s, SLOT(showEditAuthor()));
     connect(ui->actionUser_Guide, SIGNAL(triggered()), s, SLOT(showUserGuide()));
+
+    QIntValidator *intValid = new QIntValidator(this);
+    intValid->setBottom(0);
+
+    QDoubleValidator *doubleValid = new QDoubleValidator(this);
+    doubleValid->setNotation(QDoubleValidator::StandardNotation);
+    doubleValid->setBottom(0.0);
+
+    ui->Rows->setValidator(intValid);
+    ui->Cols->setValidator(intValid);
+    ui->FillValue->setValidator(intValid);
+    ui->noDataValue->setValidator(intValid);
+    ui->pixelSize->setValidator(doubleValid);
 }
 
 void Wizard::nextPage()

@@ -131,7 +131,7 @@ void Advanced::openRaster()
     QString filename = dialogRaster.selectedFiles().first();
     if (!filename.isEmpty())
     {
-        in = shared_ptr<ProjectedRaster>(new ProjectedRaster(filename.toStdString()));
+        in = shared_ptr<ProjectedRaster>(new ProjectedRaster(filename.toLocal8Bit().constData()));
 
         if (in->isReady() == true)
         {
