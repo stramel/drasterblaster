@@ -28,3 +28,8 @@ RESOURCES += \
 
 RC_FILE += \
     icon.rc
+
+unix:LIBS += -L$PWD/lib/ -llibrasterblaster
+win32:LIBS += D:/cygwin/home/mstramel/drasterblaster/lib/librasterblaster.lib
+
+INCLUDEPATH = D:/cygwin/home/mstramel/drasterblaster/include/
