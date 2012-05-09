@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'advanced.ui'
 **
-** Created: Wed May 9 11:44:30 2012
+** Created: Wed May 9 12:53:04 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -133,33 +133,57 @@ public:
         actionSave_Reprojection->setFont(font);
         actionSelection_Screen = new QAction(Advanced);
         actionSelection_Screen->setObjectName(QString::fromUtf8("actionSelection_Screen"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Images/mail-mark-task.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSelection_Screen->setIcon(icon2);
         actionSelection_Screen->setFont(font);
         actionExit = new QAction(Advanced);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/Images/document-close-316.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionExit->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/Images/document-close-316.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionExit->setIcon(icon3);
         actionExit->setFont(font);
         actionLoad_Projection_Info = new QAction(Advanced);
         actionLoad_Projection_Info->setObjectName(QString::fromUtf8("actionLoad_Projection_Info"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/Images/svn-commit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionLoad_Projection_Info->setIcon(icon4);
         actionLoad_Projection_Info->setFont(font);
         actionSave_Projection_Info = new QAction(Advanced);
         actionSave_Projection_Info->setObjectName(QString::fromUtf8("actionSave_Projection_Info"));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/Images/svn-update.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_Projection_Info->setIcon(icon5);
         actionSave_Projection_Info->setFont(font);
         actionToggle_Preview = new QAction(Advanced);
         actionToggle_Preview->setObjectName(QString::fromUtf8("actionToggle_Preview"));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/Images/system-search-4.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionToggle_Preview->setIcon(icon6);
         actionToggle_Preview->setFont(font);
         actionEdit_Author = new QAction(Advanced);
         actionEdit_Author->setObjectName(QString::fromUtf8("actionEdit_Author"));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/Images/configure-2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionEdit_Author->setIcon(icon7);
         actionEdit_Author->setFont(font);
         actionUser_Guide = new QAction(Advanced);
         actionUser_Guide->setObjectName(QString::fromUtf8("actionUser_Guide"));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/Images/documentation.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionUser_Guide->setIcon(icon8);
         actionUser_Guide->setFont(font);
         actionAbout_dRasterBlaster = new QAction(Advanced);
         actionAbout_dRasterBlaster->setObjectName(QString::fromUtf8("actionAbout_dRasterBlaster"));
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/Images/icon_16x16x32.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAbout_dRasterBlaster->setIcon(icon9);
         actionAbout_dRasterBlaster->setFont(font);
         actionAbout_Qt = new QAction(Advanced);
         actionAbout_Qt->setObjectName(QString::fromUtf8("actionAbout_Qt"));
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/Images/qt-logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAbout_Qt->setIcon(icon10);
         actionAbout_Qt->setFont(font);
         centralwidget = new QWidget(Advanced);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -300,7 +324,7 @@ public:
 
         pixelSize = new QLineEdit(horizontalLayoutWidget_4);
         pixelSize->setObjectName(QString::fromUtf8("pixelSize"));
-        pixelSize->setMinimumSize(QSize(75, 0));
+        pixelSize->setMinimumSize(QSize(100, 0));
         pixelSize->setMaximumSize(QSize(75, 16777215));
         pixelSize->setAcceptDrops(false);
 
@@ -308,7 +332,7 @@ public:
 
         pixelUnits = new QComboBox(horizontalLayoutWidget_4);
         pixelUnits->setObjectName(QString::fromUtf8("pixelUnits"));
-        pixelUnits->setMinimumSize(QSize(90, 0));
+        pixelUnits->setMinimumSize(QSize(100, 0));
         pixelUnits->setMaximumSize(QSize(90, 16777215));
 
         hLayoutPixels->addWidget(pixelUnits);
@@ -325,8 +349,8 @@ public:
 
         pixelType = new QComboBox(horizontalLayoutWidget_4);
         pixelType->setObjectName(QString::fromUtf8("pixelType"));
-        pixelType->setMinimumSize(QSize(150, 0));
-        pixelType->setMaximumSize(QSize(150, 16777215));
+        pixelType->setMinimumSize(QSize(165, 0));
+        pixelType->setMaximumSize(QSize(165, 16777215));
 
         hLayoutPixels->addWidget(pixelType);
 
@@ -502,6 +526,8 @@ public:
         retranslateUi(Advanced);
 
         tabWidget->setCurrentIndex(0);
+        pixelUnits->setCurrentIndex(1);
+        pixelType->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(Advanced);

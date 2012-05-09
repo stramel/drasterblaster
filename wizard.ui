@@ -94,7 +94,7 @@
      <enum>QFrame::Box</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="WelcomeScreen">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -211,7 +211,7 @@
         <x>-1</x>
         <y>-1</y>
         <width>642</width>
-        <height>51</height>
+        <height>61</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -226,8 +226,8 @@
       <widget class="QLabel" name="labelPageTitle">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>3</y>
+         <x>80</x>
+         <y>10</y>
          <width>171</width>
          <height>20</height>
         </rect>
@@ -246,8 +246,8 @@
       <widget class="QLabel" name="labelPageDesc">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>22</y>
+         <x>100</x>
+         <y>30</y>
          <width>301</width>
          <height>21</height>
         </rect>
@@ -264,9 +264,2273 @@
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="labelDetails">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>80</y>
+        <width>411</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>200</y>
+        <width>421</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>Select File</string>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>401</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="labelFile">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnBrowse">
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Browse...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listPages">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>3</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
      </widget>
     </widget>
-    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="EditInput">
+     <widget class="QFrame" name="Heading_2">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>642</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#fff;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QLabel" name="labelPageTitle_2">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_2">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>30</y>
+         <width>471</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Review the current input parameters and change anything that may need changed</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="listPages_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>4</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>441</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Many of these inputs will not need changed. If you are unsure, either hover over an item for more details or click 'Next' to continue through the Wizard.</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>130</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Rows</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>160</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_12">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Columns</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_8">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>190</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="hLayoutSheroid_2">
+       <item>
+        <widget class="QLabel" name="labelSheroid_2">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Sheroid</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="sheroidSelector_2">
+         <property name="minimumSize">
+          <size>
+           <width>225</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <item>
+          <property name="text">
+           <string>Sphere of Radius 6,370,997 meters</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>220</y>
+        <width>271</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLabel" name="label_14">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Pixel Size</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_3">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="pixelUnits_2">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Arcsecond(s)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Arcminute(s)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Degree(s)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Meter(s)</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>250</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QLabel" name="labelPixelType_2">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Pixel Type</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="pixelType_2">
+         <property name="minimumSize">
+          <size>
+           <width>165</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>165</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="currentIndex">
+          <number>7</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Signed 8-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Unsigned 8-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Signed 16-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Unsigned 16-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Signed 32-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Unsigned 32-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Signed 32-Bit IEEE Float</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Signed 64-Bit IEEE Float</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>280</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QLabel" name="labelULlat_2">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>UL Latitude</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="Latitude_2">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>310</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <item>
+        <widget class="QLabel" name="labelULlat_3">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>UL Longitude</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="Latitude_3">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>340</y>
+        <width>182</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <item>
+        <widget class="QLabel" name="labelFillValue_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Fill Value</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="fillEnable_2">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="FillValue_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_11">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>370</y>
+        <width>218</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <item>
+        <widget class="QLabel" name="labelNoDataValue_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>No Data Value</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="noDataValueEnable_2">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="noDataValue_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="EditInputProj">
+     <widget class="QFrame" name="Heading_7">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>642</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#fff;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QLabel" name="labelPageTitle_7">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_7">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>30</y>
+         <width>481</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Review the current input parameters and change anything that may need changed</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="listPages_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>4</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="Line" name="line_7">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QStackedWidget" name="projectionInfo">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>110</y>
+        <width>461</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>441</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Many of these inputs will not need changed. If you are unsure, either hover over an item for more details or click 'Next' to continue through the Wizard.</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="SelectOutputOptions">
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listPages_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>5</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="QFrame" name="Heading_3">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>642</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#fff;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QLabel" name="labelPageTitle_3">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_3">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>30</y>
+         <width>471</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Select the output options you would like to reproject with</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="PreviewOutput">
+     <widget class="QFrame" name="Heading_4">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>642</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#fff;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QLabel" name="labelPageTitle_4">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_4">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>30</y>
+         <width>471</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Below will show a preview output based on the options selected in previous pages</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="listPages_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>6</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="Line" name="line_4">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ReprojectSave">
+     <widget class="QFrame" name="Heading_5">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>642</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#fff;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QLabel" name="labelPageTitle_5">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_5">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>30</y>
+         <width>471</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Assuming the preview was alright, select a place to save the reprojection</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="listPages_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>7</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="Line" name="line_5">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>150</y>
+        <width>431</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>Select Place to Save</string>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>411</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <item>
+         <widget class="QLabel" name="labelFile_2">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnBrowse_2">
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Browse...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>380</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>250</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Reproject</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>290</y>
+        <width>431</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>This may take a while depending on the size of raster selected originally</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>431</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Finish">
+     <widget class="QFrame" name="Heading_6">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>642</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#fff;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QLabel" name="labelPageTitle_6">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Finished</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_6">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>30</y>
+         <width>471</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Raster has been successfully reprojected</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="listPages_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>8</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="Line" name="line_6">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>80</y>
+        <width>431</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Success! The raster has been successfully reprojected. You may now click 'Finish'</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_13">
+      <property name="geometry">
+       <rect>
+        <x>172</x>
+        <y>180</y>
+        <width>451</width>
+        <height>152</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_12">
+       <item>
+        <widget class="QLabel" name="label_20">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>150</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/Images/dialog-apply.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_21">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>File Name</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

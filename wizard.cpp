@@ -29,7 +29,6 @@ void Wizard::prepareUi()
 
     Selection *s = new Selection(this);
 
-
     connect(ui->btnCancel, SIGNAL(clicked()), s, SLOT(showSelection()));
     connect(ui->btnCancel, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(nextPage()));

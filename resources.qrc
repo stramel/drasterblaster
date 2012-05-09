@@ -14,5 +14,7 @@
         <file>Images/icon_16x16x32.png</file>
         <file>Images/system-search-4.png</file>
         <file>Images/view-preview.png</file>
+        <file>Images/dialog-cancel-3.png</file>
+        <file>Images/dialog-apply.png</file>
     </qresource>
 </RCC>

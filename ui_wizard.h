@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wizard.ui'
 **
-** Created: Wed May 9 11:44:30 2012
+** Created: Wed May 9 13:40:46 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,9 +15,11 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QFrame>
+#include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
+#include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
@@ -52,7 +54,6 @@ public:
     QPushButton *btnNext;
     QStackedWidget *stackedWidget;
     QWidget *WelcomeScreen;
-    QLabel *label;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
@@ -60,10 +61,19 @@ public:
     QSpacerItem *verticalSpacer;
     QLabel *label_4;
     QFrame *frame;
+    QLabel *label;
     QWidget *OpenRaster;
     QFrame *Heading;
     QLabel *labelPageTitle;
     QLabel *labelPageDesc;
+    QLabel *labelDetails;
+    QGroupBox *groupBox;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *labelFile;
+    QPushButton *btnBrowse;
+    QFrame *line;
+    QListWidget *listPages;
     QWidget *page;
     QMenuBar *menubar;
     QMenu *menuFile;
@@ -87,25 +97,49 @@ public:
         actionSave_Reprojection->setIcon(icon1);
         actionSelection_Screen = new QAction(Wizard);
         actionSelection_Screen->setObjectName(QString::fromUtf8("actionSelection_Screen"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Images/mail-mark-task.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSelection_Screen->setIcon(icon2);
         actionExit = new QAction(Wizard);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/Images/document-close-316.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionExit->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/Images/document-close-316.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionExit->setIcon(icon3);
         actionLoad_Projection_Info = new QAction(Wizard);
         actionLoad_Projection_Info->setObjectName(QString::fromUtf8("actionLoad_Projection_Info"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/Images/svn-commit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionLoad_Projection_Info->setIcon(icon4);
         actionSave_Projection_Info = new QAction(Wizard);
         actionSave_Projection_Info->setObjectName(QString::fromUtf8("actionSave_Projection_Info"));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/Images/svn-update.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_Projection_Info->setIcon(icon5);
         actionToggle_Preview = new QAction(Wizard);
         actionToggle_Preview->setObjectName(QString::fromUtf8("actionToggle_Preview"));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/Images/system-search-4.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionToggle_Preview->setIcon(icon6);
         actionEdit_Author = new QAction(Wizard);
         actionEdit_Author->setObjectName(QString::fromUtf8("actionEdit_Author"));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/Images/configure-2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionEdit_Author->setIcon(icon7);
         actionUser_Guide = new QAction(Wizard);
         actionUser_Guide->setObjectName(QString::fromUtf8("actionUser_Guide"));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/Images/documentation.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionUser_Guide->setIcon(icon8);
         actionAbout_dRasterBlaster = new QAction(Wizard);
         actionAbout_dRasterBlaster->setObjectName(QString::fromUtf8("actionAbout_dRasterBlaster"));
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/Images/icon_16x16x32.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAbout_dRasterBlaster->setIcon(icon9);
         actionAbout_Qt = new QAction(Wizard);
         actionAbout_Qt->setObjectName(QString::fromUtf8("actionAbout_Qt"));
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/Images/qt-logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAbout_Qt->setIcon(icon10);
         centralwidget = new QWidget(Wizard);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayoutWidget = new QWidget(centralwidget);
@@ -146,13 +180,9 @@ public:
         stackedWidget->setFrameShape(QFrame::Box);
         WelcomeScreen = new QWidget();
         WelcomeScreen->setObjectName(QString::fromUtf8("WelcomeScreen"));
-        label = new QLabel(WelcomeScreen);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(40, 10, 131, 401));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/Images/wizard.png")));
         verticalLayoutWidget = new QWidget(WelcomeScreen);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(220, 10, 421, 401));
+        verticalLayoutWidget->setGeometry(QRect(260, 10, 381, 401));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -192,21 +222,24 @@ public:
         frame->setStyleSheet(QString::fromUtf8("background-color:#fff;"));
         frame->setFrameShape(QFrame::NoFrame);
         frame->setFrameShadow(QFrame::Plain);
+        label = new QLabel(frame);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(0, 30, 261, 381));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/Images/tools-wizard256.png")));
         stackedWidget->addWidget(WelcomeScreen);
         frame->raise();
-        label->raise();
         verticalLayoutWidget->raise();
         OpenRaster = new QWidget();
         OpenRaster->setObjectName(QString::fromUtf8("OpenRaster"));
         Heading = new QFrame(OpenRaster);
         Heading->setObjectName(QString::fromUtf8("Heading"));
-        Heading->setGeometry(QRect(-1, -1, 642, 51));
+        Heading->setGeometry(QRect(-1, -1, 642, 61));
         Heading->setStyleSheet(QString::fromUtf8("background-color:#fff;"));
         Heading->setFrameShape(QFrame::Box);
         Heading->setFrameShadow(QFrame::Plain);
         labelPageTitle = new QLabel(Heading);
         labelPageTitle->setObjectName(QString::fromUtf8("labelPageTitle"));
-        labelPageTitle->setGeometry(QRect(20, 3, 171, 20));
+        labelPageTitle->setGeometry(QRect(20, 10, 171, 20));
         QFont font3;
         font3.setPointSize(10);
         font3.setBold(true);
@@ -214,9 +247,76 @@ public:
         labelPageTitle->setFont(font3);
         labelPageDesc = new QLabel(Heading);
         labelPageDesc->setObjectName(QString::fromUtf8("labelPageDesc"));
-        labelPageDesc->setGeometry(QRect(40, 22, 301, 21));
+        labelPageDesc->setGeometry(QRect(40, 30, 301, 21));
         labelPageDesc->setFont(font);
         labelPageDesc->setWordWrap(true);
+        labelDetails = new QLabel(OpenRaster);
+        labelDetails->setObjectName(QString::fromUtf8("labelDetails"));
+        labelDetails->setGeometry(QRect(200, 80, 411, 71));
+        labelDetails->setFont(font);
+        labelDetails->setWordWrap(true);
+        groupBox = new QGroupBox(OpenRaster);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setGeometry(QRect(190, 200, 421, 61));
+        groupBox->setFont(font);
+        horizontalLayoutWidget_2 = new QWidget(groupBox);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(10, 20, 401, 31));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        labelFile = new QLabel(horizontalLayoutWidget_2);
+        labelFile->setObjectName(QString::fromUtf8("labelFile"));
+        labelFile->setFont(font);
+
+        horizontalLayout_2->addWidget(labelFile);
+
+        btnBrowse = new QPushButton(horizontalLayoutWidget_2);
+        btnBrowse->setObjectName(QString::fromUtf8("btnBrowse"));
+        btnBrowse->setMaximumSize(QSize(100, 16777215));
+        btnBrowse->setFont(font);
+
+        horizontalLayout_2->addWidget(btnBrowse);
+
+        line = new QFrame(OpenRaster);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setGeometry(QRect(150, 70, 20, 341));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
+        listPages = new QListWidget(OpenRaster);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        new QListWidgetItem(listPages);
+        listPages->setObjectName(QString::fromUtf8("listPages"));
+        listPages->setGeometry(QRect(10, 70, 151, 341));
+        listPages->setFont(font);
+        listPages->setStyleSheet(QString::fromUtf8("QListWidget {\n"
+"	background-color: rgba(255, 255, 255, 0);\n"
+"}\n"
+"\n"
+"QListWidget::item:selected:active {\n"
+"	background-color: #0000ff;\n"
+"}\n"
+""));
+        listPages->setFrameShape(QFrame::NoFrame);
+        listPages->setFrameShadow(QFrame::Plain);
+        listPages->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        listPages->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        listPages->setAutoScroll(false);
+        listPages->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        listPages->setProperty("showDropIndicator", QVariant(false));
+        listPages->setAlternatingRowColors(false);
+        listPages->setSelectionBehavior(QAbstractItemView::SelectRows);
+        listPages->setSpacing(6);
+        listPages->setUniformItemSizes(true);
+        listPages->setSelectionRectVisible(true);
         stackedWidget->addWidget(OpenRaster);
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
@@ -256,6 +356,7 @@ public:
         retranslateUi(Wizard);
 
         stackedWidget->setCurrentIndex(1);
+        listPages->setCurrentRow(-1);
 
 
         QMetaObject::connectSlotsByName(Wizard);
@@ -278,12 +379,35 @@ public:
         btnBack->setText(QApplication::translate("Wizard", "< Back", 0, QApplication::UnicodeUTF8));
         btnCancel->setText(QApplication::translate("Wizard", "Cancel", 0, QApplication::UnicodeUTF8));
         btnNext->setText(QApplication::translate("Wizard", "Next >", 0, QApplication::UnicodeUTF8));
-        label->setText(QString());
         label_2->setText(QApplication::translate("Wizard", "Welcome to         Raster Wizard", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("Wizard", "This will guide you to reprojecting a raster.", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("Wizard", "Click next, to Continue...", 0, QApplication::UnicodeUTF8));
+        label->setText(QString());
         labelPageTitle->setText(QApplication::translate("Wizard", "Open Raster", 0, QApplication::UnicodeUTF8));
         labelPageDesc->setText(QApplication::translate("Wizard", "Select the raster to open", 0, QApplication::UnicodeUTF8));
+        labelDetails->setText(QApplication::translate("Wizard", "TextLabel", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("Wizard", "Select File", 0, QApplication::UnicodeUTF8));
+        labelFile->setText(QApplication::translate("Wizard", "TextLabel", 0, QApplication::UnicodeUTF8));
+        btnBrowse->setText(QApplication::translate("Wizard", "Browse...", 0, QApplication::UnicodeUTF8));
+
+        const bool __sortingEnabled = listPages->isSortingEnabled();
+        listPages->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem = listPages->item(2);
+        ___qlistwidgetitem->setText(QApplication::translate("Wizard", "Welcome", 0, QApplication::UnicodeUTF8));
+        QListWidgetItem *___qlistwidgetitem1 = listPages->item(3);
+        ___qlistwidgetitem1->setText(QApplication::translate("Wizard", "Open Raster", 0, QApplication::UnicodeUTF8));
+        QListWidgetItem *___qlistwidgetitem2 = listPages->item(4);
+        ___qlistwidgetitem2->setText(QApplication::translate("Wizard", "Edit Input Parameters", 0, QApplication::UnicodeUTF8));
+        QListWidgetItem *___qlistwidgetitem3 = listPages->item(5);
+        ___qlistwidgetitem3->setText(QApplication::translate("Wizard", "Select Output Options", 0, QApplication::UnicodeUTF8));
+        QListWidgetItem *___qlistwidgetitem4 = listPages->item(6);
+        ___qlistwidgetitem4->setText(QApplication::translate("Wizard", "Preview Output", 0, QApplication::UnicodeUTF8));
+        QListWidgetItem *___qlistwidgetitem5 = listPages->item(7);
+        ___qlistwidgetitem5->setText(QApplication::translate("Wizard", "Reproject and Save", 0, QApplication::UnicodeUTF8));
+        QListWidgetItem *___qlistwidgetitem6 = listPages->item(8);
+        ___qlistwidgetitem6->setText(QApplication::translate("Wizard", "Finish", 0, QApplication::UnicodeUTF8));
+        listPages->setSortingEnabled(__sortingEnabled);
+
         menuFile->setTitle(QApplication::translate("Wizard", "File", 0, QApplication::UnicodeUTF8));
         menuOptions->setTitle(QApplication::translate("Wizard", "Options", 0, QApplication::UnicodeUTF8));
         menuHelp->setTitle(QApplication::translate("Wizard", "Help", 0, QApplication::UnicodeUTF8));

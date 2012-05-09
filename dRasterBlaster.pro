@@ -107,4 +107,4 @@ win32:LIBS += D:/cygwin/home/mstramel/drasterblaster/lib/librasterblaster.lib
 
 INCLUDEPATH = D:/cygwin/home/mstramel/drasterblaster/include/
 
-QMAKE_CXXFLAGS += -DHAVE_TR1_SHARED_PTR
+QMAKE_CXXFLAGS += -DHAVE_TR1_SHARED_PTR -DHAVE_SINCOS

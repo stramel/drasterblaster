@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'selection.ui'
 **
-** Created: Mon May 7 16:20:39 2012
+** Created: Wed May 9 12:53:04 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -52,38 +52,71 @@ public:
         Selection->resize(640, 480);
         actionOpen = new QAction(Selection);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Images/document-open-516.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOpen->setIcon(icon);
         QFont font;
         font.setPointSize(10);
         actionOpen->setFont(font);
         actionSave_Reprojection = new QAction(Selection);
         actionSave_Reprojection->setObjectName(QString::fromUtf8("actionSave_Reprojection"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/Images/document-save-516.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_Reprojection->setIcon(icon1);
         actionSave_Reprojection->setFont(font);
         actionSelection_Screen = new QAction(Selection);
         actionSelection_Screen->setObjectName(QString::fromUtf8("actionSelection_Screen"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Images/mail-mark-task.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSelection_Screen->setIcon(icon2);
         actionSelection_Screen->setFont(font);
         actionExit = new QAction(Selection);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/Images/document-close-316.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionExit->setIcon(icon3);
         actionExit->setFont(font);
         actionLoad_Projection_Info = new QAction(Selection);
         actionLoad_Projection_Info->setObjectName(QString::fromUtf8("actionLoad_Projection_Info"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/Images/svn-commit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionLoad_Projection_Info->setIcon(icon4);
         actionLoad_Projection_Info->setFont(font);
         actionSave_Projection_Info = new QAction(Selection);
         actionSave_Projection_Info->setObjectName(QString::fromUtf8("actionSave_Projection_Info"));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/Images/svn-update.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_Projection_Info->setIcon(icon5);
         actionSave_Projection_Info->setFont(font);
         actionToggle_Preview = new QAction(Selection);
         actionToggle_Preview->setObjectName(QString::fromUtf8("actionToggle_Preview"));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/Images/system-search-4.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionToggle_Preview->setIcon(icon6);
         actionToggle_Preview->setFont(font);
         actionEdit_Author = new QAction(Selection);
         actionEdit_Author->setObjectName(QString::fromUtf8("actionEdit_Author"));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/Images/configure-2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionEdit_Author->setIcon(icon7);
         actionEdit_Author->setFont(font);
         actionUser_Guide = new QAction(Selection);
         actionUser_Guide->setObjectName(QString::fromUtf8("actionUser_Guide"));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/Images/documentation.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionUser_Guide->setIcon(icon8);
         actionUser_Guide->setFont(font);
         actionAbout_dRasterBlaster = new QAction(Selection);
         actionAbout_dRasterBlaster->setObjectName(QString::fromUtf8("actionAbout_dRasterBlaster"));
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/Images/icon_16x16x32.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAbout_dRasterBlaster->setIcon(icon9);
         actionAbout_dRasterBlaster->setFont(font);
         actionAbout_Qt = new QAction(Selection);
         actionAbout_Qt->setObjectName(QString::fromUtf8("actionAbout_Qt"));
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/Images/qt-logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAbout_Qt->setIcon(icon10);
         actionAbout_Qt->setFont(font);
         centralWidget = new QWidget(Selection);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
@@ -95,9 +128,9 @@ public:
         font1.setBold(true);
         font1.setWeight(75);
         btnRasterWizard->setFont(font1);
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/Images/wizard.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnRasterWizard->setIcon(icon);
+        QIcon icon11;
+        icon11.addFile(QString::fromUtf8(":/Images/tools-wizard256.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnRasterWizard->setIcon(icon11);
         btnRasterWizard->setIconSize(QSize(128, 128));
         btnAdvanced = new QPushButton(centralWidget);
         btnAdvanced->setObjectName(QString::fromUtf8("btnAdvanced"));
@@ -107,9 +140,9 @@ public:
         font2.setBold(true);
         font2.setWeight(75);
         btnAdvanced->setFont(font2);
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/Images/advanced.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnAdvanced->setIcon(icon1);
+        QIcon icon12;
+        icon12.addFile(QString::fromUtf8(":/Images/advanced.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnAdvanced->setIcon(icon12);
         btnAdvanced->setIconSize(QSize(64, 64));
         Selection->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Selection);
