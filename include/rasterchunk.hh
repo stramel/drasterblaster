@@ -29,7 +29,7 @@ namespace RasterChunk {
 	class RasterChunk 
 	{
 	public:
-		RasterChunk() {};
+        RasterChunk() {};
 		~RasterChunk();
 		shared_ptr<Projection> projection_;
 		Coordinate raster_location_;

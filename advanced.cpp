@@ -5,6 +5,12 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
+#include <projectedraster.hh>
+#include <rasterchunk.hh>
+#include <reprojector.hh>
+#include <sharedptr.hh>
+
+
 Advanced::Advanced(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Advanced)
@@ -115,31 +121,30 @@ void Advanced::saveParams()
 void Advanced::openRaster()
 {
     QFileDialog dialogRaster;
-        dialogRaster.setFileMode(QFileDialog::ExistingFile);
-        dialogRaster.setDirectory(QDir::toNativeSeparators(QCoreApplication::applicationDirPath()));
-        dialogRaster.setFilter(QDir::Files);
-        dialogRaster.setWindowTitle("Open Raster");
-        dialogRaster.setNameFilter("Rasters (*.tif *.img)");
-        dialogRaster.exec();
+    dialogRaster.setFileMode(QFileDialog::ExistingFile);
+    dialogRaster.setDirectory(QDir::toNativeSeparators(QCoreApplication::applicationDirPath()));
+    dialogRaster.setFilter(QDir::Files);
+    dialogRaster.setWindowTitle("Open Raster");
+    dialogRaster.setNameFilter("Rasters (*.img)");
+    dialogRaster.exec();
 
-        QString filename = dialogRaster.selectedFiles().first();
-        if (filename.isEmpty())
-            return;
+    QString filename = dialogRaster.selectedFiles().first();
+    if (!filename.isEmpty())
+    {
+        in = shared_ptr<ProjectedRaster>(new ProjectedRaster(filename));
+
+        if (in->isReady() == true)
+        {
+            ui->fileName->setText(filename);
+            ui->labelStatus->setText("Input raster opened");
+            fillForm();
+        }
         else
         {
-            QFile file(filename);
-            if (!file.open(QIODevice::ReadOnly))
-            {
-                QMessageBox::information(this, tr("Unable to open file"), file.errorString());
-                return;
-            }
-            QDataStream in(&file);
-            in.setVersion(12);
-            //in >> ;//Read in DATA here
-
-            ui->fileName->setText(filename);
-
+            ui->labelStatus->setText("Error opening input raster");
+            ui->labelStatus->setStyleSheet("color: #ff0000; font-weight: bold;");
         }
+    }
 }
 
 void Advanced::saveReprojection()
@@ -191,4 +196,42 @@ void Advanced::noDataEnable(int value)
         ui->noDataValue->setEnabled(true);
     else if (value == 0)
         ui->noDataValue->setEnabled(false);
+}
+
+void Advanced::fillForm()
+{
+    ui->Rows->setText(in->rows);
+    ui->Cols->setText(in->cols);
+    ui->pixelSize->setText(in->pixel_size);
+    //Pixel Type
+    switch(in->type)
+    {
+        case 0: //Unkown
+            break;
+        case 1: //Byte - Eight bit unsigned integer
+            break;
+        case 2: //UInt16 - Sixteen bit unsigned integer
+            break;
+        case 3: //Int16 - Sixteen bit signed integer
+            break;
+        case 4: //UInt32 - Thirty two bit unsigned integer
+            break;
+        case 5: //Int32 - Thirty two bit signed integer
+            break;
+        case 6: //Float32 - Thirty two bit floating point
+            break;
+        case 7: //Float64 - Sixty four bit floating point
+            break;
+        case 8: //CInt16 - Complex Int16
+            break;
+        case 9: //CInt32 - Complex Int32
+            break;
+        case 10: //CFloat32 - Complex Float32
+            break;
+        case 11: //CFloat64 - Complex Float64
+            break;
+    }
+
+    ui->Latitude->setText(in->ul_x);
+    ui->Longitude->setText(in->ul_y);
 }

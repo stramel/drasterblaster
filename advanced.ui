@@ -17,10 +17,10 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>40</y>
-      <width>471</width>
-      <height>31</height>
+      <x>10</x>
+      <y>10</y>
+      <width>621</width>
+      <height>51</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="hLayoutTitle">
@@ -69,9 +69,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_7">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>350</y>
-      <width>471</width>
+      <x>20</x>
+      <y>430</y>
+      <width>611</width>
       <height>31</height>
      </rect>
     </property>
@@ -120,11 +120,16 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>110</y>
-      <width>491</width>
-      <height>241</height>
+      <x>10</x>
+      <y>60</y>
+      <width>621</width>
+      <height>371</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -138,7 +143,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>471</width>
+        <width>591</width>
         <height>31</height>
        </rect>
       </property>
@@ -147,13 +152,13 @@
         <widget class="QLabel" name="labelFileName">
          <property name="maximumSize">
           <size>
-           <width>70</width>
+           <width>85</width>
            <height>16777215</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <pointsize>11</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -167,7 +172,7 @@
         <widget class="QLabel" name="fileName">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="text">
@@ -182,7 +187,7 @@
        <rect>
         <x>10</x>
         <y>50</y>
-        <width>471</width>
+        <width>591</width>
         <height>31</height>
        </rect>
       </property>
@@ -271,8 +276,8 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>110</y>
-        <width>471</width>
+        <y>130</y>
+        <width>591</width>
         <height>31</height>
        </rect>
       </property>
@@ -433,8 +438,8 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>140</y>
-        <width>471</width>
+        <y>210</y>
+        <width>591</width>
         <height>31</height>
        </rect>
       </property>
@@ -503,8 +508,8 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>170</y>
-        <width>471</width>
+        <y>250</y>
+        <width>591</width>
         <height>31</height>
        </rect>
       </property>
@@ -573,8 +578,8 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>80</y>
-        <width>471</width>
+        <y>90</y>
+        <width>591</width>
         <height>31</height>
        </rect>
       </property>
@@ -622,11 +627,113 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>591</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="hLayoutUL">
+       <item>
+        <widget class="QLabel" name="labelULlat">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>UL Latitude</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="Latitude">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_9">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>10</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelULlon">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>UL Longitude</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="Longitude">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
     <widget class="QWidget" name="tabProjectionInfo">
      <attribute name="title">
       <string>Projection Info</string>
      </attribute>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>591</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -679,6 +786,10 @@
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/document-open-516.png</normaloff>:/Images/document-open-516.png</iconset>
+   </property>
    <property name="text">
     <string>Open</string>
    </property>
@@ -689,6 +800,10 @@
    </property>
   </action>
   <action name="actionSave_Reprojection">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/document-save-516.png</normaloff>:/Images/document-save-516.png</iconset>
+   </property>
    <property name="text">
     <string>Save Reprojection</string>
    </property>
@@ -789,6 +904,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
