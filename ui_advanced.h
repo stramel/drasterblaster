@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'advanced.ui'
 **
-** Created: Wed May 9 16:20:26 2012
+** Created: Fri May 11 12:49:31 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -78,6 +78,7 @@ public:
     QSpacerItem *horizontalSpacer_8;
     QLabel *labelPixelType;
     QComboBox *pixelType;
+    QSpacerItem *horizontalSpacer_11;
     QWidget *horizontalLayoutWidget_5;
     QHBoxLayout *hLayoutFill;
     QLabel *labelFillValue;
@@ -289,7 +290,7 @@ public:
 
         hLayoutRowCol->addWidget(Rows);
 
-        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(15, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         hLayoutRowCol->addItem(horizontalSpacer_2);
 
@@ -337,7 +338,7 @@ public:
 
         hLayoutPixels->addWidget(pixelUnits);
 
-        horizontalSpacer_8 = new QSpacerItem(15, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_8 = new QSpacerItem(15, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         hLayoutPixels->addItem(horizontalSpacer_8);
 
@@ -353,6 +354,10 @@ public:
         pixelType->setMaximumSize(QSize(165, 16777215));
 
         hLayoutPixels->addWidget(pixelType);
+
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        hLayoutPixels->addItem(horizontalSpacer_11);
 
         horizontalLayoutWidget_5 = new QWidget(tabRasterInfo);
         horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
@@ -457,7 +462,7 @@ public:
 
         hLayoutUL->addWidget(Latitude);
 
-        horizontalSpacer_9 = new QSpacerItem(10, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_9 = new QSpacerItem(15, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         hLayoutUL->addItem(horizontalSpacer_9);
 

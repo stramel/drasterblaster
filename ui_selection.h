@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'selection.ui'
 **
-** Created: Wed May 9 16:20:26 2012
+** Created: Fri May 11 11:25:26 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

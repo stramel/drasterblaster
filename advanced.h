@@ -2,8 +2,8 @@
 #define ADVANCED_H
 
 #include <QMainWindow>
-#include <sharedptr.hh>
-#include <projectedraster.hh>
+//#include <sharedptr.hh>
+//#include <projectedraster.hh>
 
 namespace Ui {
 class Advanced;
@@ -20,8 +20,8 @@ public:
 private:
     Ui::Advanced *ui;
     void prepareUi();
-    shared_ptr<ProjectedRaster> in, out;
-    shared_ptr<Projection> in_proj, out_proj;
+    //shared_ptr<ProjectedRaster> in, out;
+    //shared_ptr<Projection> in_proj, out_proj;
     void fillForm();
 
 private slots:

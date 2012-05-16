@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wizard.ui'
 **
-** Created: Wed May 9 16:20:26 2012
+** Created: Fri May 11 11:44:49 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -90,42 +90,42 @@ public:
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_11;
-    QLineEdit *lineEdit;
+    QLineEdit *Rows;
     QWidget *horizontalLayoutWidget_4;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_12;
-    QLineEdit *lineEdit_2;
+    QLineEdit *Cols;
     QWidget *horizontalLayoutWidget_8;
     QHBoxLayout *hLayoutSheroid_2;
     QLabel *labelSheroid_2;
-    QComboBox *sheroidSelector_2;
+    QComboBox *sheroid;
     QWidget *horizontalLayoutWidget_5;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_14;
-    QLineEdit *lineEdit_3;
-    QComboBox *pixelUnits_2;
+    QLineEdit *pixelSize;
+    QComboBox *pixelUnits;
     QWidget *horizontalLayoutWidget_6;
     QHBoxLayout *horizontalLayout_6;
     QLabel *labelPixelType_2;
-    QComboBox *pixelType_2;
+    QComboBox *pixelType;
     QWidget *horizontalLayoutWidget_7;
     QHBoxLayout *horizontalLayout_7;
     QLabel *labelULlat_2;
-    QLineEdit *Latitude_2;
+    QLineEdit *Latitude;
     QWidget *horizontalLayoutWidget_9;
     QHBoxLayout *horizontalLayout_8;
     QLabel *labelULlat_3;
-    QLineEdit *Latitude_3;
+    QLineEdit *Longitude;
     QWidget *horizontalLayoutWidget_10;
     QHBoxLayout *horizontalLayout_9;
     QLabel *labelFillValue_2;
-    QCheckBox *fillEnable_2;
-    QLineEdit *FillValue_2;
+    QCheckBox *fillEnable;
+    QLineEdit *FillValue;
     QWidget *horizontalLayoutWidget_11;
     QHBoxLayout *horizontalLayout_10;
     QLabel *labelNoDataValue_2;
-    QCheckBox *noDataValueEnable_2;
-    QLineEdit *noDataValue_2;
+    QCheckBox *noDataValueEnable;
+    QLineEdit *noDataValue;
     QWidget *EditInputProj;
     QFrame *Heading_7;
     QLabel *labelPageTitle_7;
@@ -507,12 +507,12 @@ public:
 
         horizontalLayout_3->addWidget(label_11);
 
-        lineEdit = new QLineEdit(horizontalLayoutWidget_3);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setMaximumSize(QSize(100, 16777215));
-        lineEdit->setFont(font);
+        Rows = new QLineEdit(horizontalLayoutWidget_3);
+        Rows->setObjectName(QString::fromUtf8("Rows"));
+        Rows->setMaximumSize(QSize(100, 16777215));
+        Rows->setFont(font);
 
-        horizontalLayout_3->addWidget(lineEdit);
+        horizontalLayout_3->addWidget(Rows);
 
         horizontalLayoutWidget_4 = new QWidget(EditInput);
         horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
@@ -526,12 +526,12 @@ public:
 
         horizontalLayout_4->addWidget(label_12);
 
-        lineEdit_2 = new QLineEdit(horizontalLayoutWidget_4);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setMaximumSize(QSize(100, 16777215));
-        lineEdit_2->setFont(font);
+        Cols = new QLineEdit(horizontalLayoutWidget_4);
+        Cols->setObjectName(QString::fromUtf8("Cols"));
+        Cols->setMaximumSize(QSize(100, 16777215));
+        Cols->setFont(font);
 
-        horizontalLayout_4->addWidget(lineEdit_2);
+        horizontalLayout_4->addWidget(Cols);
 
         horizontalLayoutWidget_8 = new QWidget(EditInput);
         horizontalLayoutWidget_8->setObjectName(QString::fromUtf8("horizontalLayoutWidget_8"));
@@ -545,12 +545,12 @@ public:
 
         hLayoutSheroid_2->addWidget(labelSheroid_2);
 
-        sheroidSelector_2 = new QComboBox(horizontalLayoutWidget_8);
-        sheroidSelector_2->setObjectName(QString::fromUtf8("sheroidSelector_2"));
-        sheroidSelector_2->setMinimumSize(QSize(225, 0));
-        sheroidSelector_2->setFont(font);
+        sheroid = new QComboBox(horizontalLayoutWidget_8);
+        sheroid->setObjectName(QString::fromUtf8("sheroid"));
+        sheroid->setMinimumSize(QSize(225, 0));
+        sheroid->setFont(font);
 
-        hLayoutSheroid_2->addWidget(sheroidSelector_2);
+        hLayoutSheroid_2->addWidget(sheroid);
 
         horizontalLayoutWidget_5 = new QWidget(EditInput);
         horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
@@ -564,20 +564,20 @@ public:
 
         horizontalLayout_5->addWidget(label_14);
 
-        lineEdit_3 = new QLineEdit(horizontalLayoutWidget_5);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
-        lineEdit_3->setMaximumSize(QSize(100, 16777215));
-        lineEdit_3->setFont(font);
+        pixelSize = new QLineEdit(horizontalLayoutWidget_5);
+        pixelSize->setObjectName(QString::fromUtf8("pixelSize"));
+        pixelSize->setMaximumSize(QSize(100, 16777215));
+        pixelSize->setFont(font);
 
-        horizontalLayout_5->addWidget(lineEdit_3);
+        horizontalLayout_5->addWidget(pixelSize);
 
-        pixelUnits_2 = new QComboBox(horizontalLayoutWidget_5);
-        pixelUnits_2->setObjectName(QString::fromUtf8("pixelUnits_2"));
-        pixelUnits_2->setMinimumSize(QSize(100, 0));
-        pixelUnits_2->setMaximumSize(QSize(90, 16777215));
-        pixelUnits_2->setFont(font);
+        pixelUnits = new QComboBox(horizontalLayoutWidget_5);
+        pixelUnits->setObjectName(QString::fromUtf8("pixelUnits"));
+        pixelUnits->setMinimumSize(QSize(100, 0));
+        pixelUnits->setMaximumSize(QSize(90, 16777215));
+        pixelUnits->setFont(font);
 
-        horizontalLayout_5->addWidget(pixelUnits_2);
+        horizontalLayout_5->addWidget(pixelUnits);
 
         horizontalLayoutWidget_6 = new QWidget(EditInput);
         horizontalLayoutWidget_6->setObjectName(QString::fromUtf8("horizontalLayoutWidget_6"));
@@ -591,13 +591,13 @@ public:
 
         horizontalLayout_6->addWidget(labelPixelType_2);
 
-        pixelType_2 = new QComboBox(horizontalLayoutWidget_6);
-        pixelType_2->setObjectName(QString::fromUtf8("pixelType_2"));
-        pixelType_2->setMinimumSize(QSize(165, 0));
-        pixelType_2->setMaximumSize(QSize(165, 16777215));
-        pixelType_2->setFont(font);
+        pixelType = new QComboBox(horizontalLayoutWidget_6);
+        pixelType->setObjectName(QString::fromUtf8("pixelType"));
+        pixelType->setMinimumSize(QSize(165, 0));
+        pixelType->setMaximumSize(QSize(165, 16777215));
+        pixelType->setFont(font);
 
-        horizontalLayout_6->addWidget(pixelType_2);
+        horizontalLayout_6->addWidget(pixelType);
 
         horizontalLayoutWidget_7 = new QWidget(EditInput);
         horizontalLayoutWidget_7->setObjectName(QString::fromUtf8("horizontalLayoutWidget_7"));
@@ -611,14 +611,14 @@ public:
 
         horizontalLayout_7->addWidget(labelULlat_2);
 
-        Latitude_2 = new QLineEdit(horizontalLayoutWidget_7);
-        Latitude_2->setObjectName(QString::fromUtf8("Latitude_2"));
-        Latitude_2->setMinimumSize(QSize(100, 0));
-        Latitude_2->setMaximumSize(QSize(100, 16777215));
-        Latitude_2->setFont(font);
-        Latitude_2->setAcceptDrops(false);
+        Latitude = new QLineEdit(horizontalLayoutWidget_7);
+        Latitude->setObjectName(QString::fromUtf8("Latitude"));
+        Latitude->setMinimumSize(QSize(100, 0));
+        Latitude->setMaximumSize(QSize(100, 16777215));
+        Latitude->setFont(font);
+        Latitude->setAcceptDrops(false);
 
-        horizontalLayout_7->addWidget(Latitude_2);
+        horizontalLayout_7->addWidget(Latitude);
 
         horizontalLayoutWidget_9 = new QWidget(EditInput);
         horizontalLayoutWidget_9->setObjectName(QString::fromUtf8("horizontalLayoutWidget_9"));
@@ -632,14 +632,14 @@ public:
 
         horizontalLayout_8->addWidget(labelULlat_3);
 
-        Latitude_3 = new QLineEdit(horizontalLayoutWidget_9);
-        Latitude_3->setObjectName(QString::fromUtf8("Latitude_3"));
-        Latitude_3->setMinimumSize(QSize(100, 0));
-        Latitude_3->setMaximumSize(QSize(100, 16777215));
-        Latitude_3->setFont(font);
-        Latitude_3->setAcceptDrops(false);
+        Longitude = new QLineEdit(horizontalLayoutWidget_9);
+        Longitude->setObjectName(QString::fromUtf8("Longitude"));
+        Longitude->setMinimumSize(QSize(100, 0));
+        Longitude->setMaximumSize(QSize(100, 16777215));
+        Longitude->setFont(font);
+        Longitude->setAcceptDrops(false);
 
-        horizontalLayout_8->addWidget(Latitude_3);
+        horizontalLayout_8->addWidget(Longitude);
 
         horizontalLayoutWidget_10 = new QWidget(EditInput);
         horizontalLayoutWidget_10->setObjectName(QString::fromUtf8("horizontalLayoutWidget_10"));
@@ -654,20 +654,20 @@ public:
 
         horizontalLayout_9->addWidget(labelFillValue_2);
 
-        fillEnable_2 = new QCheckBox(horizontalLayoutWidget_10);
-        fillEnable_2->setObjectName(QString::fromUtf8("fillEnable_2"));
+        fillEnable = new QCheckBox(horizontalLayoutWidget_10);
+        fillEnable->setObjectName(QString::fromUtf8("fillEnable"));
 
-        horizontalLayout_9->addWidget(fillEnable_2);
+        horizontalLayout_9->addWidget(fillEnable);
 
-        FillValue_2 = new QLineEdit(horizontalLayoutWidget_10);
-        FillValue_2->setObjectName(QString::fromUtf8("FillValue_2"));
-        FillValue_2->setEnabled(false);
-        FillValue_2->setMinimumSize(QSize(100, 0));
-        FillValue_2->setMaximumSize(QSize(100, 16777215));
-        FillValue_2->setAcceptDrops(false);
-        FillValue_2->setReadOnly(false);
+        FillValue = new QLineEdit(horizontalLayoutWidget_10);
+        FillValue->setObjectName(QString::fromUtf8("FillValue"));
+        FillValue->setEnabled(false);
+        FillValue->setMinimumSize(QSize(100, 0));
+        FillValue->setMaximumSize(QSize(100, 16777215));
+        FillValue->setAcceptDrops(false);
+        FillValue->setReadOnly(false);
 
-        horizontalLayout_9->addWidget(FillValue_2);
+        horizontalLayout_9->addWidget(FillValue);
 
         horizontalLayoutWidget_11 = new QWidget(EditInput);
         horizontalLayoutWidget_11->setObjectName(QString::fromUtf8("horizontalLayoutWidget_11"));
@@ -682,20 +682,20 @@ public:
 
         horizontalLayout_10->addWidget(labelNoDataValue_2);
 
-        noDataValueEnable_2 = new QCheckBox(horizontalLayoutWidget_11);
-        noDataValueEnable_2->setObjectName(QString::fromUtf8("noDataValueEnable_2"));
+        noDataValueEnable = new QCheckBox(horizontalLayoutWidget_11);
+        noDataValueEnable->setObjectName(QString::fromUtf8("noDataValueEnable"));
 
-        horizontalLayout_10->addWidget(noDataValueEnable_2);
+        horizontalLayout_10->addWidget(noDataValueEnable);
 
-        noDataValue_2 = new QLineEdit(horizontalLayoutWidget_11);
-        noDataValue_2->setObjectName(QString::fromUtf8("noDataValue_2"));
-        noDataValue_2->setEnabled(false);
-        noDataValue_2->setMinimumSize(QSize(100, 0));
-        noDataValue_2->setMaximumSize(QSize(100, 16777215));
-        noDataValue_2->setAcceptDrops(false);
-        noDataValue_2->setReadOnly(false);
+        noDataValue = new QLineEdit(horizontalLayoutWidget_11);
+        noDataValue->setObjectName(QString::fromUtf8("noDataValue"));
+        noDataValue->setEnabled(false);
+        noDataValue->setMinimumSize(QSize(100, 0));
+        noDataValue->setMaximumSize(QSize(100, 16777215));
+        noDataValue->setAcceptDrops(false);
+        noDataValue->setReadOnly(false);
 
-        horizontalLayout_10->addWidget(noDataValue_2);
+        horizontalLayout_10->addWidget(noDataValue);
 
         stackedWidget->addWidget(EditInput);
         EditInputProj = new QWidget();
@@ -1132,11 +1132,11 @@ public:
 
         retranslateUi(Wizard);
 
-        stackedWidget->setCurrentIndex(7);
+        stackedWidget->setCurrentIndex(0);
         listPages->setCurrentRow(3);
         listPages_2->setCurrentRow(4);
-        pixelUnits_2->setCurrentIndex(1);
-        pixelType_2->setCurrentIndex(7);
+        pixelUnits->setCurrentIndex(1);
+        pixelType->setCurrentIndex(7);
         listPages_7->setCurrentRow(4);
         listPages_3->setCurrentRow(5);
         listPages_4->setCurrentRow(6);
@@ -1220,21 +1220,21 @@ public:
         label_11->setText(QApplication::translate("Wizard", "Rows", 0, QApplication::UnicodeUTF8));
         label_12->setText(QApplication::translate("Wizard", "Columns", 0, QApplication::UnicodeUTF8));
         labelSheroid_2->setText(QApplication::translate("Wizard", "Sheroid", 0, QApplication::UnicodeUTF8));
-        sheroidSelector_2->clear();
-        sheroidSelector_2->insertItems(0, QStringList()
+        sheroid->clear();
+        sheroid->insertItems(0, QStringList()
          << QApplication::translate("Wizard", "Sphere of Radius 6,370,997 meters", 0, QApplication::UnicodeUTF8)
         );
         label_14->setText(QApplication::translate("Wizard", "Pixel Size", 0, QApplication::UnicodeUTF8));
-        pixelUnits_2->clear();
-        pixelUnits_2->insertItems(0, QStringList()
+        pixelUnits->clear();
+        pixelUnits->insertItems(0, QStringList()
          << QApplication::translate("Wizard", "Arcsecond(s)", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("Wizard", "Arcminute(s)", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("Wizard", "Degree(s)", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("Wizard", "Meter(s)", 0, QApplication::UnicodeUTF8)
         );
         labelPixelType_2->setText(QApplication::translate("Wizard", "Pixel Type", 0, QApplication::UnicodeUTF8));
-        pixelType_2->clear();
-        pixelType_2->insertItems(0, QStringList()
+        pixelType->clear();
+        pixelType->insertItems(0, QStringList()
          << QApplication::translate("Wizard", "Signed 8-Bit Integer", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("Wizard", "Unsigned 8-Bit Integer", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("Wizard", "Signed 16-Bit Integer", 0, QApplication::UnicodeUTF8)
@@ -1247,9 +1247,9 @@ public:
         labelULlat_2->setText(QApplication::translate("Wizard", "UL Latitude", 0, QApplication::UnicodeUTF8));
         labelULlat_3->setText(QApplication::translate("Wizard", "UL Longitude", 0, QApplication::UnicodeUTF8));
         labelFillValue_2->setText(QApplication::translate("Wizard", "Fill Value", 0, QApplication::UnicodeUTF8));
-        fillEnable_2->setText(QString());
+        fillEnable->setText(QString());
         labelNoDataValue_2->setText(QApplication::translate("Wizard", "No Data Value", 0, QApplication::UnicodeUTF8));
-        noDataValueEnable_2->setText(QString());
+        noDataValueEnable->setText(QString());
         labelPageTitle_7->setText(QApplication::translate("Wizard", "Edit Input Parameters", 0, QApplication::UnicodeUTF8));
         labelPageDesc_7->setText(QApplication::translate("Wizard", "Review the current input parameters and change anything that may need changed", 0, QApplication::UnicodeUTF8));
         label_15->setText(QString());

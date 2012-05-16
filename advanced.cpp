@@ -5,10 +5,10 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
-#include <projectedraster.hh>
-#include <rasterchunk.hh>
-#include <reprojector.hh>
-#include <sharedptr.hh>
+//#include <projectedraster.hh>
+//#include <rasterchunk.hh>
+//#include <reprojector.hh>
+//#include <sharedptr.hh>
 
 
 Advanced::Advanced(QWidget *parent) :
@@ -131,6 +131,7 @@ void Advanced::openRaster()
     QString filename = dialogRaster.selectedFiles().first();
     if (!filename.isEmpty())
     {
+        /*
         in = shared_ptr<ProjectedRaster>(new ProjectedRaster(filename.toLocal8Bit().constData()));
 
         if (in->isReady() == true)
@@ -144,6 +145,7 @@ void Advanced::openRaster()
             ui->labelStatus->setText("Error opening input raster");
             ui->labelStatus->setStyleSheet("color: #ff0000; font-weight: bold;");
         }
+        */
     }
 }
 
@@ -200,6 +202,7 @@ void Advanced::noDataEnable(int value)
 
 void Advanced::fillForm()
 {
+    /*
     ui->Rows->setText(QString::number(in->rows));
     ui->Cols->setText(QString::number(in->cols));
     ui->pixelSize->setText(QString::number(in->pixel_size));
@@ -236,4 +239,5 @@ void Advanced::fillForm()
 
     ui->Latitude->setText(QString::number(in->ul_x));
     ui->Longitude->setText(QString::number(in->ul_y));
+    */
 }
