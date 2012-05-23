@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wizard.ui'
 **
-** Created: Fri May 11 11:44:49 2012
+** Created: Tue May 22 16:48:43 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -133,10 +133,9 @@ public:
     QLabel *label_15;
     QListWidget *listPages_7;
     QFrame *line_7;
-    QStackedWidget *projectionInfo;
+    QStackedWidget *inputProjection;
     QWidget *page;
     QWidget *page_2;
-    QLabel *label_16;
     QWidget *SelectOutputOptions;
     QFrame *line_3;
     QListWidget *listPages_3;
@@ -760,20 +759,15 @@ public:
         line_7->setGeometry(QRect(150, 70, 20, 341));
         line_7->setFrameShape(QFrame::VLine);
         line_7->setFrameShadow(QFrame::Sunken);
-        projectionInfo = new QStackedWidget(EditInputProj);
-        projectionInfo->setObjectName(QString::fromUtf8("projectionInfo"));
-        projectionInfo->setGeometry(QRect(170, 110, 461, 301));
+        inputProjection = new QStackedWidget(EditInputProj);
+        inputProjection->setObjectName(QString::fromUtf8("inputProjection"));
+        inputProjection->setGeometry(QRect(170, 70, 461, 341));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
-        projectionInfo->addWidget(page);
+        inputProjection->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
-        projectionInfo->addWidget(page_2);
-        label_16 = new QLabel(EditInputProj);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
-        label_16->setGeometry(QRect(180, 70, 441, 41));
-        label_16->setFont(font);
-        label_16->setWordWrap(true);
+        inputProjection->addWidget(page_2);
         stackedWidget->addWidget(EditInputProj);
         SelectOutputOptions = new QWidget();
         SelectOutputOptions->setObjectName(QString::fromUtf8("SelectOutputOptions"));
@@ -1132,12 +1126,13 @@ public:
 
         retranslateUi(Wizard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(3);
         listPages->setCurrentRow(3);
         listPages_2->setCurrentRow(4);
         pixelUnits->setCurrentIndex(1);
         pixelType->setCurrentIndex(7);
         listPages_7->setCurrentRow(4);
+        inputProjection->setCurrentIndex(0);
         listPages_3->setCurrentRow(5);
         listPages_4->setCurrentRow(6);
         listPages_5->setCurrentRow(7);
@@ -1272,7 +1267,6 @@ public:
         ___qlistwidgetitem20->setText(QApplication::translate("Wizard", "Finish", 0, QApplication::UnicodeUTF8));
         listPages_7->setSortingEnabled(__sortingEnabled2);
 
-        label_16->setText(QApplication::translate("Wizard", "Many of these inputs will not need changed. If you are unsure, either hover over an item for more details or click 'Next' to continue through the Wizard.", 0, QApplication::UnicodeUTF8));
 
         const bool __sortingEnabled3 = listPages_3->isSortingEnabled();
         listPages_3->setSortingEnabled(false);

@@ -1,108 +1,110 @@
 #include "projections.h"
 #include "ui_advanced.h"
 
+#include <iostream> //TESTING
+
 projections::projections(QObject *parent) :
     QObject(parent)
 {
     projVLayout = new QVBoxLayout();
     projHLayout = new QHBoxLayout();
-    projGridLayout = new QGridLayout();
+    //projGridLayout = new QGridLayout();
 }
 
 void projections::callGenerate(int proj){
-    int params[MAXPARAMS] = {};
+    std::vector<int> params;
     switch (proj){
     case GEO:
         break;
     case UTM:
-        params[1] = LON;
-        params[2] = LAT;
+        params.push_back(LON);
+        params.push_back(LAT);
         break;
     case SPC:
         break;
     case AEA:
     case LCC:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = STDPR1;
-        params[4] = STDPR2;
-        params[5] = CENTMER;
-        params[6] = ORIGINLAT;
-        params[7] = FE;
-        params[8] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(STDPR1);
+        params.push_back(STDPR2);
+        params.push_back(CENTMER);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case MERC:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = CENTMER;
-        params[4] = TRUESCALE;
-        params[5] = FE;
-        params[6] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(CENTMER);
+        params.push_back(TRUESCALE);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case POLAR:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = LONGPOL;
-        params[4] = TRUESCALE;
-        params[5] = FE;
-        params[6] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(LONGPOL);
+        params.push_back(TRUESCALE);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case POLYC:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = CENTMER;
-        params[4] = ORIGINLAT;
-        params[5] = FE;
-        params[6] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(CENTMER);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case EQDC:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = STDPAR;
-        params[4] = CENTMER;
-        params[5] = ORIGINLAT;
-        params[6] = FE;
-        params[7] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(STDPAR);
+        params.push_back(CENTMER);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         //params[8] = ZERO; ????
         break;
     case EQDCB:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = STDPR1;
-        params[4] = STDPR2;
-        params[5] = CENTMER;
-        params[6] = ORIGINLAT;
-        params[7] = FE;
-        params[8] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(STDPR1);
+        params.push_back(STDPR2);
+        params.push_back(CENTMER);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         //params[9] = 1; ????
         break;
     case TMERC:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = FACTOR;
-        params[4] = CENTMER;
-        params[5] = ORIGINLAT;
-        params[6] = FE;
-        params[7] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(FACTOR);
+        params.push_back(CENTMER);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case STERE:
     case LAEA:
     case AEQD:
     case GNOM:
     case ORTHO:
-        params[1] = SPHERE;
-        params[2] = CENTLON;
-        params[3] = CENTERLAT;
-        params[4] = FE;
-        params[5] = FN;
+        params.push_back(SPHERE);
+        params.push_back(CENTLON);
+        params.push_back(CENTERLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case GVNSP:
-        params[1] = SPHERE;
-        params[2] = HEIGHT;
-        params[3] = CENTLON;
-        params[4] = CENTERLAT;
-        params[5] = FE;
-        params[6] = FN;
+        params.push_back(SPHERE);
+        params.push_back(HEIGHT);
+        params.push_back(CENTLON);
+        params.push_back(CENTERLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case SINU:
     case MILL:
@@ -111,103 +113,103 @@ void projections::callGenerate(int proj){
     case HAMMER:
     case WAGIV:
     case WAGVII:
-        params[1] = SPHERE;
-        params[2] = CENTMER;
-        params[3] = FE;
-        params[4] = FN;
+        params.push_back(SPHERE);
+        params.push_back(CENTMER);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case EQR:
-        params[1] = SPHERE;
-        params[2] = CENTMER;
-        params[3] = TRUESCALE;
-        params[4] = FE;
-        params[5] = FN;
+        params.push_back(SPHERE);
+        params.push_back(CENTMER);
+        params.push_back(TRUESCALE);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case VANDG:
-        params[1] = SPHERE;
-        params[2] = CENTMER;
-        params[3] = ORIGINLAT;
-        params[4] = FE;
-        params[5] = FN;
+        params.push_back(SPHERE);
+        params.push_back(CENTMER);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case OMERC:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = FACTOR;
-        params[4] = ORIGINLAT;
-        params[5] = FE;
-        params[6] = FN;
-        params[7] = LONG1;
-        params[8] = LAT1;
-        params[9] = LONG2;
-        params[10] = LAT2;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(FACTOR);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
+        params.push_back(LONG1);
+        params.push_back(LAT1);
+        params.push_back(LONG2);
+        params.push_back(LAT2);
         //params[11] = zero;//???????
         break;
     case OMERCB:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = FACTOR;
-        params[4] = AZIANG;
-        params[5] = AZMTHPT;
-        params[6] = ORIGINLAT;
-        params[7] = FE;
-        params[8] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(FACTOR);
+        params.push_back(AZIANG);
+        params.push_back(AZMTHPT);
+        params.push_back(ORIGINLAT);
+        params.push_back(FE);
+        params.push_back(FN);
         //params[9] = 1;//???????
         break;
     case SOMERC:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = INCANG;
-        params[4] = ASCLONG;
-        params[5] = FE;
-        params[6] = FN;
-        params[7] = PSREV;
-        params[8] = LRAT;
-        params[9] = PFLAG;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(INCANG);
+        params.push_back(ASCLONG);
+        params.push_back(FE);
+        params.push_back(FN);
+        params.push_back(PSREV);
+        params.push_back(LRAT);
+        params.push_back(PFLAG);
         //params[10] = zero; //??????
         break;
     case SOMERCB:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = SATNUM;
-        params[4] = PATH;
-        params[5] = FE;
-        params[6] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(SATNUM);
+        params.push_back(PATH);
+        params.push_back(FE);
+        params.push_back(FN);
        // params[7] = 1; //?????????
         break;
     case ALASKA:
-        params[1] = SMAJOR;
-        params[2] = SMINOR;
-        params[3] = FE;
-        params[4] = FN;
+        params.push_back(SMAJOR);
+        params.push_back(SMINOR);
+        params.push_back(FE);
+        params.push_back(FN);
         break;
     case IGH:
     case IMOLL:
-        params[1] = SPHERE;
+        params.push_back(SPHERE);
         break;
     case OEA:
-        params[1] = SPHERE;
-        params[2] = SHAPEM;
-        params[3] = SHAPEN;
-        params[4] = CENTLON;
-        params[5] = CENTERLAT;
-        params[6] = FE;
-        params[7] = FN;
-        params[8] = ANGLE;
+        params.push_back(SPHERE);
+        params.push_back(SHAPEM);
+        params.push_back(SHAPEN);
+        params.push_back(CENTLON);
+        params.push_back(CENTERLAT);
+        params.push_back(FE);
+        params.push_back(FN);
+        params.push_back(ANGLE);
         break;
     default:
         //Invalid
         break;
     }
     if (generateUi(params)){
-        //ERROR
+        std::cout << "ERROR GENERATING UI" << std::endl;
     }
 }
 
-int projections::generateUi(int params[]){
+int projections::generateUi(std::vector<int> &params){
     int error = 0;
     int rowCount = 0;
-    QDoubleValidator *lonZValid;
+
     QDoubleValidator *latZValid;
     QDoubleValidator *sMajorValid;
     QDoubleValidator *sMinorValid;
@@ -220,365 +222,656 @@ int projections::generateUi(int params[]){
     QDoubleValidator *lRatValid;
     QDoubleValidator *shapeMValid;
     QDoubleValidator *shapeNValid;
+    QHBoxLayout *lonLay;
+    QHBoxLayout *latLay;
+    QHBoxLayout *sMajLay;
+    QHBoxLayout *sMinLay;
+    QHBoxLayout *sphereLay;
+    QHBoxLayout *stdParLay;
+    QHBoxLayout *stdPr2Lay;
+    QHBoxLayout *centMerLay;
+    QHBoxLayout *originLatLay;
+    QHBoxLayout *fELay;
+    QHBoxLayout *fNLay;
+    QHBoxLayout *trueScaleLay;
+    QHBoxLayout *longPolLay;
+    QHBoxLayout *factorLay;
+    //QHBoxLayout *centLonLay;
+    QHBoxLayout *centLatLay;
+    QHBoxLayout *heightLay;
+    QHBoxLayout *longOneLay;
+    QHBoxLayout *longTwoLay;
+    QHBoxLayout *latOneLay;
+    QHBoxLayout *latTwoLay;
+    QHBoxLayout *aziAngLay;
+    QHBoxLayout *azmthPtLay;
+    //QHBoxLayout *incAngLay;
+    //QHBoxLayout *ascLongLay;
+    QHBoxLayout *psRevLay;
+    QHBoxLayout *lRatLay;
+    QHBoxLayout *pFlagLay;
+    QHBoxLayout *satNumLay;
+    QHBoxLayout *pathLay;
+    QHBoxLayout *shapeMLay;
+    QHBoxLayout *shapeNLay;
+    //QHBoxLayout *angleLay;
+    QFont labels;
+    labels.setBold(true);
 
-    for (int i=1; (i <= sizeof(params)) && !error; i++){
-        switch (params[i]){
+    projVLayout->addSpacerItem(new QSpacerItem(0,10,QSizePolicy::Preferred, QSizePolicy::Preferred));
+
+    for (int i=0; (i < params.size()) && !error; i++){
+        switch (params.at(i)){
         case LON:
+            lonLay = new QHBoxLayout;
+
             lonZLabel = new QLabel();
-            lonZ = new QLineEdit();
             lonZLabel->setText("Longitude/Zone");
             lonZLabel->setToolTip("Longitude of any point in the UTM zone a zone code.");
             lonZLabel->setObjectName("lonLabel");
-            lonZ->setObjectName("lonValue");
-            lonZValid = new QDoubleValidator(-90.000, 90.000,3, lonZ);
-            lonZValid->setNotation(QDoubleValidator::StandardNotation);
-            lonZ->setValidator(lonZValid);
+            lonZLabel->setFont(labels);
+            //lonZLabel->setFixedWidth(100);
 
-            projGridLayout->addWidget(lonZLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(lonZ,rowCount,2,1,4,0);
+            lonZ = new QLineEdit();
+            lonZ->setObjectName("lonValue");
+            lonZ->setFixedWidth(100);
+            lonZ->setAlignment(Qt::AlignHCenter);
+            //val = new QRegExpValidator(lonValid, lonZ);
+
+            if (params.at(i+1) != LAT) {
+            lonLay->addWidget(lonZLabel);
+            lonLay->addWidget(lonZ);
+            lonLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(lonLay);
+            }
             break;
         case LAT:
+            latLay = new QHBoxLayout;
+
             latZLabel = new QLabel();
-            latZ = new QLineEdit();
             latZLabel->setText("Latitue/Zone");
             latZLabel->setToolTip("Latitude of any point in the UTM zone a zone code.");
             latZLabel->setObjectName("latLabel");
-            latZ->setObjectName("latValue");
+            latZLabel->setFont(labels);
+            //latZLabel->setFixedWidth(100);
+
+            latZ = new QLineEdit();
             latZValid = new QDoubleValidator(-180.000, 180.000, 3, latZ);
             latZValid->setNotation(QDoubleValidator::StandardNotation);
+            latZ->setObjectName("latValue");
             latZ->setValidator(latZValid);
+            latZ->setFixedWidth(100);
+            latZ->setAlignment(Qt::AlignHCenter);
 
-            projGridLayout->addWidget(latZLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(latZ,rowCount,2,1,4,0);
+            if (params.at(i-1) != LON) {
+            latLay->addWidget(latZLabel);
+            latLay->addWidget(latZ);
+            latLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+            } else if (params.at(i-1) == LON){
+                latLay->addWidget(lonZLabel);
+                latLay->addWidget(lonZ);
+                latLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+                latLay->addWidget(latZLabel);
+                latLay->addWidget(latZ);
+                //latLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+            }
+            projVLayout->addLayout(latLay);
             break;
         case SMAJOR:
+            sMajLay = new QHBoxLayout;
+
             sMajorLabel = new QLabel();
-            sMajor = new QLineEdit();
             sMajorLabel->setText("Semi-major Axis");
             sMajorLabel->setToolTip("Semi-major axis of ellipsoid.  If zero, Clarke 1866 in meters is assumed.");
             sMajorLabel->setObjectName("sMajorLabel");
-            sMajor->setObjectName("sMajorValue");
+            sMajorLabel->setFont(labels);
+
+            sMajor = new QLineEdit();
             sMajorValid = new QDoubleValidator(sMajor);
             sMajorValid->setNotation(QDoubleValidator::StandardNotation);
+            sMajor->setObjectName("sMajorValue");
             sMajor->setValidator(sMajorValid);
+            sMajor->setFixedWidth(100);
 
-            projGridLayout->addWidget(sMajorLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(sMajor,rowCount,3,1,4,0);
+            if (params.at(i+1) != SMINOR){
+            sMajLay->addWidget(sMajorLabel);
+            sMajLay->addWidget(sMajor);
+            sMajLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+            }
+            projVLayout->addLayout(sMajLay);
             break;
         case SMINOR:
+            sMinLay = new QHBoxLayout;
+
             sMinorLabel = new QLabel();
-            sMinor = new QLineEdit();
             sMinorLabel->setText("Semi-minor Axis");
             sMinorLabel->setToolTip("Eccentricity squared of the ellipsoid if less than zero, if zero, a spherical form is assumed, or if greater than zero, the semi-minor axis of ellipsoid.");
             sMinorLabel->setObjectName("sMinorLabel");
-            sMinor->setObjectName("sMinorValue");
+            sMinorLabel->setFont(labels);
+
+            sMinor = new QLineEdit();
             sMinorValid = new QDoubleValidator(sMinor);
             sMinorValid->setNotation(QDoubleValidator::StandardNotation);
-            sMajor->setValidator(sMinorValid);
+            sMinor->setObjectName("sMinorValue");
+            sMinor->setValidator(sMinorValid);
+            sMinor->setFixedWidth(100);
 
-            projGridLayout->addWidget(sMinorLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(sMinor,rowCount,3,1,4,0);
+            if (params.at(i-1) != SMAJOR){
+            sMinLay->addWidget(sMinorLabel);
+            sMinLay->addWidget(sMinor);
+            sMinLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+            } else if (params.at(i-1) == SMAJOR) {
+                sMinLay->addWidget(sMajorLabel);
+                sMinLay->addWidget(sMajor);
+                sMinLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+                sMinLay->addWidget(sMinorLabel);
+                sMinLay->addWidget(sMinor);
+            }
+            projVLayout->addLayout(sMinLay);
             break;
         case SPHERE:
+            sphereLay = new QHBoxLayout;
+
             sphereLabel = new QLabel();
-            sphere = new QLineEdit();
             sphereLabel->setText("Radius of Reference Sphere");
             sphereLabel->setToolTip("If zero, 6370997 meters is used.");
             sphereLabel->setObjectName("sphereLabel");
-            sphere->setObjectName("sphereValue");
+            sphereLabel->setFont(labels);
+
+            sphere = new QLineEdit();
             sphereValid = new QDoubleValidator(0, 9999999, 3, sphere);
             sphereValid->setNotation(QDoubleValidator::StandardNotation);
+            sphere->setObjectName("sphereValue");
             sphere->setValidator(sphereValid);
+            sphere->setFixedWidth(100);
 
-            projGridLayout->addWidget(sphereLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(sphere,rowCount,2,1,4,0);
+            sphereLay->addWidget(sphereLabel);
+            sphereLay->addWidget(sphere);
+            sphereLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(sphereLay);
             break;
         case STDPAR:
+            stdParLay = new QHBoxLayout;
+
             stdParLabel = new QLabel();
-            stdPr1Deg = new QLineEdit();
-            stdPr1DegLabel = new QLabel();
-            stdPr1Min = new QLineEdit();
-            stdPr1MinLabel = new QLabel();
-            stdPr1Sec = new QLineEdit();
-            stdPr1SecLabel = new QLabel();
             stdParLabel->setText("Latitude of Standard Parallel");
             stdParLabel->setToolTip("Latitude of the standard parallel");
             stdParLabel->setObjectName("stdPar");
-            projGridLayout->addWidget(stdParLabel,rowCount,1,1,6,Qt::AlignLeft);
+            stdParLabel->setFont(labels);
 
             rowCount += 1;
-            stdPr1Deg->setObjectName("stdParDeg");
-            stdPr1Deg->setValidator(new QIntValidator(stdPr1Deg));    //CHECK
+
+            //DEGREE
+            stdPr1DegLabel = new QLabel();
             stdPr1DegLabel->setText("�");
             stdPr1DegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(stdPr1DegLabel,rowCount,1,0);
-            projGridLayout->addWidget(stdPr1Deg,rowCount,2,0);
+            stdPr1DegLabel->setFont(labels);
 
-            stdPr1Min->setObjectName("stdParMin");
-            stdPr1Min->setValidator(new QIntValidator(stdPr1Min));    //CHECK
+            stdPr1Deg = new QLineEdit();
+            stdPr1Deg->setObjectName("stdParDeg");
+            stdPr1Deg->setValidator(new QIntValidator(stdPr1Deg));    //CHECK
+            stdPr1Deg->setFixedWidth(75);
+
+            //MINUTE
+            stdPr1MinLabel = new QLabel();
             stdPr1MinLabel->setText("'");
             stdPr1MinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(stdPr1MinLabel,rowCount,3,0);
-            projGridLayout->addWidget(stdPr1Min,rowCount,4,0);
+            stdPr1MinLabel->setFont(labels);
 
-            stdPr1Sec->setObjectName("stdParSec");
-            stdPr1Sec->setValidator(new QIntValidator(stdPr1Sec));    //CHECK
+            stdPr1Min = new QLineEdit();
+            stdPr1Min->setObjectName("stdParMin");
+            stdPr1Min->setValidator(new QIntValidator(stdPr1Min));    //CHECK
+            stdPr1Min->setFixedWidth(75);
+
+            //SECOND
+            stdPr1SecLabel = new QLabel();
             stdPr1SecLabel->setText("\"");
             stdPr1SecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(stdPr1SecLabel,rowCount,5,0);
-            projGridLayout->addWidget(stdPr1Sec,rowCount,6,0);
+            stdPr1SecLabel->setFont(labels);
+
+            stdPr1Sec = new QLineEdit();
+            stdPr1Sec->setObjectName("stdParSec");
+            stdPr1Sec->setValidator(new QIntValidator(stdPr1Sec));    //CHECK
+            stdPr1Sec->setFixedWidth(75);
+
+            stdParLay->addWidget(stdPr1Label);
+            stdParLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdParLay->addWidget(stdPr1Deg);
+            stdParLay->addWidget(stdPr1DegLabel);
+            stdParLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdParLay->addWidget(stdPr1Min);
+            stdParLay->addWidget(stdPr1MinLabel);
+            stdParLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdParLay->addWidget(stdPr1Sec);
+            stdParLay->addWidget(stdPr1SecLabel);
+            stdParLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(stdParLay);
             break;
         case STDPR1:
+            stdParLay = new QHBoxLayout;
+
             stdPr1Label = new QLabel();
-            stdPr1Deg = new QLineEdit();
-            stdPr1DegLabel = new QLabel();
-            stdPr1Min = new QLineEdit();
-            stdPr1MinLabel = new QLabel();
-            stdPr1Sec = new QLineEdit();
-            stdPr1SecLabel = new QLabel();
             stdPr1Label->setText("Latitude of 1st Standard Parallel");
             stdPr1Label->setToolTip("Latitude of the first standard parallel");
             stdPr1Label->setObjectName("stdParOne");
-            projGridLayout->addWidget(stdPr1Label,rowCount,1,1,6,Qt::AlignLeft);
+            stdPr1Label->setFont(labels);
 
             rowCount += 1;
-            stdPr1Deg->setObjectName("stdParDeg");
-            stdPr1Deg->setValidator(new QIntValidator(stdPr1Deg));    //CHECK
+
+            //DEGREE
+            stdPr1DegLabel = new QLabel();
             stdPr1DegLabel->setText("�");
             stdPr1DegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(stdPr1DegLabel,rowCount,1,0);
-            projGridLayout->addWidget(stdPr1Deg,rowCount,2,0);
+            stdPr1DegLabel->setFont(labels);
 
-            stdPr1Min->setObjectName("stdParMin");
-            stdPr1Min->setValidator(new QIntValidator(stdPr1Min));    //CHECK
+            stdPr1Deg = new QLineEdit();
+            stdPr1Deg->setObjectName("stdParDeg");
+            stdPr1Deg->setValidator(new QIntValidator(stdPr1Deg));    //CHECK
+            stdPr1Deg->setFixedWidth(75);
+
+            //MINUTE
+            stdPr1MinLabel = new QLabel();
             stdPr1MinLabel->setText("'");
             stdPr1MinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(stdPr1MinLabel,rowCount,3,0);
-            projGridLayout->addWidget(stdPr1Min,rowCount,4,0);
+            stdPr1MinLabel->setFont(labels);
 
-            stdPr1Sec->setObjectName("stdParSec");
-            stdPr1Sec->setValidator(new QIntValidator(stdPr1Sec));    //CHECK
+            stdPr1Min = new QLineEdit();
+            stdPr1Min->setObjectName("stdParMin");
+            stdPr1Min->setValidator(new QIntValidator(stdPr1Min));    //CHECK
+            stdPr1Min->setFixedWidth(75);
+
+            //SECOND
+            stdPr1SecLabel = new QLabel();
             stdPr1SecLabel->setText("\"");
             stdPr1SecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(stdPr1SecLabel,rowCount,5,0);
-            projGridLayout->addWidget(stdPr1Sec,rowCount,6,0);
+            stdPr1SecLabel->setFont(labels);
+
+            stdPr1Sec = new QLineEdit();
+            stdPr1Sec->setObjectName("stdParSec");
+            stdPr1Sec->setValidator(new QIntValidator(stdPr1Sec));    //CHECK
+            stdPr1Sec->setFixedWidth(75);
+
+            stdParLay->addWidget(stdPr1Label);
+            stdParLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdParLay->addWidget(stdPr1Deg);
+            stdParLay->addWidget(stdPr1DegLabel);
+            stdParLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdParLay->addWidget(stdPr1Min);
+            stdParLay->addWidget(stdPr1MinLabel);
+            stdParLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdParLay->addWidget(stdPr1Sec);
+            stdParLay->addWidget(stdPr1SecLabel);
+            stdParLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(stdParLay);
             break;
         case STDPR2:
+            stdPr2Lay = new QHBoxLayout;
+
             stdPr2Label = new QLabel();
-            stdPr2Deg = new QLineEdit();
-            stdPr2DegLabel = new QLabel();
-            stdPr2Min = new QLineEdit();
-            stdPr2MinLabel = new QLabel();
-            stdPr2Sec = new QLineEdit();
-            stdPr2SecLabel = new QLabel();
             stdPr2Label->setText("Latitude of 2nd Standard Parallel");
             stdPr2Label->setToolTip("Latitude of the second standard parallel");
             stdPr2Label->setObjectName("stdParTwo");
-            projGridLayout->addWidget(stdPr2Label,rowCount,1,1,6,Qt::AlignLeft);
+            stdPr2Label->setFont(labels);
 
             rowCount += 1;
-            stdPr2Deg->setObjectName("stdParDeg");
-            stdPr2Deg->setValidator(new QIntValidator(stdPr2Deg));    //CHECK
+
+            //DEGREE
+            stdPr2DegLabel = new QLabel();
             stdPr2DegLabel->setText("�");
             stdPr2DegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(stdPr2DegLabel,rowCount,1,0);
-            projGridLayout->addWidget(stdPr2Deg,rowCount,2,0);
+            stdPr2DegLabel->setFont(labels);
 
-            stdPr2Min->setObjectName("stdParMin");
-            stdPr2Min->setValidator(new QIntValidator(stdPr2Min));    //CHECK
+            stdPr2Deg = new QLineEdit();
+            stdPr2Deg->setObjectName("stdPr2Deg");
+            stdPr2Deg->setValidator(new QIntValidator(stdPr2Deg));    //CHECK
+            stdPr2Deg->setFixedWidth(75);
+
+            //MINUTE
+            stdPr2MinLabel = new QLabel();
             stdPr2MinLabel->setText("'");
             stdPr2MinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(stdPr2MinLabel,rowCount,3,0);
-            projGridLayout->addWidget(stdPr2Min,rowCount,4,0);
+            stdPr2MinLabel->setFont(labels);
 
-            stdPr2Sec->setObjectName("stdParSec");
-            stdPr2Sec->setValidator(new QIntValidator(stdPr2Sec));    //CHECK
+            stdPr2Min = new QLineEdit();
+            stdPr2Min->setObjectName("stdPr2Min");
+            stdPr2Min->setValidator(new QIntValidator(stdPr2Min));    //CHECK
+            stdPr2Min->setFixedWidth(75);
+
+            //SECOND
+            stdPr2SecLabel = new QLabel();
             stdPr2SecLabel->setText("\"");
             stdPr2SecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(stdPr2SecLabel,rowCount,5,0);
-            projGridLayout->addWidget(stdPr2Sec,rowCount,6,0);
+            stdPr2SecLabel->setFont(labels);
+
+            stdPr2Sec = new QLineEdit();
+            stdPr2Sec->setObjectName("stdPr2Sec");
+            stdPr2Sec->setValidator(new QIntValidator(stdPr2Sec));    //CHECK
+            stdPr2Sec->setFixedWidth(75);
+
+            stdPr2Lay->addWidget(stdPr2Label);
+            stdPr2Lay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdPr2Lay->addWidget(stdPr2Deg);
+            stdPr2Lay->addWidget(stdPr2DegLabel);
+            stdPr2Lay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdPr2Lay->addWidget(stdPr2Min);
+            stdPr2Lay->addWidget(stdPr2MinLabel);
+            stdPr2Lay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            stdPr2Lay->addWidget(stdPr2Sec);
+            stdPr2Lay->addWidget(stdPr2SecLabel);
+            stdPr2Lay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(stdPr2Lay);
             break;
         case CENTMER:
+            centMerLay = new QHBoxLayout;
+
             centMerLabel = new QLabel();
-            centMerDeg = new QLineEdit();
-            centMerDegLabel = new QLabel();
-            centMerMin = new QLineEdit();
-            centMerMinLabel = new QLabel();
-            centMerSec = new QLineEdit();
-            centMerSecLabel = new QLabel();
             centMerLabel->setText("Longitude of the central meridian");
             centMerLabel->setToolTip("Longitude of the central meridian");
-            centMerLabel->setObjectName("stdParTwo");
-            projGridLayout->addWidget(centMerLabel,rowCount,1,1,6,Qt::AlignLeft);
+            centMerLabel->setObjectName("centMerLabel");
+            centMerLabel->setFont(labels);
 
             rowCount += 1;
-            centMerDeg->setObjectName("stdParDeg");
-            centMerDeg->setValidator(new QIntValidator(centMerDeg));    //CHECK
+
+            //DEGREE
+            centMerDegLabel = new QLabel();
             centMerDegLabel->setText("�");
             centMerDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(centMerDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(centMerDeg,rowCount,2,0);
+            centMerDegLabel->setFont(labels);
 
-            centMerMin->setObjectName("stdParMin");
-            centMerMin->setValidator(new QIntValidator(centMerMin));    //CHECK
+            centMerDeg = new QLineEdit();
+            centMerDeg->setObjectName("centMerDeg");
+            centMerDeg->setValidator(new QIntValidator(centMerDeg));    //CHECK
+            centMerDeg->setFixedWidth(75);
+
+            //MINUTE
+            centMerMinLabel = new QLabel();
             centMerMinLabel->setText("'");
             centMerMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(centMerMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(centMerMin,rowCount,4,0);
+            centMerMinLabel->setFont(labels);
 
-            centMerSec->setObjectName("stdParSec");
-            centMerSec->setValidator(new QIntValidator(centMerSec));    //CHECK
+            centMerMin = new QLineEdit();
+            centMerMin->setObjectName("centMerMin");
+            centMerMin->setValidator(new QIntValidator(centMerMin));    //CHECK
+            centMerMin->setFixedWidth(75);
+
+            //SECOND
+            centMerSecLabel = new QLabel();
             centMerSecLabel->setText("\"");
             centMerSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(centMerSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(centMerSec,rowCount,6,0);
+            centMerSecLabel->setFont(labels);
+
+            centMerSec = new QLineEdit();
+            centMerSec->setObjectName("centMerSec");
+            centMerSec->setValidator(new QIntValidator(centMerSec));    //CHECK
+            centMerSec->setFixedWidth(75);
+
+            centMerLay->addWidget(centMerLabel);
+            centMerLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            centMerLay->addWidget(centMerDeg);
+            centMerLay->addWidget(centMerDegLabel);
+            centMerLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            centMerLay->addWidget(centMerMin);
+            centMerLay->addWidget(centMerMinLabel);
+            centMerLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            centMerLay->addWidget(centMerSec);
+            centMerLay->addWidget(centMerSecLabel);
+            centMerLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(centMerLay);
             break;
         case ORIGINLAT:
+            originLatLay = new QHBoxLayout;
+
             originLatLabel = new QLabel();
-            originLatDeg = new QLineEdit();
-            originLatDegLabel = new QLabel();
-            originLatMin = new QLineEdit();
-            originLatMinLabel = new QLabel();
-            originLatSec = new QLineEdit();
-            originLatSecLabel = new QLabel();
             originLatLabel->setText("Latitude of the projection origin");
             originLatLabel->setToolTip("Latitude of the projection origin");
-            originLatLabel->setObjectName("stdParTwo");
-            projGridLayout->addWidget(originLatLabel,rowCount,1,1,6,Qt::AlignLeft);
+            originLatLabel->setObjectName("originLat");
+            originLatLabel->setFont(labels);
 
             rowCount += 1;
-            originLatDeg->setObjectName("stdParDeg");
-            originLatDeg->setValidator(new QIntValidator(originLatDeg));    //CHECK
+
+            //DEGREE
+            originLatDegLabel = new QLabel();
             originLatDegLabel->setText("�");
             originLatDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(originLatDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(originLatDeg,rowCount,2,0);
+            originLatDegLabel->setFont(labels);
 
-            originLatMin->setObjectName("stdParMin");
-            originLatMin->setValidator(new QIntValidator(originLatMin));    //CHECK
+            originLatDeg = new QLineEdit();
+            originLatDeg->setObjectName("originLatDeg");
+            originLatDeg->setValidator(new QIntValidator(originLatDeg));    //CHECK
+            originLatDeg->setFixedWidth(75);
+
+            //MINUTE
+            originLatMinLabel = new QLabel();
             originLatMinLabel->setText("'");
             originLatMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(originLatMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(originLatMin,rowCount,4,0);
+            originLatMinLabel->setFont(labels);
 
-            originLatSec->setObjectName("stdParSec");
-            originLatSec->setValidator(new QIntValidator(originLatSec));    //CHECK
+            originLatMin = new QLineEdit();
+            originLatMin->setObjectName("originLatMin");
+            originLatMin->setValidator(new QIntValidator(originLatMin));    //CHECK
+            originLatMin->setFixedWidth(75);
+
+            //SECOND
+            originLatSecLabel = new QLabel();
             originLatSecLabel->setText("\"");
             originLatSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(originLatSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(originLatSec,rowCount,6,0);
+            originLatSecLabel->setFont(labels);
+
+            originLatSec = new QLineEdit();
+            originLatSec->setObjectName("originLatSec");
+            originLatSec->setValidator(new QIntValidator(originLatSec));    //CHECK
+            originLatSec->setFixedWidth(75);
+
+            originLatLay->addWidget(originLatLabel);
+            originLatLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            originLatLay->addWidget(originLatDeg);
+            originLatLay->addWidget(originLatDegLabel);
+            originLatLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            originLatLay->addWidget(originLatMin);
+            originLatLay->addWidget(originLatMinLabel);
+            originLatLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            originLatLay->addWidget(originLatSec);
+            originLatLay->addWidget(originLatSecLabel);
+            originLatLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(originLatLay);
             break;
         case FE:
+            fELay = new QHBoxLayout;
+
             fELabel = new QLabel();
-            fE = new QLineEdit();
             fELabel->setText("False Easting");
             fELabel->setToolTip("False easting in the same units as the semi-major axis");
             fELabel->setObjectName("falseEastingLabel");
-            fE->setObjectName("falseEastingValue");
+            fELabel->setFont(labels);
+
+            fE = new QLineEdit();
             fEValid = new QDoubleValidator(fE);
             fEValid->setNotation(QDoubleValidator::StandardNotation);
+            fE->setObjectName("falseEastingValue");
             fE->setValidator(fEValid);
+            fE->setFixedWidth(100);
 
-            projGridLayout->addWidget(fELabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(fE,rowCount,2,1,4,0);
+            if (params.at(i+1) != FN){
+            fELay->addWidget(fELabel);
+            fELay->addWidget(fE);
+            fELay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+            }
+            projVLayout->addLayout(fELay);
             break;
         case FN:
+            fNLay = new QHBoxLayout;
+
             fNLabel = new QLabel();
-            fN = new QLineEdit();
             fNLabel->setText("False Northing");
             fNLabel->setToolTip("False northing in the same units as the semi-major axis");
             fNLabel->setObjectName("falseNorthingLabel");
-            fN->setObjectName("falseNorthingValue");
+            fNLabel->setFont(labels);
+
+            fN = new QLineEdit();
             fNValid = new QDoubleValidator(fN);
             fNValid->setNotation(QDoubleValidator::StandardNotation);
+            fN->setObjectName("falseNorthingValue");
             fN->setValidator(fNValid);
+            fN->setFixedWidth(100);
 
-            projGridLayout->addWidget(fNLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(fN,rowCount,2,1,4,0);
+            if (params.at(i-1) != FE){
+            fNLay->addWidget(fNLabel);
+            fNLay->addWidget(fN);
+            fNLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+            } else if (params.at(i-1) == FE){
+                fNLay->addWidget(fELabel);
+                fNLay->addWidget(fE);
+                fNLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+                fNLay->addWidget(fNLabel);
+                fNLay->addWidget(fN);
+                fNLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+            }
+            projVLayout->addLayout(fNLay);
             break;
         case TRUESCALE:
+            trueScaleLay = new QHBoxLayout;
+
             trueScaleLabel = new QLabel();
-            trueScaleDeg = new QLineEdit();
-            trueScaleDegLabel = new QLabel();
-            trueScaleMin = new QLineEdit();
-            trueScaleMinLabel = new QLabel();
-            trueScaleSec = new QLineEdit();
-            trueScaleSecLabel = new QLabel();
             trueScaleLabel->setText("True Scale");
             trueScaleLabel->setToolTip("Latitude of true scale");
             trueScaleLabel->setObjectName("trueScaleLabel");
-            projGridLayout->addWidget(trueScaleLabel,rowCount,1,1,6,Qt::AlignLeft);
+            trueScaleLabel->setFont(labels);
 
             rowCount += 1;
-            trueScaleDeg->setObjectName("stdParDeg");
-            trueScaleDeg->setValidator(new QIntValidator(trueScaleDeg));    //CHECK
+
+            //DEGREE
+            trueScaleDegLabel = new QLabel();
             trueScaleDegLabel->setText("�");
             trueScaleDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(trueScaleDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(trueScaleDeg,rowCount,2,0);
+            trueScaleDegLabel->setFont(labels);
 
-            trueScaleMin->setObjectName("stdParMin");
-            trueScaleMin->setValidator(new QIntValidator(trueScaleMin));    //CHECK
+            trueScaleDeg = new QLineEdit();
+            trueScaleDeg->setObjectName("trueScaleDeg");
+            trueScaleDeg->setValidator(new QIntValidator(trueScaleDeg));    //CHECK
+            trueScaleDeg->setFixedWidth(75);
+
+            //MINUTE
+            trueScaleMinLabel = new QLabel();
             trueScaleMinLabel->setText("'");
             trueScaleMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(trueScaleMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(trueScaleMin,rowCount,4,0);
+            trueScaleMinLabel->setFont(labels);
 
-            trueScaleSec->setObjectName("stdParSec");
-            trueScaleSec->setValidator(new QIntValidator(trueScaleSec));    //CHECK
+            trueScaleMin = new QLineEdit();
+            trueScaleMin->setObjectName("trueScaleMin");
+            trueScaleMin->setValidator(new QIntValidator(trueScaleMin));    //CHECK
+            trueScaleMin->setFixedWidth(75);
+
+            //SECOND
+            trueScaleSecLabel = new QLabel();
             trueScaleSecLabel->setText("\"");
             trueScaleSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(trueScaleSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(trueScaleSec,rowCount,6,0);
+            trueScaleSecLabel->setFont(labels);
+
+            trueScaleSec = new QLineEdit();
+            trueScaleSec->setObjectName("trueScaleSec");
+            trueScaleSec->setValidator(new QIntValidator(trueScaleSec));    //CHECK
+            trueScaleSec->setFixedWidth(75);
+
+            trueScaleLay->addWidget(trueScaleLabel);
+            trueScaleLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            trueScaleLay->addWidget(trueScaleDeg);
+            trueScaleLay->addWidget(trueScaleDegLabel);
+            trueScaleLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            trueScaleLay->addWidget(trueScaleMin);
+            trueScaleLay->addWidget(trueScaleMinLabel);
+            trueScaleLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            trueScaleLay->addWidget(trueScaleSec);
+            trueScaleLay->addWidget(trueScaleSecLabel);
+            trueScaleLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(trueScaleLay);
             break;
         case LONGPOL:
+            longPolLay = new QHBoxLayout;
+
             longPolLabel = new QLabel();
-            longPolDeg = new QLineEdit();
-            longPolDegLabel = new QLabel();
-            longPolMin = new QLineEdit();
-            longPolMinLabel = new QLabel();
-            longPolSec = new QLineEdit();
-            longPolSecLabel = new QLabel();
             longPolLabel->setText("Longitude down below pole of map");
             longPolLabel->setToolTip("Longitude down below pole of map");
             longPolLabel->setObjectName("longPolLabel");
-            projGridLayout->addWidget(longPolLabel,rowCount,1,1,6,Qt::AlignLeft);
+            longPolLabel->setFont(labels);
 
             rowCount += 1;
-            longPolDeg->setObjectName("stdParDeg");
-            longPolDeg->setValidator(new QIntValidator(longPolDeg));    //CHECK
+
+            //DEGREE
+            longPolDegLabel = new QLabel();
             longPolDegLabel->setText("�");
             longPolDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(longPolDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(longPolDeg,rowCount,2,0);
+            longPolDegLabel->setFont(labels);
 
-            longPolMin->setObjectName("stdParMin");
-            longPolMin->setValidator(new QIntValidator(longPolMin));    //CHECK
+            longPolDeg = new QLineEdit();
+            longPolDeg->setObjectName("longPolDeg");
+            longPolDeg->setValidator(new QIntValidator(longPolDeg));    //CHECK
+            longPolDeg->setFixedWidth(75);
+
+            //MINUTE
+            longPolMinLabel = new QLabel();
             longPolMinLabel->setText("'");
             longPolMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(longPolMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(longPolMin,rowCount,4,0);
+            longPolMinLabel->setFont(labels);
 
-            longPolSec->setObjectName("stdParSec");
-            longPolSec->setValidator(new QIntValidator(longPolSec));    //CHECK
+            longPolMin = new QLineEdit();
+            longPolMin->setObjectName("longPolMin");
+            longPolMin->setValidator(new QIntValidator(longPolMin));    //CHECK
+            longPolMin->setFixedWidth(75);
+
+            //SECOND
+            longPolSecLabel = new QLabel();
             longPolSecLabel->setText("\"");
             longPolSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(longPolSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(longPolSec,rowCount,6,0);
+            longPolSecLabel->setFont(labels);
+
+            longPolSec = new QLineEdit();
+            longPolSec->setObjectName("longPolSec");
+            longPolSec->setValidator(new QIntValidator(longPolSec));    //CHECK
+            longPolSec->setFixedWidth(75);
+
+            longPolLay->addWidget(longPolLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longPolLay->addWidget(longPolDeg);
+            longPolLay->addWidget(longPolDegLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longPolLay->addWidget(longPolMin);
+            longPolLay->addWidget(longPolMinLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longPolLay->addWidget(longPolSec);
+            longPolLay->addWidget(longPolSecLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(longPolLay);
             break;
         case FACTOR:
+            factorLay = new QHBoxLayout;
+
             factorLabel = new QLabel();
-            factor = new QLineEdit();
             factorLabel->setText("Scale Factor");
             factorLabel->setToolTip("Scale factor at central meridian (Transverse Mercator) or center of projection (Hotine Oblique Mercator)");
             factorLabel->setObjectName("factorLabel");
-            factor->setObjectName("factorValue");
+            factorLabel->setFont(labels);
+
+            factor = new QLineEdit();
             factorValid = new QDoubleValidator(factor);
             factorValid->setNotation(QDoubleValidator::StandardNotation);
+            factor->setObjectName("factorValue");
             factor->setValidator(factorValid);
+            factor->setFixedWidth(100);
 
-            projGridLayout->addWidget(factorLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(factor,rowCount,2,1,4,0);
+            factorLay->addWidget(factorLabel);
+            factorLay->addWidget(factor);
+            factorLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(factorLay);
             break;
         case CENTLON:
             centLonLabel = new QLabel();
@@ -593,391 +886,642 @@ int projections::generateUi(int params[]){
             centLonLabel->setObjectName("centLonLabel");
             projGridLayout->addWidget(centLonLabel,rowCount,1,1,6,Qt::AlignLeft);
 
+            longPolLay = new QHBoxLayout;
+
+            longPolLabel = new QLabel();
+            longPolLabel->setText("Longitude down below pole of map");
+            longPolLabel->setToolTip("Longitude down below pole of map");
+            longPolLabel->setObjectName("longPolLabel");
+            longPolLabel->setFont(labels);
+
             rowCount += 1;
-            centLonDeg->setObjectName("stdParDeg");
-            centLonDeg->setValidator(new QIntValidator(centLonDeg));    //CHECK
-            centLonDegLabel->setText("�");
-            centLonDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(centLonDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(centLonDeg,rowCount,2,0);
 
-            centLonMin->setObjectName("stdParMin");
-            centLonMin->setValidator(new QIntValidator(centLonMin));    //CHECK
-            centLonMinLabel->setText("'");
-            centLonMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(centLonMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(centLonMin,rowCount,4,0);
+            //DEGREE
+            longPolDegLabel = new QLabel();
+            longPolDegLabel->setText("�");
+            longPolDegLabel->setObjectName("degLabel");
+            longPolDegLabel->setFont(labels);
 
-            centLonSec->setObjectName("stdParSec");
-            centLonSec->setValidator(new QIntValidator(centLonSec));    //CHECK
-            centLonSecLabel->setText("\"");
-            centLonSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(centLonSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(centLonSec,rowCount,6,0);
+            longPolDeg = new QLineEdit();
+            longPolDeg->setObjectName("longPolDeg");
+            longPolDeg->setValidator(new QIntValidator(longPolDeg));    //CHECK
+            longPolDeg->setFixedWidth(75);
+
+            //MINUTE
+            longPolMinLabel = new QLabel();
+            longPolMinLabel->setText("'");
+            longPolMinLabel->setObjectName("minLabel");
+            longPolMinLabel->setFont(labels);
+
+            longPolMin = new QLineEdit();
+            longPolMin->setObjectName("longPolMin");
+            longPolMin->setValidator(new QIntValidator(longPolMin));    //CHECK
+            longPolMin->setFixedWidth(75);
+
+            //SECOND
+            longPolSecLabel = new QLabel();
+            longPolSecLabel->setText("\"");
+            longPolSecLabel->setObjectName("secLabel");
+            longPolSecLabel->setFont(labels);
+
+            longPolSec = new QLineEdit();
+            longPolSec->setObjectName("longPolSec");
+            longPolSec->setValidator(new QIntValidator(longPolSec));    //CHECK
+            longPolSec->setFixedWidth(75);
+
+            longPolLay->addWidget(longPolLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longPolLay->addWidget(longPolDeg);
+            longPolLay->addWidget(longPolDegLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longPolLay->addWidget(longPolMin);
+            longPolLay->addWidget(longPolMinLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longPolLay->addWidget(longPolSec);
+            longPolLay->addWidget(longPolSecLabel);
+            longPolLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(longPolLay);
             break;
         case CENTERLAT:
+            centLatLay = new QHBoxLayout;
+
             centerLatLabel = new QLabel();
-            centerLatDeg = new QLineEdit();
-            centerLatDegLabel = new QLabel();
-            centerLatMin = new QLineEdit();
-            centerLatMinLabel = new QLabel();
-            centerLatSec = new QLineEdit();
-            centerLatSecLabel = new QLabel();
             centerLatLabel->setText("Latitude of center of projection");
             centerLatLabel->setToolTip("Latitude of center of projection");
             centerLatLabel->setObjectName("centerLatLabel");
-            projGridLayout->addWidget(centerLatLabel,rowCount,1,1,6,Qt::AlignLeft);
+            centerLatLabel->setFont(labels);
 
             rowCount += 1;
-            centerLatDeg->setObjectName("stdParDeg");
-            centerLatDeg->setValidator(new QIntValidator(centerLatDeg));    //CHECK
+
+            //DEGREE
+            centerLatDegLabel = new QLabel();
             centerLatDegLabel->setText("�");
             centerLatDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(centerLatDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(centerLatDeg,rowCount,2,0);
+            centerLatDegLabel->setFont(labels);
 
-            centerLatMin->setObjectName("stdParMin");
-            centerLatMin->setValidator(new QIntValidator(centerLatMin));    //CHECK
+            centerLatDeg = new QLineEdit();
+            centerLatDeg->setObjectName("centerLatDeg");
+            centerLatDeg->setValidator(new QIntValidator(centerLatDeg));    //CHECK
+            centerLatDeg->setFixedWidth(75);
+
+            //MINUTE
+            centerLatMinLabel = new QLabel();
             centerLatMinLabel->setText("'");
             centerLatMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(centerLatMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(centerLatMin,rowCount,4,0);
+            centerLatMinLabel->setFont(labels);
 
-            centerLatSec->setObjectName("stdParSec");
-            centerLatSec->setValidator(new QIntValidator(centerLatSec));    //CHECK
+            centerLatMin = new QLineEdit();
+            centerLatMin->setObjectName("centerLatMin");
+            centerLatMin->setValidator(new QIntValidator(centerLatMin));    //CHECK
+            centerLatMin->setFixedWidth(75);
+
+            //SECOND
+            centerLatSecLabel = new QLabel();
             centerLatSecLabel->setText("\"");
             centerLatSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(centerLatSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(centerLatSec,rowCount,6,0);
+            centerLatSecLabel->setFont(labels);
+
+            centerLatSec = new QLineEdit();
+            centerLatSec->setObjectName("centerLatSec");
+            centerLatSec->setValidator(new QIntValidator(centerLatSec));    //CHECK
+            centerLatSec->setFixedWidth(75);
+
+            centLatLay->addWidget(centerLatLabel);
+            centLatLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            centLatLay->addWidget(centerLatDeg);
+            centLatLay->addWidget(centerLatDegLabel);
+            centLatLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            centLatLay->addWidget(centerLatMin);
+            centLatLay->addWidget(centerLatMinLabel);
+            centLatLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            centLatLay->addWidget(centerLatSec);
+            centLatLay->addWidget(centerLatSecLabel);
+            centLatLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(centLatLay);
             break;
         case HEIGHT:
+            heightLay = new QHBoxLayout;
+
             heightLabel = new QLabel();
-            height = new QLineEdit();
             heightLabel->setText("Height of perspective point");
             heightLabel->setToolTip("Height of perspective point");
             heightLabel->setObjectName("heightLabel");
-            height->setObjectName("heightValue");
+            heightLabel->setFont(labels);
+
+            height = new QLineEdit();
             heightValid = new QDoubleValidator(height);
             heightValid->setNotation(QDoubleValidator::StandardNotation);
+            height->setObjectName("heightValue");
             height->setValidator(heightValid);
+            height->setFixedWidth(100);
 
-            projGridLayout->addWidget(heightLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(height,rowCount,2,1,4,0);
+            heightLay->addWidget(heightLabel);
+            heightLay->addWidget(height);
+            heightLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(heightLay);
             break;
         case LONG1:
+            longOneLay = new QHBoxLayout;
+
             long1Label = new QLabel();
-            long1Deg = new QLineEdit();
-            long1DegLabel = new QLabel();
-            long1Min = new QLineEdit();
-            long1MinLabel = new QLabel();
-            long1Sec = new QLineEdit();
-            long1SecLabel = new QLabel();
             long1Label->setText("Longitude of first point on center line");
             long1Label->setToolTip("Longitude of first point on center line");
             long1Label->setObjectName("LonOneLabel");
-            projGridLayout->addWidget(long1Label,rowCount,1,1,6,Qt::AlignLeft);
+            long1Label->setFont(labels);
 
             rowCount += 1;
-            long1Deg->setObjectName("stdParDeg");
-            long1Deg->setValidator(new QIntValidator(long1Deg));    //CHECK
+
+            //DEGREE
+            long1DegLabel = new QLabel();
             long1DegLabel->setText("�");
             long1DegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(long1DegLabel,rowCount,1,0);
-            projGridLayout->addWidget(long1Deg,rowCount,2,0);
+            long1DegLabel->setFont(labels);
 
-            long1Min->setObjectName("stdParMin");
-            long1Min->setValidator(new QIntValidator(long1Min));    //CHECK
+            long1Deg = new QLineEdit();
+            long1Deg->setObjectName("long1Deg");
+            long1Deg->setValidator(new QIntValidator(long1Deg));    //CHECK
+            long1Deg->setFixedWidth(75);
+
+            //MINUTE
+            long1MinLabel = new QLabel();
             long1MinLabel->setText("'");
             long1MinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(long1MinLabel,rowCount,3,0);
-            projGridLayout->addWidget(long1Min,rowCount,4,0);
+            long1MinLabel->setFont(labels);
 
-            long1Sec->setObjectName("stdParSec");
-            long1Sec->setValidator(new QIntValidator(long1Sec));    //CHECK
+            long1Min = new QLineEdit();
+            long1Min->setObjectName("long1Min");
+            long1Min->setValidator(new QIntValidator(long1Min));    //CHECK
+            long1Min->setFixedWidth(75);
+
+            //SECOND
+            long1SecLabel = new QLabel();
             long1SecLabel->setText("\"");
             long1SecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(long1SecLabel,rowCount,5,0);
-            projGridLayout->addWidget(long1Sec,rowCount,6,0);
+            long1SecLabel->setFont(labels);
+
+            long1Sec = new QLineEdit();
+            long1Sec->setObjectName("long1Sec");
+            long1Sec->setValidator(new QIntValidator(long1Sec));    //CHECK
+            long1Sec->setFixedWidth(75);
+
+            longOneLay->addWidget(long1Label);
+            longOneLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longOneLay->addWidget(long1Deg);
+            longOneLay->addWidget(long1DegLabel);
+            longOneLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longOneLay->addWidget(long1Min);
+            longOneLay->addWidget(long1MinLabel);
+            longOneLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longOneLay->addWidget(long1Sec);
+            longOneLay->addWidget(long1SecLabel);
+            longOneLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(longOneLay);
             break;
         case LONG2:
+            longTwoLay = new QHBoxLayout;
+
             long2Label = new QLabel();
-            long2Deg = new QLineEdit();
-            long2DegLabel = new QLabel();
-            long2Min = new QLineEdit();
-            long2MinLabel = new QLabel();
-            long2Sec = new QLineEdit();
-            long2SecLabel = new QLabel();
             long2Label->setText("Longitude of second point on center line");
             long2Label->setToolTip("Longitude of second point on center line");
             long2Label->setObjectName("LonTwoLabel");
-            projGridLayout->addWidget(long2Label,rowCount,1,1,6,Qt::AlignLeft);
+            long2Label->setFont(labels);
 
             rowCount += 1;
-            long2Deg->setObjectName("stdParDeg");
-            long2Deg->setValidator(new QIntValidator(long2Deg));    //CHECK
+
+            //DEGREE
+            long2DegLabel = new QLabel();
             long2DegLabel->setText("�");
             long2DegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(long2DegLabel,rowCount,1,0);
-            projGridLayout->addWidget(long2Deg,rowCount,2,0);
+            long2DegLabel->setFont(labels);
 
-            long2Min->setObjectName("stdParMin");
-            long2Min->setValidator(new QIntValidator(long2Min));    //CHECK
+            long2Deg = new QLineEdit();
+            long2Deg->setObjectName("long2Deg");
+            long2Deg->setValidator(new QIntValidator(long2Deg));    //CHECK
+            long2Deg->setFixedWidth(75);
+
+            //MINUTE
+            long2MinLabel = new QLabel();
             long2MinLabel->setText("'");
             long2MinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(long2MinLabel,rowCount,3,0);
-            projGridLayout->addWidget(long2Min,rowCount,4,0);
+            long2MinLabel->setFont(labels);
 
-            long2Sec->setObjectName("stdParSec");
-            long2Sec->setValidator(new QIntValidator(long2Sec));    //CHECK
+            long2Min = new QLineEdit();
+            long2Min->setObjectName("long2Min");
+            long2Min->setValidator(new QIntValidator(long2Min));    //CHECK
+            long2Min->setFixedWidth(75);
+
+            //SECOND
+            long2SecLabel = new QLabel();
             long2SecLabel->setText("\"");
             long2SecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(long2SecLabel,rowCount,5,0);
-            projGridLayout->addWidget(long2Sec,rowCount,6,0);
+            long2SecLabel->setFont(labels);
+
+            long2Sec = new QLineEdit();
+            long2Sec->setObjectName("long2Sec");
+            long2Sec->setValidator(new QIntValidator(long2Sec));    //CHECK
+            long2Sec->setFixedWidth(75);
+
+            longTwoLay->addWidget(long2Label);
+            longTwoLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longTwoLay->addWidget(long2Deg);
+            longTwoLay->addWidget(long2DegLabel);
+            longTwoLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longTwoLay->addWidget(long2Min);
+            longTwoLay->addWidget(long2MinLabel);
+            longTwoLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            longTwoLay->addWidget(long2Sec);
+            longTwoLay->addWidget(long2SecLabel);
+            longTwoLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(longTwoLay);
             break;
         case LAT1:
+            latOneLay = new QHBoxLayout;
+
             lat1Label = new QLabel();
-            lat1Deg = new QLineEdit();
-            lat1DegLabel = new QLabel();
-            lat1Min = new QLineEdit();
-            lat1MinLabel = new QLabel();
-            lat1Sec = new QLineEdit();
-            lat1SecLabel = new QLabel();
             lat1Label->setText("Latitude of first point on center line");
             lat1Label->setToolTip("Latitude of first point on center line");
             lat1Label->setObjectName("latOneLabel");
-            projGridLayout->addWidget(lat1Label,rowCount,1,1,6,Qt::AlignLeft);
+            lat1Label->setFont(labels);
 
             rowCount += 1;
-            lat1Deg->setObjectName("stdParDeg");
-            lat1Deg->setValidator(new QIntValidator(lat1Deg));    //CHECK
+
+            //DEGREE
+            lat1DegLabel = new QLabel();
             lat1DegLabel->setText("�");
             lat1DegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(lat1DegLabel,rowCount,1,0);
-            projGridLayout->addWidget(lat1Deg,rowCount,2,0);
+            lat1DegLabel->setFont(labels);
 
-            lat1Min->setObjectName("stdParMin");
-            lat1Min->setValidator(new QIntValidator(lat1Min));    //CHECK
+            lat1Deg = new QLineEdit();
+            lat1Deg->setObjectName("lat1Deg");
+            lat1Deg->setValidator(new QIntValidator(lat1Deg));    //CHECK
+            lat1Deg->setFixedWidth(75);
+
+            //MINUTE
+            lat1MinLabel = new QLabel();
             lat1MinLabel->setText("'");
             lat1MinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(lat1MinLabel,rowCount,3,0);
-            projGridLayout->addWidget(lat1Min,rowCount,4,0);
+            lat1MinLabel->setFont(labels);
 
-            lat1Sec->setObjectName("stdParSec");
-            lat1Sec->setValidator(new QIntValidator(lat1Sec));    //CHECK
+            lat1Min = new QLineEdit();
+            lat1Min->setObjectName("lat1Min");
+            lat1Min->setValidator(new QIntValidator(lat1Min));    //CHECK
+            lat1Min->setFixedWidth(75);
+
+            //SECOND
+            lat1SecLabel = new QLabel();
             lat1SecLabel->setText("\"");
             lat1SecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(lat1SecLabel,rowCount,5,0);
-            projGridLayout->addWidget(lat1Sec,rowCount,6,0);
+            lat1SecLabel->setFont(labels);
+
+            lat1Sec = new QLineEdit();
+            lat1Sec->setObjectName("lat1Sec");
+            lat1Sec->setValidator(new QIntValidator(lat1Sec));    //CHECK
+            lat1Sec->setFixedWidth(75);
+
+            latOneLay->addWidget(lat1Label);
+            latOneLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            latOneLay->addWidget(lat1Deg);
+            latOneLay->addWidget(lat1DegLabel);
+            latOneLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            latOneLay->addWidget(lat1Min);
+            latOneLay->addWidget(lat1MinLabel);
+            latOneLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            latOneLay->addWidget(lat1Sec);
+            latOneLay->addWidget(lat1SecLabel);
+            latOneLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(latOneLay);
             break;
         case LAT2:
+            latTwoLay = new QHBoxLayout;
+
             lat2Label = new QLabel();
-            lat2Deg = new QLineEdit();
-            lat2DegLabel = new QLabel();
-            lat2Min = new QLineEdit();
-            lat2MinLabel = new QLabel();
-            lat2Sec = new QLineEdit();
-            lat2SecLabel = new QLabel();
-            lat2Label->setText("Latitude of first point on center line");
-            lat2Label->setToolTip("Latitude of first point on center line");
+            lat2Label->setText("Latitude of second point on center line");
+            lat2Label->setToolTip("Latitude of second point on center line");
             lat2Label->setObjectName("latTwoLabel");
-            projGridLayout->addWidget(lat2Label,rowCount,1,1,6,Qt::AlignLeft);
+            lat2Label->setFont(labels);
 
             rowCount += 1;
-            lat2Deg->setObjectName("stdParDeg");
-            lat2Deg->setValidator(new QIntValidator(lat2Deg));    //CHECK
+
+            //DEGREE
+            lat2DegLabel = new QLabel();
             lat2DegLabel->setText("�");
             lat2DegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(lat2DegLabel,rowCount,1,0);
-            projGridLayout->addWidget(lat2Deg,rowCount,2,0);
+            lat2DegLabel->setFont(labels);
 
-            lat2Min->setObjectName("stdParMin");
-            lat2Min->setValidator(new QIntValidator(lat2Min));    //CHECK
+            lat2Deg = new QLineEdit();
+            lat2Deg->setObjectName("lat2Deg");
+            lat2Deg->setValidator(new QIntValidator(lat2Deg));    //CHECK
+            lat2Deg->setFixedWidth(75);
+
+            //MINUTE
+            lat2MinLabel = new QLabel();
             lat2MinLabel->setText("'");
             lat2MinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(lat2MinLabel,rowCount,3,0);
-            projGridLayout->addWidget(lat2Min,rowCount,4,0);
+            lat2MinLabel->setFont(labels);
 
-            lat2Sec->setObjectName("stdParSec");
-            lat2Sec->setValidator(new QIntValidator(lat2Sec));    //CHECK
+            lat2Min = new QLineEdit();
+            lat2Min->setObjectName("lat2Min");
+            lat2Min->setValidator(new QIntValidator(lat2Min));    //CHECK
+            lat2Min->setFixedWidth(75);
+
+            //SECOND
+            lat2SecLabel = new QLabel();
             lat2SecLabel->setText("\"");
             lat2SecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(lat2SecLabel,rowCount,5,0);
-            projGridLayout->addWidget(lat2Sec,rowCount,6,0);
+            lat2SecLabel->setFont(labels);
+
+            lat2Sec = new QLineEdit();
+            lat2Sec->setObjectName("lat2Sec");
+            lat2Sec->setValidator(new QIntValidator(lat2Sec));    //CHECK
+            lat2Sec->setFixedWidth(75);
+
+            latTwoLay->addWidget(lat2Label);
+            latTwoLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            latTwoLay->addWidget(lat2Deg);
+            latTwoLay->addWidget(lat2DegLabel);
+            latTwoLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            latTwoLay->addWidget(lat2Min);
+            latTwoLay->addWidget(lat2MinLabel);
+            latTwoLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            latTwoLay->addWidget(lat2Sec);
+            latTwoLay->addWidget(lat2SecLabel);
+            latTwoLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(latTwoLay);
             break;
         case AZIANG:
+            aziAngLay = new QHBoxLayout;
+
             aziAngLabel = new QLabel();
-            aziAngDeg = new QLineEdit();
-            aziAngDegLabel = new QLabel();
-            aziAngMin = new QLineEdit();
-            aziAngMinLabel = new QLabel();
-            aziAngSec = new QLineEdit();
-            aziAngSecLabel = new QLabel();
             aziAngLabel->setText("Azimuth angle east of north of center line");
             aziAngLabel->setToolTip("Azimuth angle east of north of center line");
             aziAngLabel->setObjectName("aziAngLabel");
-            projGridLayout->addWidget(aziAngLabel,rowCount,1,1,6,Qt::AlignLeft);
+            aziAngLabel->setFont(labels);
 
             rowCount += 1;
-            aziAngDeg->setObjectName("stdParDeg");
-            aziAngDeg->setValidator(new QIntValidator(aziAngDeg));    //CHECK
+
+            //DEGREE
+            aziAngDegLabel = new QLabel();
             aziAngDegLabel->setText("�");
             aziAngDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(aziAngDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(aziAngDeg,rowCount,2,0);
+            aziAngDegLabel->setFont(labels);
 
-            aziAngMin->setObjectName("stdParMin");
-            aziAngMin->setValidator(new QIntValidator(aziAngMin));    //CHECK
+            aziAngDeg = new QLineEdit();
+            aziAngDeg->setObjectName("aziAngDeg");
+            aziAngDeg->setValidator(new QIntValidator(aziAngDeg));    //CHECK
+            aziAngDeg->setFixedWidth(75);
+
+            //MINUTE
+            aziAngMinLabel = new QLabel();
             aziAngMinLabel->setText("'");
             aziAngMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(aziAngMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(aziAngMin,rowCount,4,0);
+            aziAngMinLabel->setFont(labels);
 
-            aziAngSec->setObjectName("stdParSec");
-            aziAngSec->setValidator(new QIntValidator(aziAngSec));    //CHECK
+            aziAngMin = new QLineEdit();
+            aziAngMin->setObjectName("aziAngMin");
+            aziAngMin->setValidator(new QIntValidator(aziAngMin));    //CHECK
+            aziAngMin->setFixedWidth(75);
+
+            //SECOND
+            aziAngSecLabel = new QLabel();
             aziAngSecLabel->setText("\"");
             aziAngSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(aziAngSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(aziAngSec,rowCount,6,0);
+            aziAngSecLabel->setFont(labels);
+
+            aziAngSec = new QLineEdit();
+            aziAngSec->setObjectName("aziAngSec");
+            aziAngSec->setValidator(new QIntValidator(aziAngSec));    //CHECK
+            aziAngSec->setFixedWidth(75);
+
+            aziAngLay->addWidget(aziAngLabel);
+            aziAngLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            aziAngLay->addWidget(aziAngDeg);
+            aziAngLay->addWidget(aziAngDegLabel);
+            aziAngLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            aziAngLay->addWidget(aziAngMin);
+            aziAngLay->addWidget(aziAngMinLabel);
+            aziAngLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            aziAngLay->addWidget(aziAngSec);
+            aziAngLay->addWidget(aziAngSecLabel);
+            aziAngLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(aziAngLay);
             break;
         case AZMTHPT:
+            azmthPtLay = new QHBoxLayout;
+
             azmthPtLabel = new QLabel();
-            azmthPtDeg = new QLineEdit();
-            azmthPtDegLabel = new QLabel();
-            azmthPtMin = new QLineEdit();
-            azmthPtMinLabel = new QLabel();
-            azmthPtSec = new QLineEdit();
-            azmthPtSecLabel = new QLabel();
             azmthPtLabel->setText("Longitude of point on central meridian where azimuth occurs");
             azmthPtLabel->setToolTip("Longitude of point on central meridian where azimuth occurs");
             azmthPtLabel->setObjectName("AzmthPtLabel");
-            projGridLayout->addWidget(azmthPtLabel,rowCount,1,1,6,Qt::AlignLeft);
+            azmthPtLabel->setFont(labels);
 
             rowCount += 1;
-            azmthPtDeg->setObjectName("stdParDeg");
-            azmthPtDeg->setValidator(new QIntValidator(azmthPtDeg));    //CHECK
+
+            //DEGREE
+            azmthPtDegLabel = new QLabel();
             azmthPtDegLabel->setText("�");
             azmthPtDegLabel->setObjectName("degLabel");
-            projGridLayout->addWidget(azmthPtDegLabel,rowCount,1,0);
-            projGridLayout->addWidget(azmthPtDeg,rowCount,2,0);
+            azmthPtDegLabel->setFont(labels);
 
-            azmthPtMin->setObjectName("stdParMin");
-            azmthPtMin->setValidator(new QIntValidator(azmthPtMin));    //CHECK
+            azmthPtDeg = new QLineEdit();
+            azmthPtDeg->setObjectName("azmthPtDeg");
+            azmthPtDeg->setValidator(new QIntValidator(azmthPtDeg));    //CHECK
+            azmthPtDeg->setFixedWidth(75);
+
+            //MINUTE
+            azmthPtMinLabel = new QLabel();
             azmthPtMinLabel->setText("'");
             azmthPtMinLabel->setObjectName("minLabel");
-            projGridLayout->addWidget(azmthPtMinLabel,rowCount,3,0);
-            projGridLayout->addWidget(azmthPtMin,rowCount,4,0);
+            azmthPtMinLabel->setFont(labels);
 
-            azmthPtSec->setObjectName("stdParSec");
-            azmthPtSec->setValidator(new QIntValidator(azmthPtSec));    //CHECK
+            azmthPtMin = new QLineEdit();
+            azmthPtMin->setObjectName("azmthPtMin");
+            azmthPtMin->setValidator(new QIntValidator(azmthPtMin));    //CHECK
+            azmthPtMin->setFixedWidth(75);
+
+            //SECOND
+            azmthPtSecLabel = new QLabel();
             azmthPtSecLabel->setText("\"");
             azmthPtSecLabel->setObjectName("secLabel");
-            projGridLayout->addWidget(azmthPtSecLabel,rowCount,5,0);
-            projGridLayout->addWidget(azmthPtSec,rowCount,6,0);
+            azmthPtSecLabel->setFont(labels);
+
+            azmthPtSec = new QLineEdit();
+            azmthPtSec->setObjectName("azmthPtSec");
+            azmthPtSec->setValidator(new QIntValidator(azmthPtSec));    //CHECK
+            azmthPtSec->setFixedWidth(75);
+
+            azmthPtLay->addWidget(azmthPtLabel);
+            azmthPtLay->addSpacerItem(new QSpacerItem(15,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            azmthPtLay->addWidget(azmthPtDeg);
+            azmthPtLay->addWidget(azmthPtDegLabel);
+            azmthPtLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            azmthPtLay->addWidget(azmthPtMin);
+            azmthPtLay->addWidget(azmthPtMinLabel);
+            azmthPtLay->addSpacerItem(new QSpacerItem(10,0,QSizePolicy::Minimum,QSizePolicy::Preferred ));
+            azmthPtLay->addWidget(azmthPtSec);
+            azmthPtLay->addWidget(azmthPtSecLabel);
+            azmthPtLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(azmthPtLay);
             break;
         case INCANG:
             break;
         case ASCLONG:
             break;
         case PSREV:
+            psRevLay = new QHBoxLayout;
+
             psRevLabel = new QLabel();
-            psRev = new QLineEdit();
             psRevLabel->setText("Period of satellite revolution in minutes");
             psRevLabel->setToolTip("Period of satellite revolution in minutes");
             psRevLabel->setObjectName("psRevLabel");
-            psRev->setObjectName("psRevValue");
+            psRevLabel->setFont(labels);
+
+            psRev = new QLineEdit();
             psRevValid = new QDoubleValidator(psRev);
             psRevValid->setNotation(QDoubleValidator::StandardNotation);
+            psRev->setObjectName("psRevValue");
             psRev->setValidator(psRevValid);
+            psRev->setFixedWidth(100);
 
-            projGridLayout->addWidget(psRevLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(psRev,rowCount,2,1,4,0);
+
             break;
         case LRAT:
+            lRatLay = new QHBoxLayout;
+
             lRatLabel = new QLabel();
-            lRat = new QLineEdit();
             lRatLabel->setText("Landsat ratio to compensate for confusion at northern end of orbit");
             lRatLabel->setToolTip("Landsat ratio to compensate for confusion at northern end of orbit");
             lRatLabel->setObjectName("lRatLabel");
-            lRat->setObjectName("lRatValue");
+            lRatLabel->setFont(labels);
+
+            lRat = new QLineEdit();
             lRatValid = new QDoubleValidator(lRat);
             lRatValid->setNotation(QDoubleValidator::StandardNotation);
+            lRat->setObjectName("lRatValue");
             lRat->setValidator(lRatValid);
 
-            projGridLayout->addWidget(lRatLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(lRat,rowCount,2,1,4,0);
+            lRatLay->addWidget(lRatLabel);
+            lRatLay->addWidget(lRat);
+            lRatLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(lRatLay);
             break;
         case PFLAG:
+            pFlagLay = new QHBoxLayout;
+
             pFlagLabel = new QLabel();
-            pFlag = new QLineEdit();
             pFlagLabel->setText("End of path flag for Landsat");
             pFlagLabel->setToolTip("End of path flag for Landsat:  0 = start of path, 1 = end of path");
             pFlagLabel->setObjectName("pFlagLabel");
+            pFlagLabel->setFont(labels);
+
+            pFlag = new QLineEdit();
             pFlag->setObjectName("pFlagValue");
             pFlag->setValidator(new QIntValidator(0,1,pFlag));
 
-            projGridLayout->addWidget(pFlagLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(pFlag,rowCount,2,1,4,0);
+            pFlagLay->addWidget(pFlagLabel);
+            pFlagLay->addWidget(pFlag);
+            pFlagLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(pFlagLay);
             break;
         case SATNUM:
+            satNumLay = new QHBoxLayout;
+
             satNumLabel = new QLabel();
-            satNum = new QLineEdit();
             satNumLabel->setText("Landsat Satellite Number");
             satNumLabel->setToolTip("Landsat Satellite Number");
             satNumLabel->setObjectName("satNumLabel");
+            satNumLabel->setFont(labels);
+
+            satNum = new QLineEdit();
             satNum->setObjectName("satNumValue");
             satNum->setValidator(new QIntValidator(1,7,satNum));
 
-            projGridLayout->addWidget(satNumLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(satNum,rowCount,2,1,4,0);
+            satNumLay->addWidget(satNumLabel);
+            satNumLay->addWidget(satNum);
+            satNumLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(satNumLay);
             break;
         case PATH:
+            pathLay = new QHBoxLayout;
+
             pathLabel = new QLabel();
-            path = new QLineEdit();
             pathLabel->setText("Landsat Path Number");
             pathLabel->setToolTip("Landsat Path Number (Use WRS-1 for Landsat 1, 2 and 3 and WRS-2 for Landsat 4, 5 and 6.)");
             pathLabel->setObjectName("pathLabel");
+            pathLabel->setFont(labels);
+
+            path = new QLineEdit();
             path->setObjectName("pathValue");
             path->setValidator(new QIntValidator(1,233,path));
 
-            projGridLayout->addWidget(pathLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(path,rowCount,2,1,4,0);
+            pathLay->addWidget(pathLabel);
+            pathLay->addWidget(path);
+            pathLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(pathLay);;
             break;
         case SHAPEM:
+            shapeMLay = new QHBoxLayout;
+
             shapeMLabel = new QLabel();
-            shapeM = new QLineEdit();
             shapeMLabel->setText("Oblated Equal Area oval shape parameter m");
             shapeMLabel->setToolTip("Oblated Equal Area oval shape parameter m");
             shapeMLabel->setObjectName("mShapeLabel");
-            shapeM->setObjectName("mShapeValue");
+
+            shapeM = new QLineEdit();
             shapeMValid = new QDoubleValidator(shapeM);
             shapeMValid->setNotation(QDoubleValidator::StandardNotation);
+            shapeM->setObjectName("mShapeValue");
             shapeM->setValidator(shapeMValid);
 
-            projGridLayout->addWidget(shapeMLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(shapeM,rowCount,2,1,4,0);
+            shapeMLay->addWidget(shapeMLabel);
+            shapeMLay->addWidget(shapeM);
+            shapeMLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(shapeMLay);
             break;
         case SHAPEN:
+            shapeNLay = new QHBoxLayout;
+
             shapeNLabel = new QLabel();
-            shapeN = new QLineEdit();
             shapeNLabel->setText("Oblated Equal Area oval shape parameter n");
             shapeNLabel->setToolTip("Oblated Equal Area oval shape parameter n");
             shapeNLabel->setObjectName("nShapeLabel");
-            shapeN->setObjectName("nShapeValue");
+            shapeNLabel->setFont(labels);
+
+            shapeN = new QLineEdit();
             shapeNValid = new QDoubleValidator(shapeN);
             shapeNValid->setNotation(QDoubleValidator::StandardNotation);
+            shapeN->setObjectName("nShapeValue");
             shapeN->setValidator(shapeNValid);
 
-            projGridLayout->addWidget(shapeNLabel,rowCount,1,1,2,0);
-            projGridLayout->addWidget(shapeN,rowCount,2,1,4,0);
+            shapeNLay->addWidget(shapeNLabel);
+            shapeNLay->addWidget(shapeN);
+            shapeNLay->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred ));
+
+            projVLayout->addLayout(shapeNLay);
             break;
         case ANGLE:
             break;
         default:
+            std::cout << "ERROR: " << i << std::endl;
             error = 1;
             break;
         }
+        projVLayout->addSpacerItem(new QSpacerItem(0,7,QSizePolicy::Preferred, QSizePolicy::Preferred));
         rowCount++;
     }
-
+    projVLayout->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Preferred, QSizePolicy::Expanding));
     return error;
 }

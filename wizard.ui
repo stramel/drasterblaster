@@ -94,7 +94,7 @@
      <enum>QFrame::Box</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="WelcomeScreen">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -1463,38 +1463,20 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QStackedWidget" name="projectionInfo">
+     <widget class="QStackedWidget" name="inputProjection">
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>110</y>
+        <y>70</y>
         <width>461</width>
-        <height>301</height>
+        <height>341</height>
        </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page"/>
       <widget class="QWidget" name="page_2"/>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>70</y>
-        <width>441</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Many of these inputs will not need changed. If you are unsure, either hover over an item for more details or click 'Next' to continue through the Wizard.</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="SelectOutputOptions">

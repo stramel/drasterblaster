@@ -1,6 +1,7 @@
 #include "wizard.h"
 #include "selection.h"
 #include "ui_wizard.h"
+#include "projections.h"
 
 Wizard::Wizard(QWidget *parent) :
     QMainWindow(parent),
@@ -56,6 +57,10 @@ void Wizard::prepareUi()
     ui->FillValue->setValidator(intValid);
     ui->noDataValue->setValidator(intValid);
     ui->pixelSize->setValidator(doubleValid);
+
+    projections p;
+    p.callGenerate(3);
+    ui->page->setLayout(p.projVLayout);
 }
 
 void Wizard::nextPage()

@@ -60,8 +60,8 @@ void Advanced::prepareUi()
     ui->pixelSize->setValidator(doubleValid);
 
     projections p;
-    p.callGenerate(AEA);
-    ui->tabProjectionInfo->setLayout(p.projGridLayout);
+    p.callGenerate(20);
+    ui->tabProjectionInfo->setLayout(p.projVLayout);
 }
 
 void Advanced::loadParams()

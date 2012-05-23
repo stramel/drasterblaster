@@ -17,15 +17,16 @@ public:
     explicit projections(QObject *parent = 0);
     void callGenerate(int);
     QGridLayout *projGridLayout;
+    QVBoxLayout *projVLayout;
     
 signals:
     
 public slots:
 
 private:
-    int generateUi(int[]);
+    int generateUi(std::vector<int> &);
 
-    QVBoxLayout *projVLayout;
+
     QHBoxLayout *projHLayout;
 
     //COPY & PASTE & CHANGE NAMES
