@@ -3,6 +3,10 @@
 #include "ui_wizard.h"
 #include "projections.h"
 
+#include <QFileSystemModel>
+#include <iostream>
+#include <QDir>
+
 Wizard::Wizard(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Wizard)
@@ -45,6 +49,7 @@ void Wizard::prepareUi()
     connect(ui->actionEdit_Author, SIGNAL(triggered()), s, SLOT(showEditAuthor()));
     connect(ui->actionUser_Guide, SIGNAL(triggered()), s, SLOT(showUserGuide()));
 
+
     QIntValidator *intValid = new QIntValidator(this);
     intValid->setBottom(0);
 
@@ -58,6 +63,24 @@ void Wizard::prepareUi()
     ui->noDataValue->setValidator(intValid);
     ui->pixelSize->setValidator(doubleValid);
 
+//    QStringList nFilter("Rasters (*.img)");
+    dirModel = new QFileSystemModel(this);
+    QHeaderView *h = ui->dirView->header();
+    h->hideSection(2);
+
+
+    dirModel->setRootPath("D:");
+    dirModel->setFilter(QDir::NoDotAndDotDot | QDir::AllDirs);
+    ui->dirView->setModel(dirModel);
+    ui->dirView_2->setModel(dirModel);
+
+    fileModel = new QFileSystemModel;
+    fileModel->setRootPath("");
+    fileModel->setFilter(QDir::NoDotAndDotDot | QDir::Files);
+    //fileModel->setNameFilters(nFilter);
+    //fileModel->setNameFilterDisables(false);
+    ui->fileView->setModel(fileModel);
+
     projections p;
     p.callGenerate(3);
     ui->page->setLayout(p.projVLayout);
@@ -68,11 +91,16 @@ void Wizard::nextPage()
     ui->btnBack->setEnabled(true);
     if (page == (ui->stackedWidget->count()-2))
     {
+        saveReprojection();
         ui->btnNext->setText("Finish");
         ui->btnCancel->setEnabled(false);
         Selection *s = new Selection(this);
         connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(close()));
         connect(ui->btnNext, SIGNAL(clicked()), s, SLOT(showSelection()));
+    } else if (page == 1)
+    {
+        openRaster();
+        return;
     }
     emit indexChanged(++page);
 }
@@ -95,16 +123,50 @@ void Wizard::prevPage()
 
 void Wizard::openRaster()
 {
+    QModelIndexList list = ui->fileView->selectionModel()->selectedIndexes();
 
+    foreach (QModelIndex index, list)
+    {
+        if (ui->fileView->selectionModel()->isSelected(index))
+        {
+            if (fileModel->fileInfo(index).suffix() != ".tif")
+            {
+                //error
+                return;
+            } else
+            {
+                std::cout << fileModel->fileInfo(index).absoluteFilePath().toStdString() << std::endl;
+                std::cout << fileModel->fileInfo(index).fileName().toStdString() << std::endl;
+                return;
+            }
+        }
+    }
+    //Error none selected
 }
 
 void Wizard::saveReprojection()
 {
+    QModelIndexList list = ui->dirView_2->selectionModel()->selectedRows();
 
+    foreach (QModelIndex index, list)
+    {
+        if (ui->dirView_2->selectionModel()->isSelected(index))
+        {
+                std::cout << dirModel->fileInfo(index).absoluteFilePath().toStdString() << std::endl;
+        }
+    }
 }
 
 void Wizard::showPreview()
 {
 
 }
+
+
+void Wizard::on_dirView_clicked(const QModelIndex &index)
+{
+    QString sPath = dirModel->fileInfo(index).absoluteFilePath();
+    ui->fileView->setRootIndex(fileModel->setRootPath(sPath));
+}
+
 

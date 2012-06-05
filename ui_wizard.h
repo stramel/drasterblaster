@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wizard.ui'
 **
-** Created: Tue May 22 16:48:43 2012
+** Created: Tue Jun 5 11:55:07 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -22,6 +22,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
+#include <QtGui/QListView>
 #include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
@@ -30,6 +31,7 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QStackedWidget>
+#include <QtGui/QTreeView>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
@@ -72,11 +74,9 @@ public:
     QLabel *labelPageDesc;
     QLabel *label_5;
     QLabel *labelDetails;
-    QGroupBox *groupBox;
-    QWidget *horizontalLayoutWidget_2;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *labelFile;
-    QPushButton *btnBrowse;
+    QGroupBox *selectFile;
+    QTreeView *dirView;
+    QListView *fileView;
     QFrame *line;
     QListWidget *listPages;
     QWidget *EditInput;
@@ -133,7 +133,7 @@ public:
     QLabel *label_15;
     QListWidget *listPages_7;
     QFrame *line_7;
-    QStackedWidget *inputProjection;
+    QStackedWidget *inputWidget;
     QWidget *page;
     QWidget *page_2;
     QWidget *SelectOutputOptions;
@@ -143,6 +143,9 @@ public:
     QLabel *labelPageTitle_3;
     QLabel *labelPageDesc_3;
     QLabel *label_7;
+    QStackedWidget *outputWidget;
+    QWidget *page_3;
+    QWidget *page_4;
     QWidget *PreviewOutput;
     QFrame *Heading_4;
     QLabel *labelPageTitle_4;
@@ -158,13 +161,7 @@ public:
     QListWidget *listPages_5;
     QFrame *line_5;
     QGroupBox *groupBox_2;
-    QWidget *horizontalLayoutWidget_12;
-    QHBoxLayout *horizontalLayout_11;
-    QLabel *labelFile_2;
-    QPushButton *btnBrowse_2;
-    QProgressBar *progressBar;
-    QPushButton *pushButton;
-    QLabel *label_17;
+    QTreeView *dirView_2;
     QLabel *label_18;
     QWidget *Finish;
     QFrame *Heading_6;
@@ -178,6 +175,7 @@ public:
     QHBoxLayout *horizontalLayout_12;
     QLabel *label_20;
     QLabel *label_21;
+    QProgressBar *progressBar;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuOptions;
@@ -360,32 +358,21 @@ public:
         label_5->setScaledContents(true);
         labelDetails = new QLabel(OpenRaster);
         labelDetails->setObjectName(QString::fromUtf8("labelDetails"));
-        labelDetails->setGeometry(QRect(200, 80, 411, 71));
+        labelDetails->setGeometry(QRect(190, 70, 421, 41));
         labelDetails->setFont(font);
         labelDetails->setWordWrap(true);
-        groupBox = new QGroupBox(OpenRaster);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(190, 200, 421, 61));
-        groupBox->setFont(font);
-        horizontalLayoutWidget_2 = new QWidget(groupBox);
-        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(10, 20, 401, 31));
-        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        labelFile = new QLabel(horizontalLayoutWidget_2);
-        labelFile->setObjectName(QString::fromUtf8("labelFile"));
-        labelFile->setFont(font);
-
-        horizontalLayout_2->addWidget(labelFile);
-
-        btnBrowse = new QPushButton(horizontalLayoutWidget_2);
-        btnBrowse->setObjectName(QString::fromUtf8("btnBrowse"));
-        btnBrowse->setMaximumSize(QSize(100, 16777215));
-        btnBrowse->setFont(font);
-
-        horizontalLayout_2->addWidget(btnBrowse);
-
+        selectFile = new QGroupBox(OpenRaster);
+        selectFile->setObjectName(QString::fromUtf8("selectFile"));
+        selectFile->setGeometry(QRect(180, 120, 441, 271));
+        selectFile->setFont(font);
+        dirView = new QTreeView(selectFile);
+        dirView->setObjectName(QString::fromUtf8("dirView"));
+        dirView->setGeometry(QRect(10, 20, 221, 241));
+        dirView->header()->setVisible(false);
+        dirView->header()->setDefaultSectionSize(200);
+        fileView = new QListView(selectFile);
+        fileView->setObjectName(QString::fromUtf8("fileView"));
+        fileView->setGeometry(QRect(240, 20, 191, 241));
         line = new QFrame(OpenRaster);
         line->setObjectName(QString::fromUtf8("line"));
         line->setGeometry(QRect(150, 70, 20, 341));
@@ -759,15 +746,15 @@ public:
         line_7->setGeometry(QRect(150, 70, 20, 341));
         line_7->setFrameShape(QFrame::VLine);
         line_7->setFrameShadow(QFrame::Sunken);
-        inputProjection = new QStackedWidget(EditInputProj);
-        inputProjection->setObjectName(QString::fromUtf8("inputProjection"));
-        inputProjection->setGeometry(QRect(170, 70, 461, 341));
+        inputWidget = new QStackedWidget(EditInputProj);
+        inputWidget->setObjectName(QString::fromUtf8("inputWidget"));
+        inputWidget->setGeometry(QRect(170, 70, 461, 341));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
-        inputProjection->addWidget(page);
+        inputWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
-        inputProjection->addWidget(page_2);
+        inputWidget->addWidget(page_2);
         stackedWidget->addWidget(EditInputProj);
         SelectOutputOptions = new QWidget();
         SelectOutputOptions->setObjectName(QString::fromUtf8("SelectOutputOptions"));
@@ -831,6 +818,15 @@ public:
         label_7->setGeometry(QRect(20, 10, 46, 41));
         label_7->setPixmap(QPixmap(QString::fromUtf8(":/Images/tools-wizard256.png")));
         label_7->setScaledContents(true);
+        outputWidget = new QStackedWidget(SelectOutputOptions);
+        outputWidget->setObjectName(QString::fromUtf8("outputWidget"));
+        outputWidget->setGeometry(QRect(170, 70, 461, 341));
+        page_3 = new QWidget();
+        page_3->setObjectName(QString::fromUtf8("page_3"));
+        outputWidget->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName(QString::fromUtf8("page_4"));
+        outputWidget->addWidget(page_4);
         stackedWidget->addWidget(SelectOutputOptions);
         PreviewOutput = new QWidget();
         PreviewOutput->setObjectName(QString::fromUtf8("PreviewOutput"));
@@ -959,42 +955,16 @@ public:
         line_5->setFrameShadow(QFrame::Sunken);
         groupBox_2 = new QGroupBox(ReprojectSave);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(180, 150, 431, 61));
+        groupBox_2->setGeometry(QRect(180, 140, 441, 271));
         groupBox_2->setFont(font);
-        horizontalLayoutWidget_12 = new QWidget(groupBox_2);
-        horizontalLayoutWidget_12->setObjectName(QString::fromUtf8("horizontalLayoutWidget_12"));
-        horizontalLayoutWidget_12->setGeometry(QRect(10, 20, 411, 31));
-        horizontalLayout_11 = new QHBoxLayout(horizontalLayoutWidget_12);
-        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
-        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
-        labelFile_2 = new QLabel(horizontalLayoutWidget_12);
-        labelFile_2->setObjectName(QString::fromUtf8("labelFile_2"));
-        labelFile_2->setFont(font);
-
-        horizontalLayout_11->addWidget(labelFile_2);
-
-        btnBrowse_2 = new QPushButton(horizontalLayoutWidget_12);
-        btnBrowse_2->setObjectName(QString::fromUtf8("btnBrowse_2"));
-        btnBrowse_2->setMaximumSize(QSize(100, 16777215));
-        btnBrowse_2->setFont(font);
-
-        horizontalLayout_11->addWidget(btnBrowse_2);
-
-        progressBar = new QProgressBar(ReprojectSave);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        progressBar->setGeometry(QRect(190, 380, 401, 21));
-        progressBar->setValue(24);
-        pushButton = new QPushButton(ReprojectSave);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(320, 250, 121, 31));
-        pushButton->setFont(font3);
-        label_17 = new QLabel(ReprojectSave);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
-        label_17->setGeometry(QRect(180, 290, 431, 71));
-        label_17->setFont(font);
-        label_18 = new QLabel(ReprojectSave);
+        dirView_2 = new QTreeView(groupBox_2);
+        dirView_2->setObjectName(QString::fromUtf8("dirView_2"));
+        dirView_2->setGeometry(QRect(10, 20, 421, 241));
+        dirView_2->header()->setVisible(false);
+        dirView_2->header()->setDefaultSectionSize(200);
+        label_18 = new QLabel(groupBox_2);
         label_18->setObjectName(QString::fromUtf8("label_18"));
-        label_18->setGeometry(QRect(180, 70, 431, 71));
+        label_18->setGeometry(QRect(0, -60, 431, 71));
         stackedWidget->addWidget(ReprojectSave);
         Finish = new QWidget();
         Finish->setObjectName(QString::fromUtf8("Finish"));
@@ -1091,7 +1061,18 @@ public:
 
         horizontalLayout_12->addWidget(label_21);
 
+        progressBar = new QProgressBar(Finish);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setGeometry(QRect(180, 390, 441, 21));
+        progressBar->setValue(24);
         stackedWidget->addWidget(Finish);
+        Heading_6->raise();
+        listPages_6->raise();
+        line_6->raise();
+        label_19->raise();
+        horizontalLayoutWidget_13->raise();
+        label_21->raise();
+        progressBar->raise();
         Wizard->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Wizard);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -1126,13 +1107,13 @@ public:
 
         retranslateUi(Wizard);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
         listPages->setCurrentRow(3);
         listPages_2->setCurrentRow(4);
         pixelUnits->setCurrentIndex(1);
         pixelType->setCurrentIndex(7);
         listPages_7->setCurrentRow(4);
-        inputProjection->setCurrentIndex(0);
+        inputWidget->setCurrentIndex(0);
         listPages_3->setCurrentRow(5);
         listPages_4->setCurrentRow(6);
         listPages_5->setCurrentRow(7);
@@ -1167,9 +1148,7 @@ public:
         labelPageDesc->setText(QApplication::translate("Wizard", "Select the raster to open", 0, QApplication::UnicodeUTF8));
         label_5->setText(QString());
         labelDetails->setText(QApplication::translate("Wizard", "TextLabel", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("Wizard", "Select File", 0, QApplication::UnicodeUTF8));
-        labelFile->setText(QApplication::translate("Wizard", "TextLabel", 0, QApplication::UnicodeUTF8));
-        btnBrowse->setText(QApplication::translate("Wizard", "Browse...", 0, QApplication::UnicodeUTF8));
+        selectFile->setTitle(QApplication::translate("Wizard", "Select File", 0, QApplication::UnicodeUTF8));
 
         const bool __sortingEnabled = listPages->isSortingEnabled();
         listPages->setSortingEnabled(false);
@@ -1334,10 +1313,6 @@ public:
         listPages_5->setSortingEnabled(__sortingEnabled5);
 
         groupBox_2->setTitle(QApplication::translate("Wizard", "Select Place to Save", 0, QApplication::UnicodeUTF8));
-        labelFile_2->setText(QApplication::translate("Wizard", "TextLabel", 0, QApplication::UnicodeUTF8));
-        btnBrowse_2->setText(QApplication::translate("Wizard", "Browse...", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("Wizard", "Reproject", 0, QApplication::UnicodeUTF8));
-        label_17->setText(QApplication::translate("Wizard", "This may take a while depending on the size of raster selected originally", 0, QApplication::UnicodeUTF8));
         label_18->setText(QApplication::translate("Wizard", "TextLabel", 0, QApplication::UnicodeUTF8));
         labelPageTitle_6->setText(QApplication::translate("Wizard", "Finished", 0, QApplication::UnicodeUTF8));
         labelPageDesc_6->setText(QApplication::translate("Wizard", "Raster has been successfully reprojected", 0, QApplication::UnicodeUTF8));

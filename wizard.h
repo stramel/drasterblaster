@@ -2,6 +2,7 @@
 #define WIZARD_H
 
 #include <QMainWindow>
+#include <QFileSystemModel>
 
 namespace Ui {
 class Wizard;
@@ -19,6 +20,8 @@ private:
     Ui::Wizard *ui;
     int page;
     void prepareUi();
+    QFileSystemModel *dirModel;
+    QFileSystemModel *fileModel;
 
 private slots:
     void nextPage();
@@ -26,6 +29,7 @@ private slots:
     void openRaster();
     void saveReprojection();
     void showPreview();
+    void on_dirView_clicked(const QModelIndex &index);
 
 signals:
     void indexChanged(int);
