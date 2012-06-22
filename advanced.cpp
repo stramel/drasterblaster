@@ -1,7 +1,7 @@
 #include "advanced.h"
 #include "selection.h"
 #include "ui_advanced.h"
-#include "projections.h"
+//#include "projections.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -59,9 +59,9 @@ void Advanced::prepareUi()
     ui->noDataValue->setValidator(intValid);
     ui->pixelSize->setValidator(doubleValid);
 
-    projections p;
-    p.callGenerate(20);
-    ui->tabProjectionInfo->setLayout(p.projVLayout);
+    //projections p;
+    //p.callGenerate(_UTM);
+    //ui->tabProjectionInfo->setLayout(p.projVLayout);
 }
 
 void Advanced::loadParams()

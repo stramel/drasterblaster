@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -23,7 +23,7 @@
       <height>41</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="controlLayout">
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -78,10 +78,10 @@
      </item>
     </layout>
    </widget>
-   <widget class="QStackedWidget" name="stackedWidget">
+   <widget class="QStackedWidget" name="mainWidget">
     <property name="geometry">
      <rect>
-      <x>-1</x>
+      <x>0</x>
       <y>-1</y>
       <width>642</width>
       <height>421</height>
@@ -94,7 +94,7 @@
      <enum>QFrame::Box</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="WelcomeScreen">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -106,9 +106,9 @@
         <height>401</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="welcomeTextLayout">
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="Header">
          <property name="font">
           <font>
            <pointsize>32</pointsize>
@@ -125,7 +125,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="subHeader">
          <property name="font">
           <font>
            <pointsize>14</pointsize>
@@ -153,7 +153,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="basicInstruction">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -184,7 +184,7 @@
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
       </property>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="magicHat">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -205,7 +205,7 @@
      <zorder>verticalLayoutWidget</zorder>
     </widget>
     <widget class="QWidget" name="OpenRaster">
-     <widget class="QFrame" name="Heading">
+     <widget class="QFrame" name="openRasterHeading">
       <property name="geometry">
        <rect>
         <x>-1</x>
@@ -223,7 +223,7 @@
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
       </property>
-      <widget class="QLabel" name="labelPageTitle">
+      <widget class="QLabel" name="pageTitle">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -243,7 +243,7 @@
         <string>Open Raster</string>
        </property>
       </widget>
-      <widget class="QLabel" name="labelPageDesc">
+      <widget class="QLabel" name="simpleDescription">
        <property name="geometry">
         <rect>
          <x>100</x>
@@ -264,7 +264,7 @@
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="smallMagicHat">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -284,7 +284,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QLabel" name="labelDetails">
+     <widget class="QLabel" name="detailedDescription">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -349,7 +349,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="Line" name="line">
+     <widget class="Line" name="verticalLine">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -362,7 +362,10 @@
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QListWidget" name="listPages">
+     <widget class="QListWidget" name="navigationMenu">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -479,7 +482,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
      </widget>
     </widget>
     <widget class="QWidget" name="EditInput">
-     <widget class="QFrame" name="Heading_2">
+     <widget class="QFrame" name="EditInputOptionsHeading">
       <property name="geometry">
        <rect>
         <x>-1</x>
@@ -517,7 +520,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         <string>Edit Input Parameters</string>
        </property>
       </widget>
-      <widget class="QLabel" name="labelPageDesc_2">
+      <widget class="QLabel" name="simpleDescription_2">
        <property name="geometry">
         <rect>
          <x>100</x>
@@ -538,7 +541,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="smallMagicHat_2">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -559,6 +562,9 @@ QListWidget::item:selected, QListWidget::item:selected:active{
       </widget>
      </widget>
      <widget class="QListWidget" name="listPages_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -828,7 +834,157 @@ QListWidget::item:selected, QListWidget::item:selected:active{
          </property>
          <item>
           <property name="text">
-           <string>Sphere of Radius 6,370,997 meters</string>
+           <string>Clarke 1866</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Clarke 1880</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bessel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>International 1967</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>International 1909</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 72</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 66</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>GRS 1980</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Airy</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Modified Everest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Modified Airy</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 84</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Southeast Asia</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Australian National</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Krassovsky</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hough</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mercury 1960</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Modified Mercury 1968</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Earth</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bessel 1841 Namibia</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Sabah</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest India 1956</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Malaysia 1969</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Malay 1948</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Pakistan</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hayford</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Helmert 1906</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Indonesian 1974</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>South American 1969</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 60</string>
           </property>
          </item>
         </widget>
@@ -894,8 +1050,13 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           </font>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
+         <item>
+          <property name="text">
+           <string>Meter(s)</string>
+          </property>
+         </item>
          <item>
           <property name="text">
            <string>Arcsecond(s)</string>
@@ -909,11 +1070,6 @@ QListWidget::item:selected, QListWidget::item:selected:active{
          <item>
           <property name="text">
            <string>Degree(s)</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Meter(s)</string>
           </property>
          </item>
         </widget>
@@ -964,11 +1120,11 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           </font>
          </property>
          <property name="currentIndex">
-          <number>7</number>
+          <number>0</number>
          </property>
          <item>
           <property name="text">
-           <string>Signed 8-Bit Integer</string>
+           <string>Unspecified Type</string>
           </property>
          </item>
          <item>
@@ -978,17 +1134,12 @@ QListWidget::item:selected, QListWidget::item:selected:active{
          </item>
          <item>
           <property name="text">
-           <string>Signed 16-Bit Integer</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
            <string>Unsigned 16-Bit Integer</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Signed 32-Bit Integer</string>
+           <string>Signed 16-Bit Integer</string>
           </property>
          </item>
          <item>
@@ -998,12 +1149,37 @@ QListWidget::item:selected, QListWidget::item:selected:active{
          </item>
          <item>
           <property name="text">
-           <string>Signed 32-Bit IEEE Float</string>
+           <string>Signed 32-Bit Integer</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Signed 64-Bit IEEE Float</string>
+           <string>32-Bit IEEE Float</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>64-Bit IEEE Float</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Int16</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Int32</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Float32</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Float64</string>
           </property>
          </item>
         </widget>
@@ -1238,6 +1414,63 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_12">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>250</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <item>
+        <widget class="QLabel" name="labelNoDataValue_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Band Count</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="bandCount">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
     <widget class="QWidget" name="EditInputProj">
      <widget class="QFrame" name="Heading_7">
@@ -1320,6 +1553,9 @@ QListWidget::item:selected, QListWidget::item:selected:active{
       </widget>
      </widget>
      <widget class="QListWidget" name="listPages_7">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1447,20 +1683,667 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QStackedWidget" name="inputWidget">
+     <widget class="QStackedWidget" name="inputProjection">
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>70</y>
+        <y>100</y>
         <width>461</width>
-        <height>341</height>
+        <height>311</height>
        </rect>
       </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="page"/>
-      <widget class="QWidget" name="page_2"/>
+      <widget class="QWidget" name="GEO"/>
+      <widget class="QWidget" name="_UTM"/>
+      <widget class="QWidget" name="SPCS"/>
+      <widget class="QWidget" name="ALBERS">
+       <widget class="QWidget" name="horizontalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>431</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_16">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Semi-Major axis of Ellipsoid.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMajor">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_14">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QLabel" name="label_17">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Semi-Minor axis of Ellipsoid</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMinor">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_15">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>70</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <widget class="QLabel" name="label_22">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Latitude of the first standard parallel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_STDPR1">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_16">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>100</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
+         <item>
+          <widget class="QLabel" name="label_23">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Latitude of the second standard parallel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_STDPR2">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_17">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>130</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_16">
+         <item>
+          <widget class="QLabel" name="label_24">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Longitude of the Central Meridan</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_CENTMER">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_18">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>160</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_17">
+         <item>
+          <widget class="QLabel" name="label_25">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Latitude of the projection origin</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_ORIGIN">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_19">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>190</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_18">
+         <item>
+          <widget class="QLabel" name="label_26">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>False Easting</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_FE">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_20">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>220</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_19">
+         <item>
+          <widget class="QLabel" name="label_27">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>False Northing</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_FN">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="LAMCC"/>
+      <widget class="QWidget" name="MERCAT"/>
+      <widget class="QWidget" name="PS"/>
+      <widget class="QWidget" name="POLYC"/>
+      <widget class="QWidget" name="EQUIDC"/>
+      <widget class="QWidget" name="TM"/>
+      <widget class="QWidget" name="STEREO"/>
+      <widget class="QWidget" name="LAMAZ"/>
+      <widget class="QWidget" name="AZMEQD"/>
+      <widget class="QWidget" name="GNOMON"/>
+      <widget class="QWidget" name="ORTHO"/>
+      <widget class="QWidget" name="GVNSP"/>
+      <widget class="QWidget" name="SNSOID"/>
+      <widget class="QWidget" name="EQRECT"/>
+      <widget class="QWidget" name="MILLER"/>
+      <widget class="QWidget" name="VGRINT"/>
+      <widget class="QWidget" name="HOM"/>
+      <widget class="QWidget" name="ROBIN"/>
+      <widget class="QWidget" name="SOM"/>
+      <widget class="QWidget" name="ALASKA"/>
+      <widget class="QWidget" name="GOOD"/>
+      <widget class="QWidget" name="MOLL"/>
+      <widget class="QWidget" name="IMOLL"/>
+      <widget class="QWidget" name="HAMMER"/>
+      <widget class="QWidget" name="WAGIV"/>
+      <widget class="QWidget" name="WAGVII"/>
+      <widget class="QWidget" name="OBEQA"/>
+      <widget class="QWidget" name="USRDEF"/>
+     </widget>
+     <widget class="Line" name="line_8">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>90</y>
+        <width>441</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_21">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>70</y>
+        <width>461</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_20">
+       <item>
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_28">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Projection:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="inputProjectionBox">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Geographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Universal Transverse Mercator (UTM)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>State Plane Coordinates</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Albers Conical Equal Area</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lambert Conformal Conic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mercator</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Polar Stereographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Polyconic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Equidistant Conic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Transverse Mercator</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Stereographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lambert Azimuthal Equal Area</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Azimuthal Equidistant</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Gnomonic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Orthographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>General Vertical Near-Side Perspective</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sinusoidal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Equirectangular</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MillerCylindrical</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Van der Grinten</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>(Hotine) Oblique Mercator</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Robinson</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Space Oblique Mercator (SOM)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Alaska Conformal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Interrupted Goode Homolosine</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mollweide</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Interrupted Mollweide</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hammer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Wagner IV</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Wagner VII</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Oblated Equal Area</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>User Defined</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="SelectOutputOptions">
@@ -1478,6 +2361,9 @@ QListWidget::item:selected, QListWidget::item:selected:active{
       </property>
      </widget>
      <widget class="QListWidget" name="listPages_3">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1671,17 +2557,1851 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        </property>
       </widget>
      </widget>
-     <widget class="QStackedWidget" name="outputWidget">
+     <widget class="QWidget" name="horizontalLayoutWidget_43">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
+        <y>130</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_41">
+       <item>
+        <widget class="QLabel" name="label_57">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Rows</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outRows">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_44">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>250</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_42">
+       <item>
+        <widget class="QLabel" name="labelPixelType_4">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Pixel Type</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="outPixelType">
+         <property name="minimumSize">
+          <size>
+           <width>165</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>165</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Unspecified Type</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Unsigned 8-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Unsigned 16-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Signed 16-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Unsigned 32-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Signed 32-Bit Integer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>32-Bit IEEE Float</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>64-Bit IEEE Float</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Int16</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Int32</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Float32</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Complex Float64</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_45">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>250</y>
+        <width>182</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_43">
+       <item>
+        <widget class="QLabel" name="labelNoDataValue_6">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Band Count</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outBandCount">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_46">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>280</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_44">
+       <item>
+        <widget class="QLabel" name="labelULlat_6">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>UL Latitude</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outLatitude">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_47">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>340</y>
+        <width>182</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_45">
+       <item>
+        <widget class="QLabel" name="labelFillValue_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Fill Value</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="outfillEnable">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outFillValue">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_48">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>370</y>
+        <width>218</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_46">
+       <item>
+        <widget class="QLabel" name="labelNoDataValue_7">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>No Data Value</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="outNoDataValueEnable">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outNoDataValue">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_49">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>310</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_47">
+       <item>
+        <widget class="QLabel" name="labelULlat_7">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>UL Longitude</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outLongitude">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_50">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>220</y>
+        <width>271</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_48">
+       <item>
+        <widget class="QLabel" name="label_58">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Pixel Size</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outPixelSize">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="outPixelUnits">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Meter(s)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Arcsecond(s)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Arcminute(s)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Degree(s)</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_51">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>190</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="hLayoutSheroid_4">
+       <item>
+        <widget class="QLabel" name="labelSheroid_4">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Sheroid</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="outSheroid">
+         <property name="minimumSize">
+          <size>
+           <width>225</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <item>
+          <property name="text">
+           <string>Clarke 1866</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Clarke 1880</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bessel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>International 1967</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>International 1909</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 72</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 66</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>GRS 1980</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Airy</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Modified Everest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Modified Airy</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 84</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Southeast Asia</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Australian National</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Krassovsky</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hough</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mercury 1960</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Modified Mercury 1968</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Earth</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bessel 1841 Namibia</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Sabah</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest India 1956</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Malaysia 1969</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Malay 1948</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Everest Pakistan</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hayford</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Helmert 1906</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Indonesian 1974</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>South American 1969</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>WGS 60</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_52">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>160</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_49">
+       <item>
+        <widget class="QLabel" name="label_59">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Columns</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="outCols">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_49">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
         <y>70</y>
+        <width>441</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Many of these inputs will not need changed. If you are unsure, either hover over an item for more details or click 'Next' to continue through the Wizard.</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="outputProjections">
+     <widget class="QStackedWidget" name="outputProjection">
+      <property name="geometry">
+       <rect>
+        <x>171</x>
+        <y>101</y>
         <width>461</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>27</number>
+      </property>
+      <widget class="QWidget" name="GEO_3"/>
+      <widget class="QWidget" name="_UTM_3"/>
+      <widget class="QWidget" name="SPCS_3"/>
+      <widget class="QWidget" name="ALBERS_3">
+       <widget class="QWidget" name="horizontalLayoutWidget_30">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_30">
+         <item>
+          <widget class="QLabel" name="label_39">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Semi-Major axis of Ellipsoid.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMajor_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_22">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_31">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_31">
+         <item>
+          <widget class="QLabel" name="label_40">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Semi-Minor axis of Ellipsoid</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMinor_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_23">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_32">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>70</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_32">
+         <item>
+          <widget class="QLabel" name="label_41">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Latitude of the first standard parallel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_STDPR1_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_24">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_33">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>100</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_33">
+         <item>
+          <widget class="QLabel" name="label_42">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Latitude of the second standard parallel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_STDPR2_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_25">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_34">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>130</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_34">
+         <item>
+          <widget class="QLabel" name="label_43">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Longitude of the Central Meridan</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_CENTMER_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_26">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_35">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>160</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_35">
+         <item>
+          <widget class="QLabel" name="label_44">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Latitude of the projection origin</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_ORIGIN_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_27">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_36">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>190</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_36">
+         <item>
+          <widget class="QLabel" name="label_45">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>False Easting</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_FE_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_28">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_37">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>220</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_37">
+         <item>
+          <widget class="QLabel" name="label_46">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>False Northing</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_FN_3">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_29">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="LAMCC_3"/>
+      <widget class="QWidget" name="MERCAT_3"/>
+      <widget class="QWidget" name="PS_3"/>
+      <widget class="QWidget" name="POLYC_3"/>
+      <widget class="QWidget" name="EQUIDC_3"/>
+      <widget class="QWidget" name="TM_3"/>
+      <widget class="QWidget" name="STEREO_3"/>
+      <widget class="QWidget" name="LAMAZ_3"/>
+      <widget class="QWidget" name="AZMEQD_3"/>
+      <widget class="QWidget" name="GNOMON_3"/>
+      <widget class="QWidget" name="ORTHO_3"/>
+      <widget class="QWidget" name="GVNSP_3"/>
+      <widget class="QWidget" name="SNSOID_3"/>
+      <widget class="QWidget" name="EQRECT_3"/>
+      <widget class="QWidget" name="MILLER_3"/>
+      <widget class="QWidget" name="VGRINT_3"/>
+      <widget class="QWidget" name="HOM_3"/>
+      <widget class="QWidget" name="ROBIN_3"/>
+      <widget class="QWidget" name="SOM_3"/>
+      <widget class="QWidget" name="ALASKA_3"/>
+      <widget class="QWidget" name="GOOD_3"/>
+      <widget class="QWidget" name="MOLL_3"/>
+      <widget class="QWidget" name="IMOLL_3"/>
+      <widget class="QWidget" name="HAMMER_3">
+       <widget class="QWidget" name="horizontalLayoutWidget_39">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_39">
+         <item>
+          <widget class="QLabel" name="label_50">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Radius of reference sphere</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMajor_4">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_32">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_40">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_40">
+         <item>
+          <widget class="QLabel" name="label_51">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Longitude of the Central Meridian</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMajor_5">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_33">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_41">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_50">
+         <item>
+          <widget class="QLabel" name="label_52">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>False Easting</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMajor_6">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_34">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_42">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>431</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_51">
+         <item>
+          <widget class="QLabel" name="label_53">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>False Northing</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="ALBERS_SMajor_7">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_35">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="WAGIV_3"/>
+      <widget class="QWidget" name="WAGVII_3"/>
+      <widget class="QWidget" name="OBEQA_3"/>
+      <widget class="QWidget" name="USRDEF_3"/>
+     </widget>
+     <widget class="Line" name="line_9">
+      <property name="geometry">
+       <rect>
+        <x>151</x>
+        <y>71</y>
+        <width>20</width>
         <height>341</height>
        </rect>
       </property>
-      <widget class="QWidget" name="page_3"/>
-      <widget class="QWidget" name="page_4"/>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_10">
+      <property name="geometry">
+       <rect>
+        <x>181</x>
+        <y>91</y>
+        <width>441</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_38">
+      <property name="geometry">
+       <rect>
+        <x>171</x>
+        <y>71</y>
+        <width>461</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_38">
+       <item>
+        <spacer name="horizontalSpacer_30">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_47">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Projection:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="outProjectionBox">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Geographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Universal Transverse Mercator (UTM)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>State Plane Coordinates</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Albers Conical Equal Area</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lambert Conformal Conic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mercator</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Polar Stereographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Polyconic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Equidistant Conic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Transverse Mercator</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Stereographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lambert Azimuthal Equal Area</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Azimuthal Equidistant</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Gnomonic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Orthographic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>General Vertical Near-Side Perspective</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sinusoidal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Equirectangular</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MillerCylindrical</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Van der Grinten</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>(Hotine) Oblique Mercator</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Robinson</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Space Oblique Mercator (SOM)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Alaska Conformal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Interrupted Goode Homolosine</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mollweide</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Interrupted Mollweide</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hammer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Wagner IV</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Wagner VII</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Oblated Equal Area</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>User Defined</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_31">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QListWidget" name="listPages_8">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>71</y>
+        <width>151</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QListWidget::item:selected, QListWidget::item:selected:active{
+	background-color: rgba(71, 175, 255, 128);
+	border: 1px solid rgba(71, 175, 255, 128);
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>true</bool>
+      </property>
+      <property name="currentRow">
+       <number>5</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Welcome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Open Raster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Edit Input Parameters</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Select Output Options</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Preview Output</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Reproject and Save</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="QFrame" name="Heading_8">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>642</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#fff;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QLabel" name="labelPageTitle_9">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Select Ouput Projection</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_9">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>30</y>
+         <width>481</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Review the current input parameters and change anything that may need changed</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_48">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>46</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="PreviewOutput">
@@ -1765,6 +4485,9 @@ QListWidget::item:selected, QListWidget::item:selected:active{
       </widget>
      </widget>
      <widget class="QListWidget" name="listPages_4">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1974,6 +4697,9 @@ QListWidget::item:selected, QListWidget::item:selected:active{
       </widget>
      </widget>
      <widget class="QListWidget" name="listPages_5">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -2230,6 +4956,9 @@ QListWidget::item:selected, QListWidget::item:selected:active{
       </widget>
      </widget>
      <widget class="QListWidget" name="listPages_6">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -2444,13 +5173,6 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <number>24</number>
       </property>
      </widget>
-     <zorder>Heading_6</zorder>
-     <zorder>listPages_6</zorder>
-     <zorder>line_6</zorder>
-     <zorder>label_19</zorder>
-     <zorder>horizontalLayoutWidget_13</zorder>
-     <zorder>label_21</zorder>
-     <zorder>progressBar</zorder>
     </widget>
    </widget>
   </widget>

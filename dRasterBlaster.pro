@@ -32,11 +32,8 @@ RESOURCES += \
 RC_FILE += \
     icon.rc
 
-#win32:LIBS += D:/cygwin/home/mstramel/drasterblaster/lib/libgctp.lib
-#win32:LIBS += D:/cygwin/home/mstramel/drasterblaster/lib/librasterblaster.lib
+INCLUDEPATH = D:/cygwin/home/mstramel/drasterblaster/include/
+win32:LIBS += -LD:/cygwin/home/mstramel/drasterblaster/lib -llibrasterblaster
+win32:LIBS += -lgdal
 
-
-#INCLUDEPATH = D:/cygwin/home/mstramel/drasterblaster/include/
-#INCLUDEPATH += C:/Qt-Shared/Desktop/Qt/4.7.4/mingw/include/other/
-
-#QMAKE_CXXFLAGS += -DHAVE_TR1_SHARED_PTR -DHAVE_SINCOS
+QMAKE_CXXFLAGS += -DHAVE_TR1_SHARED_PTR #-DHAVE_SINCOS

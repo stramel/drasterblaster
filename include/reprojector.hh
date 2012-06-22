@@ -42,7 +42,12 @@
 enum RESAMPLER {
 	NEAREST,
 	MIN,
-	MAX
+	MAX,
+	MEAN,
+	MEDIAN,
+	MODE,
+	SUM, 
+	BILINEAR
 };
 
 //! Raster Coordinate transformation class */
@@ -114,9 +119,50 @@ private:
 	double destination_pixel_size_;
 };
 
+/**
+ * This function creates a new raster file at the path
+ * output_filename, with projection specified by output_srs. The
+ * minbox of in is calculated with the new projection.
+ *
+ *
+ * @param in The ProjectedRaster that is used to determine the size of the new raster
+ * @param output_filename The path the new raster will be created at.
+ * @param output_srs The Proj.4 specification of  projection and projection parameters.
+ *
+ */
+bool CreateOutputRaster(shared_ptr<ProjectedRaster> in,
+			string output_filename,
+			double output_pixel_size,
+			string output_srs);
 
+/**
+ * This function creates a new raster with a maximum size of
+ * output_size x output_size, meant to be used to make reprojection previews.
+ *
+ * @param input The ProjectedRaster that is used to determine the geographic area  of the output file
+ * @param output_filename File path that the new raster will be created at
+ * @param output_pixel_size Size in meters of the pixels in the output raster
+ * @param output_srs Projection specification string
+ * @param Maximum pixel count of one dimension of new raster, eg 100 means raster will be maximum of 100x100
+ *
+ */
+bool CreateSampleOutput(shared_ptr<ProjectedRaster> input,
+			string output_filename,
+			string output_srs, 
+			int output_size);
+
+/**
+ * This function partitions the _area_ of the specified ProjectedRaster into approximately partition_count pieces.
+ * 
+ *
+ * @param destination The ProjectedRaster to partition
+ * @param partition_count The number of partitions to create
+ * @return A std:vector of Areas. The Areas represent areas in raster coordinates. They will cover the entire
+ *         raster and will not overlap. If the ul.x value of an Area is -1, the area is invalid and should be
+ *         ignored. This will happen if you, for example, ask for 100 paritions from a raster with 99 pixels.  
+ */
 std::vector<Area> PartitionByCount(shared_ptr<ProjectedRaster> destination,
-		       int partition_count);
+				   int partition_count);
 
 Area ProjectedMinbox(shared_ptr<ProjectedRaster> input,
 		     shared_ptr<Projection> output_projection);

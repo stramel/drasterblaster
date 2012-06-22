@@ -1,0 +1,3 @@
+[submodule "prasterblaster"]
+	path = prasterblaster
+	url = git://github.com/dmm/prasterblaster.git

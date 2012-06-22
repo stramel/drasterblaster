@@ -2,6 +2,11 @@
 #include "ui_advanced.h"
 
 #include <iostream> //TESTING
+#include <constants.h>
+#include "wizard.h"
+#include <projectedraster.hh>
+#include <string>
+#include <utm.h>
 
 projections::projections(QObject *parent) :
     QObject(parent)
@@ -11,19 +16,19 @@ projections::projections(QObject *parent) :
     //projGridLayout = new QGridLayout();
 }
 
-void projections::callGenerate(int proj){
-    std::vector<int> params;
+void projections::callGenerate(ProjCode proj, std::string module){
+    std::vector<ProjParam> params;
     switch (proj){
     case GEO:
         break;
-    case UTM:
+    case _UTM:
         params.push_back(LON);
         params.push_back(LAT);
         break;
-    case SPC:
+    case SPCS:
         break;
-    case AEA:
-    case LCC:
+    case ALBERS:
+    case LAMCC:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(STDPR1);
@@ -33,7 +38,7 @@ void projections::callGenerate(int proj){
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case MERC:
+    case MERCAT:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(CENTMER);
@@ -41,7 +46,7 @@ void projections::callGenerate(int proj){
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case POLAR:
+    case PS:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(LONGPOL);
@@ -57,7 +62,7 @@ void projections::callGenerate(int proj){
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case EQDC:
+    case EQUIDC:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(STDPAR);
@@ -67,18 +72,7 @@ void projections::callGenerate(int proj){
         params.push_back(FN);
         //params[8] = ZERO; ????
         break;
-    case EQDCB:
-        params.push_back(SMAJOR);
-        params.push_back(SMINOR);
-        params.push_back(STDPR1);
-        params.push_back(STDPR2);
-        params.push_back(CENTMER);
-        params.push_back(ORIGINLAT);
-        params.push_back(FE);
-        params.push_back(FN);
-        //params[9] = 1; ????
-        break;
-    case TMERC:
+    case TM:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(FACTOR);
@@ -87,10 +81,10 @@ void projections::callGenerate(int proj){
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case STERE:
-    case LAEA:
-    case AEQD:
-    case GNOM:
+    case STEREO:
+    case LAMAZ:
+    case AZMEQD:
+    case GNOMON:
     case ORTHO:
         params.push_back(SPHERE);
         params.push_back(CENTLON);
@@ -106,8 +100,8 @@ void projections::callGenerate(int proj){
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case SINU:
-    case MILL:
+    case SNSOID:
+    case MILLER:
     case ROBIN:
     case MOLL:
     case HAMMER:
@@ -118,21 +112,21 @@ void projections::callGenerate(int proj){
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case EQR:
+    case EQRECT:
         params.push_back(SPHERE);
         params.push_back(CENTMER);
         params.push_back(TRUESCALE);
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case VANDG:
+    case VGRINT:
         params.push_back(SPHERE);
         params.push_back(CENTMER);
         params.push_back(ORIGINLAT);
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case OMERC:
+    case HOM:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(FACTOR);
@@ -145,18 +139,7 @@ void projections::callGenerate(int proj){
         params.push_back(LAT2);
         //params[11] = zero;//???????
         break;
-    case OMERCB:
-        params.push_back(SMAJOR);
-        params.push_back(SMINOR);
-        params.push_back(FACTOR);
-        params.push_back(AZIANG);
-        params.push_back(AZMTHPT);
-        params.push_back(ORIGINLAT);
-        params.push_back(FE);
-        params.push_back(FN);
-        //params[9] = 1;//???????
-        break;
-    case SOMERC:
+    case SOM:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(INCANG);
@@ -168,26 +151,17 @@ void projections::callGenerate(int proj){
         params.push_back(PFLAG);
         //params[10] = zero; //??????
         break;
-    case SOMERCB:
-        params.push_back(SMAJOR);
-        params.push_back(SMINOR);
-        params.push_back(SATNUM);
-        params.push_back(PATH);
-        params.push_back(FE);
-        params.push_back(FN);
-       // params[7] = 1; //?????????
-        break;
     case ALASKA:
         params.push_back(SMAJOR);
         params.push_back(SMINOR);
         params.push_back(FE);
         params.push_back(FN);
         break;
-    case IGH:
+    case GOOD:
     case IMOLL:
         params.push_back(SPHERE);
         break;
-    case OEA:
+    case OBEQA:
         params.push_back(SPHERE);
         params.push_back(SHAPEM);
         params.push_back(SHAPEN);
@@ -201,14 +175,15 @@ void projections::callGenerate(int proj){
         //Invalid
         break;
     }
-    if (generateUi(params)){
+    if (generateUi(params, module)){
         std::cout << "ERROR GENERATING UI" << std::endl;
     }
 }
 
-int projections::generateUi(std::vector<int> &params){
+int projections::generateUi(std::vector<ProjParam> &params, std::string module ){
     int error = 0;
     int rowCount = 0;
+    Wizard w;
 
     QDoubleValidator *latZValid;
     QDoubleValidator *sMajorValid;
@@ -260,7 +235,7 @@ int projections::generateUi(std::vector<int> &params){
 
     projVLayout->addSpacerItem(new QSpacerItem(0,10,QSizePolicy::Preferred, QSizePolicy::Preferred));
 
-    for (int i=0; (i < params.size()) && !error; i++){
+    for (int i=0; ((i < params.size()) && !error); i++){
         switch (params.at(i)){
         case LON:
             lonLay = new QHBoxLayout;
@@ -276,6 +251,7 @@ int projections::generateUi(std::vector<int> &params){
             lonZ->setObjectName("lonValue");
             lonZ->setFixedWidth(100);
             lonZ->setAlignment(Qt::AlignHCenter);
+            //lonZ->setText(zone());
             //val = new QRegExpValidator(lonValid, lonZ);
 
             if (params.at(i+1) != LAT) {
