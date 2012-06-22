@@ -1,0 +1,12 @@
+INPUT(
+./release/main.o
+./release/selection.o
+./release/advanced.o
+./release/wizard.o
+./release/projections.o
+./release/moc_selection.o
+./release/moc_advanced.o
+./release/moc_wizard.o
+./release/moc_projections.o
+./release/qrc_resources.o
+);
