@@ -8,6 +8,7 @@
 //#include <sharedptr.hh>
 //#include <constants.h>
 #include "projections.h"
+#include <QTemporaryFile>
 
 
 
@@ -43,6 +44,8 @@ private:
     void prepareInputUi();
     void prepareOutputUi();
     double originalParams[15];
+    string output_SRS;
+    QTemporaryFile tFile;
 
     enum ProjParam
     {

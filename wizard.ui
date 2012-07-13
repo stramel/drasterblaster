@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>642</width>
+    <height>484</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -94,7 +94,7 @@
      <enum>QFrame::Box</enum>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="WelcomeScreen">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -1191,7 +1191,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>280</y>
-        <width>181</width>
+        <width>184</width>
         <height>31</height>
        </rect>
       </property>
@@ -1241,7 +1241,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>310</y>
-        <width>191</width>
+        <width>194</width>
         <height>31</height>
        </rect>
       </property>
@@ -1291,7 +1291,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>340</y>
-        <width>182</width>
+        <width>194</width>
         <height>31</height>
        </rect>
       </property>
@@ -1355,7 +1355,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>370</y>
-        <width>218</width>
+        <width>226</width>
         <height>31</height>
        </rect>
       </property>
@@ -1419,7 +1419,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>440</x>
         <y>250</y>
-        <width>181</width>
+        <width>183</width>
         <height>31</height>
        </rect>
       </property>
@@ -1705,7 +1705,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>10</y>
           <width>431</width>
-          <height>21</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -1753,7 +1753,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>40</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_13">
@@ -1801,7 +1801,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>70</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -1849,7 +1849,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>100</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -1897,7 +1897,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>130</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_16">
@@ -1945,7 +1945,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>160</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_17">
@@ -1993,7 +1993,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>190</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_18">
@@ -2041,7 +2041,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>220</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -2132,7 +2132,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         <x>170</x>
         <y>70</y>
         <width>461</width>
-        <height>22</height>
+        <height>29</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_20">
@@ -2713,7 +2713,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>440</x>
         <y>250</y>
-        <width>182</width>
+        <width>183</width>
         <height>31</height>
        </rect>
       </property>
@@ -2770,7 +2770,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>280</y>
-        <width>181</width>
+        <width>184</width>
         <height>31</height>
        </rect>
       </property>
@@ -2820,7 +2820,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>340</y>
-        <width>182</width>
+        <width>194</width>
         <height>31</height>
        </rect>
       </property>
@@ -2884,7 +2884,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>370</y>
-        <width>218</width>
+        <width>226</width>
         <height>31</height>
        </rect>
       </property>
@@ -2948,7 +2948,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
        <rect>
         <x>180</x>
         <y>310</y>
-        <width>191</width>
+        <width>194</width>
         <height>31</height>
        </rect>
       </property>
@@ -3360,7 +3360,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>10</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_30">
@@ -3408,7 +3408,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>40</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_31">
@@ -3456,7 +3456,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>70</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_32">
@@ -3504,7 +3504,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>100</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_33">
@@ -3552,7 +3552,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>130</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_34">
@@ -3600,7 +3600,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>160</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_35">
@@ -3648,7 +3648,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>190</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_36">
@@ -3696,7 +3696,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>0</x>
           <y>220</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_37">
@@ -3769,7 +3769,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>10</x>
           <y>20</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_39">
@@ -3817,7 +3817,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>10</x>
           <y>50</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_40">
@@ -3865,7 +3865,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>10</x>
           <y>80</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_50">
@@ -3913,7 +3913,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
           <x>10</x>
           <y>110</y>
           <width>431</width>
-          <height>24</height>
+          <height>28</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_51">
@@ -3993,7 +3993,7 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         <x>171</x>
         <y>71</y>
         <width>461</width>
-        <height>22</height>
+        <height>29</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_38">
@@ -4443,27 +4443,6 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         <string>Preview Output</string>
        </property>
       </widget>
-      <widget class="QLabel" name="labelPageDesc_4">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>30</y>
-         <width>471</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Below will show a preview output based on the options selected in previous pages</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
@@ -4480,6 +4459,27 @@ QListWidget::item:selected, QListWidget::item:selected:active{
         <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
        </property>
        <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPageDesc_4">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>20</y>
+         <width>441</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Below will show a preview output based on the options selected in previous pages</string>
+       </property>
+       <property name="wordWrap">
         <bool>true</bool>
        </property>
       </widget>
@@ -4613,6 +4613,19 @@ QListWidget::item:selected, QListWidget::item:selected:active{
       </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="preview">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>80</y>
+        <width>441</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -5175,14 +5188,22 @@ QListWidget::item:selected, QListWidget::item:selected:active{
      </widget>
     </widget>
    </widget>
+   <zorder>horizontalLayoutWidget</zorder>
+   <zorder>mainWidget</zorder>
+   <zorder>btnBack</zorder>
+   <zorder>btnCancel</zorder>
+   <zorder>btnNext</zorder>
+   <zorder>Header</zorder>
+   <zorder>subHeader</zorder>
+   <zorder>magicHat</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>640</width>
-     <height>21</height>
+     <width>642</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="font">

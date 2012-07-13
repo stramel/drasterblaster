@@ -4,11 +4,14 @@
 
 #include <projectedraster.hh>
 #include <reprojector.hh>
+#include <rasterchunk.hh>
 
 #include <QFileSystemModel>
 #include <string>
 #include <QString>
 #include <iostream>
+#include <QMessageBox>
+#include <QTemporaryFile>
 
 Wizard::Wizard(QWidget *parent) :
     QMainWindow(parent),
@@ -63,6 +66,7 @@ void Wizard::prepareUi()
     connect(ui->outProjectionBox, SIGNAL(currentIndexChanged(int)), this, SLOT(changeOutProjection(int)));
     connect(ui->fillEnable, SIGNAL(toggled(bool)), this, SLOT(enableFillValue(bool)));
     connect(ui->noDataValueEnable, SIGNAL(toggled(bool)), this, SLOT(enableDataValue(bool)));
+
 
 
     //Setup File Selection Objects
@@ -174,7 +178,7 @@ void Wizard::prepareInputUi()
     ui->pixelSize->setValidator(doubleStdValid);
 
     //Fill in Input Projection Options with current raster's data
-    ui->inputProjectionBox->setCurrentIndex(nProj = ALBERS);//nProj = in->getProjection()->number());
+    ui->inputProjectionBox->setCurrentIndex(nProj = in->getProjection()->number());//nProj = ALBERS);//
     for(int i=0; i < 15; i++)
     {
         originalParams[i] = in->getProjection()->param(i);
@@ -222,7 +226,9 @@ void Wizard::prepareOutputUi()
     case ALBERS:
         //Pull from a GCTP_PARAMS ARRAY
         ui->ALBERS_SMajor_3->setText(QString::number(originalParams[0]));
+        ui->ALBERS_SMajor_3->setText(QString::number(major[nDatum]));
         ui->ALBERS_SMinor_3->setText(QString::number(originalParams[1]));
+        ui->ALBERS_SMinor_3->setText(QString::number(minor[nDatum]));
         ui->ALBERS_STDPR1_3->setText(QString::number(originalParams[2]));
         ui->ALBERS_STDPR2_3->setText(QString::number(originalParams[3]));
         ui->ALBERS_CENTMER_3->setText(QString::number(originalParams[4]));
@@ -577,8 +583,8 @@ void Wizard::showPreview()
         //Invalid
         break;
     }
-    string output_SRS = "";
-    for (unsigned int i=0; i < params.size(); i++)
+
+    /*for (unsigned int i=0; i < params.size(); i++)
     {
         string previous_SRS = output_SRS;
         switch (params.at(i)){
@@ -595,13 +601,13 @@ void Wizard::showPreview()
         case SMAJOR:
             if (originalParams[0] != 0){
                 output_SRS += "+a=";
-                output_SRS += originalParams[0];
+                output_SRS += QString::number(originalParams[0], 'f',6).toStdString();
             }
             break;
         case SMINOR:
             if (originalParams[1] != 0){
                 output_SRS += "+b=";
-                output_SRS += originalParams[1];
+                output_SRS += QString::number(originalParams[1], 'f', 6).toStdString();
             }
             break;
         case SPHERE:
@@ -769,8 +775,22 @@ void Wizard::showPreview()
         if (output_SRS.length() > previous_SRS.length() && i < params.size() - 1 )
             output_SRS += " ";
     }
-    bool result = CreateOutputRaster(in, QDir::currentPath().toUtf8().constData(), nPixel_size, output_SRS);
-    std::cout << result << std::endl;
+    //output_SRS += "+datum=";
+    //output_SRS += nDatum;*/
+
+    if (tFile.open()){
+    std::cout << "Output_SRS: " << output_SRS << tFile.fileName().toStdString() << std::endl;
+    bool result = CreateSampleOutput(in, tFile.fileName().toStdString() , output_SRS, 441);
+    RasterChunk::RasterChunk *inchunk = in->createRasterChunk(Area(0,0,in->getColCount()-1,in->getRowCount()-1));
+    out = shared_ptr<ProjectedRaster> (new ProjectedRaster(tFile.fileName().toStdString()));
+    RasterChunk::RasterChunk *outchunk = out->createRasterChunk(Area(0,0,out->getColCount()-1,out->getRowCount()-1));
+    result = ReprojectChunk(inchunk,outchunk,"255","min");
+    out->writeRasterChunk(outchunk);
+
+    QImage image(tFile.fileName());
+
+    ui->preview->setPixmap(QPixmap::fromImage(image));
+    }
 }
 
 //SLOTS
@@ -794,6 +814,34 @@ void Wizard::changeInputProjection(int index)
 void Wizard::changeOutProjection(int index)
 {
     ui->outputProjection->setCurrentIndex(index);
+    switch(index) {
+    case GEO:
+        output_SRS += "+proj=geos ";
+        break;
+    case _UTM:
+        output_SRS += "+proj=tmerc ";
+        break;
+    case SPCS:
+        output_SRS += "+proj=geos ";
+        break;
+    case ALBERS:
+        nProj = ALBERS;
+        output_SRS += "+proj=aea ";
+        ui->ALBERS_SMajor_3->setText(QString::number(originalParams[0] = major[nDatum]));
+        ui->ALBERS_SMinor_3->setText(QString::number(originalParams[1] = minor[nDatum]));
+        break;
+    case LAMCC:
+        break;
+    case MERCAT:
+        break;
+    case PS:
+        break;
+    case MOLL:
+        output_SRS += "+proj=moll";
+        break;
+    default:
+        break;
+    }
 }
 
 void Wizard::enableFillValue(bool state)
