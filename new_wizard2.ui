@@ -35,24 +35,27 @@
       <widget class="QWidget" name="welcomePage">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QGraphicsView" name="wizardGView">
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
+         <widget class="QLabel" name="label_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
+          <property name="minimumSize">
+           <size>
+            <width>256</width>
+            <height>256</height>
+           </size>
           </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
+          <property name="text">
+           <string/>
           </property>
-          <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
+          <property name="pixmap">
+           <pixmap resource="resources.qrc">:/Images/tools-wizard256.png</pixmap>
           </property>
-          <property name="interactive">
-           <bool>false</bool>
-          </property>
-          <property name="renderHints">
-           <set>QPainter::Antialiasing|QPainter::HighQualityAntialiasing</set>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -491,13 +494,13 @@
          <layout class="QHBoxLayout" name="WrapperLayout">
           <item>
            <layout class="QGridLayout" name="FinalimageLayout">
-            <item row="1" column="1">
-             <widget class="QGraphicsView" name="finalImage"/>
-            </item>
             <item row="1" column="0">
              <spacer name="horizontalSpacer_13">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::MinimumExpanding</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -512,6 +515,9 @@
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::MinimumExpanding</enum>
+              </property>
               <property name="sizeHint" stdset="0">
                <size>
                 <width>20</width>
@@ -524,6 +530,9 @@
              <spacer name="horizontalSpacer_12">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::MinimumExpanding</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -538,6 +547,9 @@
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Expanding</enum>
+              </property>
               <property name="sizeHint" stdset="0">
                <size>
                 <width>20</width>
@@ -545,6 +557,13 @@
                </size>
               </property>
              </spacer>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="finalPreview">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -673,6 +692,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="navPrevious">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>&lt;&lt; Prev</string>
         </property>
@@ -687,6 +709,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="navNext">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Next &gt;&gt;</string>
         </property>
@@ -717,7 +742,7 @@
     <property name="title">
      <string>Options</string>
     </property>
-    <addaction name="actionEdit_Raster_Header"/>
+    <addaction name="Edit_Raster_Header"/>
     <addaction name="Downsample"/>
     <addaction name="separator"/>
     <addaction name="Edit_Author_Info"/>
@@ -736,6 +761,10 @@
    <addaction name="Help"/>
   </widget>
   <action name="Tool_Selection">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/mail-mark-task.png</normaloff>:/Images/mail-mark-task.png</iconset>
+   </property>
    <property name="text">
     <string>Tool Selection</string>
    </property>
@@ -746,6 +775,10 @@
    </property>
   </action>
   <action name="Exit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/document-close-316.png</normaloff>:/Images/document-close-316.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
@@ -756,11 +789,19 @@
    </property>
   </action>
   <action name="Edit_Author_Info">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/configure-2.png</normaloff>:/Images/configure-2.png</iconset>
+   </property>
    <property name="text">
     <string>Edit Author Info</string>
    </property>
   </action>
   <action name="User_Guide">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/documentation.png</normaloff>:/Images/documentation.png</iconset>
+   </property>
    <property name="text">
     <string>User Guide</string>
    </property>
@@ -771,16 +812,22 @@
    </property>
   </action>
   <action name="About_Qt">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Images/qt-logo.png</normaloff>:/Images/qt-logo.png</iconset>
+   </property>
    <property name="text">
     <string>About Qt</string>
    </property>
   </action>
-  <action name="actionEdit_Raster_Header">
+  <action name="Edit_Raster_Header">
    <property name="text">
     <string>Edit Raster Header</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

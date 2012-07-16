@@ -105,7 +105,6 @@ HEADERS  += selection.h \
 
 FORMS    += selection.ui \
     advanced.ui \
-    wizard.ui \
     new_wizard2.ui
 
 RESOURCES += \
