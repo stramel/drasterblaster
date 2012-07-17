@@ -30,7 +30,7 @@
     <item>
      <widget class="QStackedWidget" name="WizardPages">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="welcomePage">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -221,16 +221,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="ClickNextToCont">
-            <property name="text">
-             <string>Click 'Next' to continue</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-           </widget>
           </item>
          </layout>
         </item>

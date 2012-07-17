@@ -22,14 +22,14 @@ Selection::~Selection()
 void Selection::showWizard()
 {
     Wizard *w = new Wizard();
-    w->setWindowTitle("Wizard - dRasterBlaster (v0.1)");
+    w->setWindowTitle("Wizard - dRasterBlaster (v4.0)");
     w->show();
 }
 
 void Selection::showAdvanced()
 {
     Advanced *a = new Advanced();
-    a->setWindowTitle("Advanced - dRasterBlaster (v0.1)");
+    a->setWindowTitle("Advanced - dRasterBlaster (v4.0)");
     a->show();
 }
 
@@ -37,7 +37,7 @@ void Selection::showSelection()
 {
 
     Selection *s = new Selection();
-    s->setWindowTitle("dRasterBlaster (v0.1)");
+    s->setWindowTitle("dRasterBlaster (v4.0)");
     s->show();
 }
 

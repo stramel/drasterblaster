@@ -2,6 +2,7 @@
 #define NEW_WIZARD_H
 
 #include <QMainWindow>
+#include <QTemporaryFile>
 
 #include <projectedraster.hh>
 #include <sharedptr.hh>
@@ -24,6 +25,12 @@ signals:
 private:
     Ui::Wizard *ui;
 
+    //Temporary Projections
+    QList<QTemporaryFile *> tList_proj;
+
+    //Projection List, SRS code
+    QList<QString> srsList_proj;
+
     //Navigation Variables
     int page;
 
@@ -38,13 +45,16 @@ private:
     //Loads the next page after a navigation click
     void switchPage(int);
 
+    //Generates all the basic map projection previews for user to select from
+    bool basicPreviews();
+
 private slots:
 
     //Opens raster
     void openRaster();
 
-    //Generates all the basic map projection previews for user to select from
-    void basicPreviews();
+    //Saves raster
+    void saveRaster();
 
     //Controls Navigation
     void nextPage();
