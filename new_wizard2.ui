@@ -30,7 +30,7 @@
     <item>
      <widget class="QStackedWidget" name="WizardPages">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="welcomePage">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -351,10 +351,13 @@
         </item>
         <item>
          <widget class="QScrollArea" name="Previews">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents">
+          <widget class="QWidget" name="scrollArea">
            <property name="geometry">
             <rect>
              <x>0</x>

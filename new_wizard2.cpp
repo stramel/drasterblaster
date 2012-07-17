@@ -8,6 +8,7 @@
 
 #include <QFileDialog>
 #include <QProgressDialog>
+#include <QDebug>
 
 Wizard::Wizard(QWidget *parent) :
     QMainWindow(parent),
@@ -60,6 +61,7 @@ void Wizard::autoConnect()
     connect(ui->selectSubset, SIGNAL(clicked()), this, SLOT()); //Launch popup for selecting the subset
     connect(ui->areaTypeDrop, SIGNAL(currentIndexChanged(int)), this, SLOT(basicPreviews()));
     connect(ui->preserveDrop, SIGNAL(currentIndexChanged(int)), this, SLOT(basicPreviews()));
+
 }
 
 void Wizard::initialLoad()
@@ -118,13 +120,22 @@ bool Wizard::basicPreviews()
     int total = 100% PROJCT;
     int increment = 100 / PROJCT; //iterator
 
+    int rasterSize = 0;
+    int tempSize = 190;
+    while (rasterSize == 0)
+    {
+        if (ui->Previews->width() % (ui->Previews->width()/tempSize) != 0)
+            tempSize--;
+        else
+            rasterSize = tempSize;
+    }
     QGridLayout *grid = new QGridLayout(ui->Previews);
     //Initializing the temporary files with a projection and Display
     for(int i = 0; i < PROJCT; i++)
     {
         if (progress->wasCanceled())
         {
-            return true;
+            return false;
         }
         progress->setValue(total);
         //QMessageBox msg = new QMessageBox(QString::number(tList_proj[i]));
@@ -132,23 +143,30 @@ bool Wizard::basicPreviews()
         tList_proj.append(temp);
         if(tList_proj.at(i)->open())
         {
-            if (!CreateSampleOutput(inputRaster, tList_proj.at(i)->fileName().toStdString(), "+proj=moll", 100)) //srsList_proj.at(i).toStdString(), 100))
+            if (!CreateSampleOutput(inputRaster, tList_proj.at(i)->fileName().toStdString(), "+proj=moll", rasterSize))
             {
                 //ERROR CREATING SAMPLE OUTPUT
-                return true;
+                return false;
+            }
+            QLabel *img = new QLabel();
+            if (!tList_proj.at(i)->fileName().isEmpty())
+            {
+                QImage image(tList_proj.at(i)->fileName(), "TIFF");
+                if (image.isNull())
+                {
+
+                    //QMessageBox::information(this, tr("dRB Error"), tr("Cannot load %1.").arg(tList_proj.at(i)->fileName()));
+                    return false;
+                }
+                img->setPixmap(QPixmap::fromImage(image));
+                grid->addWidget(img,(i/(ui->Previews->width()/rasterSize)),(i % (ui->Previews->width()/rasterSize)),Qt::AlignHCenter);
             }
         }
-        //QLabel *img;
-        //QImage image(tList_proj.at(i)->fileName());
-        //img->setPixmap(QPixmap::fromImage(image));
-        //grid->addWidget(img,i+1,i%3,Qt::AlignHCenter);
-
         total += increment;
     }
-    //for (int i= 0; i < PROJCT; i++)
-    //    delete tList_proj.at(i);
-    //tList_proj.clear();
-    return false;
+    delete progress;
+    ui->scrollArea->setLayout(grid);
+    return true;
 }
 
 //////////////
@@ -183,7 +201,7 @@ void Wizard::switchPage(int new_page)
         break;
     case 1: //Raster map projection basic previews
         ui->navPrevious->setEnabled(true);
-        if (basicPreviews())
+        if (!basicPreviews())
         {
             new_page = 0;
             page = 0;
