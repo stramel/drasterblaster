@@ -245,6 +245,9 @@
           </item>
           <item>
            <widget class="QPushButton" name="selectSubset">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Select Subset&lt;/span&gt; allows you to select a smaller area of interest to reproject from the original raster dataset.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="text">
              <string>Select Subset</string>
             </property>
@@ -268,6 +271,9 @@
           </item>
           <item>
            <widget class="QLabel" name="TypeOfArea">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Type of Area&lt;/span&gt; allows you to select what area the raster dataset represents. By default, this setting should be automatically set.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="text">
              <string>Type of Area</string>
             </property>
@@ -310,6 +316,12 @@
           </item>
           <item>
            <widget class="QLabel" name="Preserve">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Preserve&lt;/span&gt; allows you to select which aspect of a global raster dataset to keep emphasis on.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="whatsThis">
+             <string/>
+            </property>
             <property name="text">
              <string>Preserve</string>
             </property>
@@ -473,13 +485,13 @@
          <widget class="QLabel" name="AlmostThere">
           <property name="font">
            <font>
-            <pointsize>30</pointsize>
+            <pointsize>21</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
           <property name="text">
-           <string>Almost There...</string>
+           <string>New Raster Dataset has been created, finish up by saving</string>
           </property>
          </widget>
         </item>

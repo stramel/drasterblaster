@@ -9,6 +9,8 @@
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QDebug>
+#include <QResizeEvent>
+#include <QScrollArea>
 
 Wizard::Wizard(QWidget *parent) :
     QMainWindow(parent),
@@ -71,6 +73,7 @@ void Wizard::initialLoad()
     //Initialize page to zero
     page = 0; //Initialize variable to zero
     emit pageChanged(page); //Sets to deafult page
+    dssSize = 256;
 }
 
 //////////////////
@@ -120,52 +123,91 @@ bool Wizard::basicPreviews()
     int total = 100% PROJCT;
     int increment = 100 / PROJCT; //iterator
 
-    int rasterSize = 0;
-    int tempSize = 190;
-    while (rasterSize == 0)
-    {
-        if (ui->Previews->width() % (ui->Previews->width()/tempSize) != 0)
-            tempSize--;
-        else
-            rasterSize = tempSize;
-    }
     QGridLayout *grid = new QGridLayout(ui->Previews);
     //Initializing the temporary files with a projection and Display
     for(int i = 0; i < PROJCT; i++)
     {
+        progress->setValue(total);
         if (progress->wasCanceled())
         {
             return false;
         }
-        progress->setValue(total);
-        //QMessageBox msg = new QMessageBox(QString::number(tList_proj[i]));
-        QTemporaryFile *temp  = new QTemporaryFile("dRB_temp");
-        tList_proj.append(temp);
-        if(tList_proj.at(i)->open())
+        else if (!generateDSSPreviews(grid,
+                                      i,
+                                      i/(ui->Previews->width()/dssSize),
+                                      i%(ui->Previews->width()/dssSize),
+                                      dssSize))
         {
-            if (!CreateSampleOutput(inputRaster, tList_proj.at(i)->fileName().toStdString(), "+proj=moll", rasterSize))
-            {
-                //ERROR CREATING SAMPLE OUTPUT
-                return false;
-            }
-            QLabel *img = new QLabel();
-            if (!tList_proj.at(i)->fileName().isEmpty())
-            {
-                QImage image(tList_proj.at(i)->fileName(), "TIFF");
-                if (image.isNull())
-                {
-
-                    //QMessageBox::information(this, tr("dRB Error"), tr("Cannot load %1.").arg(tList_proj.at(i)->fileName()));
-                    return false;
-                }
-                img->setPixmap(QPixmap::fromImage(image));
-                grid->addWidget(img,(i/(ui->Previews->width()/rasterSize)),(i % (ui->Previews->width()/rasterSize)),Qt::AlignHCenter);
-            }
+            //ERROR generating previews
+            return false;
         }
-        total += increment;
+        else
+        {
+            total += increment;
+        }
     }
     delete progress;
     ui->scrollArea->setLayout(grid);
+    return true;
+}
+
+bool Wizard::generateDSSPreviews(QGridLayout *g, int i, int row, int col, int rasterSize)
+{
+    QTemporaryFile *temp  = new QTemporaryFile("dRB_temp");
+    tList_proj.append(temp);
+    if(tList_proj.at(i)->open())
+    {
+        if (!CreateSampleOutput(inputRaster, tList_proj.at(i)->fileName().toStdString(), "+proj=moll", rasterSize))
+        {
+            //ERROR CREATING SAMPLE OUTPUT
+            return false;
+        }
+        QLabel *img = new QLabel();
+        if (!tList_proj.at(i)->fileName().isEmpty())
+        {
+            QImage image(tList_proj.at(i)->fileName(), "TIFF");
+            if (image.isNull())
+            {
+
+                //QMessageBox::information(this, tr("dRB Error"), tr("Cannot load %1.").arg(tList_proj.at(i)->fileName()));
+                return false;
+            }
+            img->setPixmap(QPixmap::fromImage(image));
+            g->addWidget(img,row,col,Qt::AlignHCenter);
+        }
+    }
+    return true;
+}
+
+bool QMainWindow::event(QEvent *evt)
+{
+    if (evt->type() == QEvent::Resize)
+    {
+        QResizeEvent *re = (QResizeEvent *)evt;
+
+        int tempSize = 256;
+        int wd = re->size().width();
+        if ((wd % tempSize) != 0)
+        {
+            int tempUp = tempSize;
+            int tempDown = tempSize;
+            tempSize = 0;
+            while(tempSize == 0)
+            {
+                if ((wd % ++tempUp) == 0)
+                {
+                    tempSize = tempUp;
+                } else if ((wd % --tempDown) == 0)
+                {
+                    tempSize = tempDown;
+                }
+            }
+            Wizard *w = new Wizard();
+            w->setDssSize(tempSize);
+            if (w->getPage() == 1)
+                w->basicPreviews();
+        }
+    }
     return true;
 }
 

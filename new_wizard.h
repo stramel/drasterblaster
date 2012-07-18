@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTemporaryFile>
+#include <QGridLayout>
 
 #include <projectedraster.hh>
 #include <sharedptr.hh>
@@ -18,12 +19,20 @@ class Wizard : public QMainWindow
 public:
     explicit Wizard(QWidget *parent = 0);
     ~Wizard();
+    void setDssSize(int tempSize) {dssSize = tempSize;}
+    int getPage() {return page;}
+
+    //Makes calls to generate DSS Previews
+    bool basicPreviews();
 
 signals:
     void pageChanged(int);
     
 private:
     Ui::Wizard *ui;
+
+    //DSS Preview size
+    int dssSize;
 
     //Temporary Projections
     QList<QTemporaryFile *> tList_proj;
@@ -45,8 +54,9 @@ private:
     //Loads the next page after a navigation click
     void switchPage(int);
 
-    //Generates all the basic map projection previews for user to select from
-    bool basicPreviews();
+    //Generates previews for DSS
+    bool generateDSSPreviews(QGridLayout *, int i, int row, int col, int rasterSize);
+
 
 private slots:
 
