@@ -19,20 +19,25 @@ class Wizard : public QMainWindow
 public:
     explicit Wizard(QWidget *parent = 0);
     ~Wizard();
-    void setDssSize(int tempSize) {dssSize = tempSize;}
+    void setFormSize(int x) {formSize = x;}
+    int getFormSize() {return formSize;}
     int getPage() {return page;}
 
-    //Makes calls to generate DSS Previews
-    bool basicPreviews();
+    //void emitDSS(int);
+
+
 
 signals:
     void pageChanged(int);
+    //void dssResized(int);
     
 private:
     Ui::Wizard *ui;
 
-    //DSS Preview size
-    int dssSize;
+    //DSS Columns
+    int dssColumns;
+
+    int formSize;
 
     //Temporary Projections
     QList<QTemporaryFile *> tList_proj;
@@ -51,11 +56,17 @@ private:
     //Initial Ui Setup
     void initialLoad();
 
+    //SRS default string
+    void loadSRS();
+
     //Loads the next page after a navigation click
     void switchPage(int);
 
     //Generates previews for DSS
-    bool generateDSSPreviews(QGridLayout *, int i, int row, int col, int rasterSize);
+    bool generateDSSPreviews(QGridLayout *, int);
+
+    //Clears a layout completely
+    void clearLayout(QLayout* layout, bool deleteWidgets = true);
 
 
 private slots:
@@ -69,6 +80,14 @@ private slots:
     //Controls Navigation
     void nextPage();
     void prevPage();
+
+    //DSS
+    void setColumns();
+    void handleAreaType(QString);
+
+    //Makes calls to generate DSS Previews
+    bool basicPreviews();
+    //void resizeDSS(int);
 };
 
 #endif // NEW_WIZARD_H

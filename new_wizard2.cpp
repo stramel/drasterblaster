@@ -61,8 +61,9 @@ void Wizard::autoConnect()
 
     //Raster DSS
     connect(ui->selectSubset, SIGNAL(clicked()), this, SLOT()); //Launch popup for selecting the subset
-    connect(ui->areaTypeDrop, SIGNAL(currentIndexChanged(int)), this, SLOT(basicPreviews()));
+    connect(ui->areaTypeDrop, SIGNAL(currentIndexChanged(QString)), this, SLOT(handleAreaType(QString)));
     connect(ui->preserveDrop, SIGNAL(currentIndexChanged(int)), this, SLOT(basicPreviews()));
+    connect(ui->columnSlider, SIGNAL(sliderReleased()), this, SLOT(setColumns()));
 
 }
 
@@ -73,7 +74,10 @@ void Wizard::initialLoad()
     //Initialize page to zero
     page = 0; //Initialize variable to zero
     emit pageChanged(page); //Sets to deafult page
-    dssSize = 256;
+    dssColumns = 3;
+    formSize = 735;
+    ui->columnSlider->setValue(dssColumns);
+    loadSRS();
 }
 
 //////////////////
@@ -116,12 +120,27 @@ void Wizard::saveRaster()
 //Raster DSS/Previews
 //////////////////////
 
+void Wizard::setColumns()
+{
+    dssColumns = ui->columnSlider->value();
+    basicPreviews();
+}
+
 bool Wizard::basicPreviews()
 {
+    //Progress Dialog
     QProgressDialog *progress = new QProgressDialog("Loading previews...", "Cancel", 0, 100);
     progress->setWindowModality(Qt::WindowModal);
     int total = 100% PROJCT;
     int increment = 100 / PROJCT; //iterator
+
+
+    if (ui->scrollArea->layout() != 0)
+    {
+        clearLayout(ui->scrollArea->layout());
+        delete ui->scrollArea->layout();
+    }
+
 
     QGridLayout *grid = new QGridLayout(ui->Previews);
     //Initializing the temporary files with a projection and Display
@@ -132,11 +151,37 @@ bool Wizard::basicPreviews()
         {
             return false;
         }
-        else if (!generateDSSPreviews(grid,
-                                      i,
-                                      i/(ui->Previews->width()/dssSize),
-                                      i%(ui->Previews->width()/dssSize),
-                                      dssSize))
+//        else if (ui->areaTypeDrop->currentText() == "Global")
+//        {
+//            switch (ui->preserveDrop->currentText())
+//            {
+//            case "Area":
+//                //Add header and loop specifics
+//                if (!generateDSSPreviews(grid, i))
+//                {
+//                    //ERROR generating previews
+//                    return false;
+//                }
+//                //Add other header and loop rest
+//                break;
+//            case "Shape":
+//                break;
+//            case "Compromise":
+//                break;
+//            }
+//        }
+//        else if (ui->areaTypeDrop->currentText() == "Regional" ||
+//                 ui->areaTypeDrop->currentText() == "Continental")
+//        {
+//            switch (ui->preserveDrop->currentText())
+//            {
+//            case "Area":
+//                break;
+//            case "Shape":
+//                break;
+//            }
+//        }
+        else if (!generateDSSPreviews(grid, i))
         {
             //ERROR generating previews
             return false;
@@ -151,13 +196,16 @@ bool Wizard::basicPreviews()
     return true;
 }
 
-bool Wizard::generateDSSPreviews(QGridLayout *g, int i, int row, int col, int rasterSize)
+bool Wizard::generateDSSPreviews(QGridLayout *grid, int i)
 {
     QTemporaryFile *temp  = new QTemporaryFile("dRB_temp");
     tList_proj.append(temp);
     if(tList_proj.at(i)->open())
     {
-        if (!CreateSampleOutput(inputRaster, tList_proj.at(i)->fileName().toStdString(), "+proj=moll", rasterSize))
+        if (!CreateSampleOutput(inputRaster,
+                                tList_proj.at(i)->fileName().toStdString(),
+                                "+proj=moll",
+                                ((formSize/dssColumns) - dssColumns*2)))
         {
             //ERROR CREATING SAMPLE OUTPUT
             return false;
@@ -173,43 +221,71 @@ bool Wizard::generateDSSPreviews(QGridLayout *g, int i, int row, int col, int ra
                 return false;
             }
             img->setPixmap(QPixmap::fromImage(image));
-            g->addWidget(img,row,col,Qt::AlignHCenter);
+            grid->addWidget(img, i/dssColumns, i%dssColumns);
         }
     }
     return true;
 }
 
-bool QMainWindow::event(QEvent *evt)
+void Wizard::handleAreaType(QString type)
 {
-    if (evt->type() == QEvent::Resize)
+    if (type == "Global")
     {
-        QResizeEvent *re = (QResizeEvent *)evt;
-
-        int tempSize = 256;
-        int wd = re->size().width();
-        if ((wd % tempSize) != 0)
-        {
-            int tempUp = tempSize;
-            int tempDown = tempSize;
-            tempSize = 0;
-            while(tempSize == 0)
-            {
-                if ((wd % ++tempUp) == 0)
-                {
-                    tempSize = tempUp;
-                } else if ((wd % --tempDown) == 0)
-                {
-                    tempSize = tempDown;
-                }
-            }
-            Wizard *w = new Wizard();
-            w->setDssSize(tempSize);
-            if (w->getPage() == 1)
-                w->basicPreviews();
-        }
+        QModelIndex index = ui->preserveDrop->model()->index(2,0);
+        QVariant v(1|32);
+        ui->preserveDrop->model()->setData(index,v,Qt::UserRole -1);
     }
-    return true;
+    else
+    {
+        if (ui->preserveDrop->currentText() == "Compromise")
+            ui->preserveDrop->setCurrentIndex(0);
+        QModelIndex index = ui->preserveDrop->model()->index(2,0);
+        QVariant v(0);
+        ui->preserveDrop->model()->setData(index,v,Qt::UserRole -1);
+    }
+    basicPreviews();
 }
+
+void Wizard::loadSRS()
+{
+    string temp;
+
+    //Separate files for each projection?
+
+}
+
+
+//RESIZE EVENT
+
+//bool QMainWindow::event(QEvent *evt)
+//{
+//    if (evt->type() == QEvent::Resize)
+//    {
+//        QResizeEvent *re = (QResizeEvent *)evt;
+//        re->
+//        Wizard *w = new Wizard();
+//        w->emitDSS(re->size().width());
+
+//    }
+//    return true;
+//}
+
+//void Wizard::emitDSS(int x)
+//{
+//    if (page == 1)
+//        emit dssResized(x);
+//}
+
+//void Wizard::resizeDSS(int newSize)
+//{
+//    if (formSize != newSize && page == 1)
+//    {
+//        formSize = newSize;
+//        clearLayout(ui->scrollArea->layout());
+//        delete ui->scrollArea->layout();
+//        basicPreviews();
+//    }
+//}
 
 //////////////
 //Navigation
@@ -261,4 +337,19 @@ void Wizard::switchPage(int new_page)
     }
     ui->navNext->setEnabled(false); //This should always happen to ensure something or the correct something is selected
     emit pageChanged(new_page);
+}
+
+void Wizard::clearLayout(QLayout* layout, bool deleteWidgets)
+{
+    while (QLayoutItem* item = layout->takeAt(0))
+    {
+        if (deleteWidgets)
+        {
+            if (QWidget* widget = item->widget())
+                delete widget;
+        }
+        else if (QLayout* childLayout = item->layout())
+            clearLayout(childLayout, deleteWidgets);
+        delete item;
+    }
 }
