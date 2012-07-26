@@ -41,6 +41,11 @@ void Selection::showSelection()
     s->show();
 }
 
+void Selection::showEditRasterHeader()
+{
+
+}
+
 void Selection::showEditAuthor()
 {
 

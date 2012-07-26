@@ -54,7 +54,9 @@ SOURCES += main.cpp\
     prasterblaster/src/gctp_cpp/azequidistant.cpp \
     prasterblaster/src/gctp_cpp/albersConEqArea.cpp \
     prasterblaster/src/gctp_cpp/alaskaconformal.cpp \
-    new_wizard2.cpp
+    new_wizard2.cpp \
+    downsample.cpp \
+    subsetselect.cpp
 
 HEADERS  += selection.h \
     advanced.h \
@@ -100,12 +102,16 @@ HEADERS  += selection.h \
     prasterblaster/src/gctp_cpp/azequidistant.h \
     prasterblaster/src/gctp_cpp/albersConEqArea.h \
     prasterblaster/src/gctp_cpp/alaskaconformal.h \
-    new_wizard.h
+    new_wizard.h \
+    downsample.h \
+    subsetselect.h
 
 
 FORMS    += selection.ui \
     advanced.ui \
-    new_wizard2.ui
+    new_wizard2.ui \
+    downsample.ui \
+    subsetselect.ui
 
 RESOURCES += \
     resources.qrc

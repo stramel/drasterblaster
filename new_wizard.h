@@ -84,10 +84,14 @@ private slots:
     //DSS
     void setColumns();
     void handleAreaType(QString);
+    void selectSubsetDialog();
 
     //Makes calls to generate DSS Previews
     bool basicPreviews();
     //void resizeDSS(int);
+
+    //Fill/No Data/Downsample Previews
+    void showDownsample();
 };
 
 #endif // NEW_WIZARD_H

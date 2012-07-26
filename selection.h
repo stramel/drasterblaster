@@ -16,6 +16,7 @@ public:
     ~Selection();
 
 public slots:
+    void showEditRasterHeader();
     void showEditAuthor();
     void showUserGuide();
     void about();

@@ -1,6 +1,8 @@
 #include "new_wizard.h"
 #include "selection.h"
 #include "ui_new_wizard2.h"
+#include "downsample.h"
+#include "subsetselect.h"
 
 #include <projectedraster.hh>
 #include <reprojector.hh>
@@ -30,26 +32,26 @@ void Wizard::autoConnect()
     Selection *s = new Selection();
 
     //Menu Connects
+    ////////////////////////////////////////////////////////////////////////////
     //File
     connect(ui->Tool_Selection, SIGNAL(triggered()), s, SLOT(showSelection()));
     connect(ui->Tool_Selection, SIGNAL(triggered()), this, SLOT(close()));
     connect(ui->Exit, SIGNAL(triggered()), this, SLOT(close()));
     //Options
-    ////Launch popup for downsampling
-    connect(ui->Downsample, SIGNAL(triggered()), this, SLOT());
     ////Launch popup for editing raster header
-    connect(ui->Edit_Raster_Header, SIGNAL(triggered()), this, SLOT());
+    connect(ui->Edit_Raster_Header, SIGNAL(triggered()), s, SLOT(showEditRasterHeader()));
     ////Launch popup for editing author information
-    connect(ui->Edit_Author_Info, SIGNAL(triggered()), this, SLOT());
+    connect(ui->Edit_Author_Info, SIGNAL(triggered()), s, SLOT(showEditAuthor()));
     //Help
     ////Launch PDF User Guide
-    connect(ui->User_Guide, SIGNAL(triggered()), this, SLOT());
+    connect(ui->User_Guide, SIGNAL(triggered()), s, SLOT(showUserGuide()));
     ////Launch popup for about dRasterBlaster
-    connect(ui->About_dRasterBlaster, SIGNAL(triggered()), this, SLOT());
+    connect(ui->About_dRasterBlaster, SIGNAL(triggered()), s, SLOT(about()));
     ////Launch popup for about Qt
-    connect(ui->About_Qt, SIGNAL(triggered()), this, SLOT());
+    connect(ui->About_Qt, SIGNAL(triggered()), s, SLOT(aboutQt()));
 
     //Navigation
+    ////////////////////////////////////////////////////////////////////////////
     connect(ui->navNext, SIGNAL(clicked()), this, SLOT(nextPage())); //No parameter defaults to 'n'
     connect(ui->navPrevious, SIGNAL(clicked()), this, SLOT(prevPage()));
     connect(this, SIGNAL(pageChanged(int)), ui->WizardPages, SLOT(setCurrentIndex(int)));
@@ -57,13 +59,19 @@ void Wizard::autoConnect()
     connect(ui->navCancel, SIGNAL(clicked()), this, SLOT(close()));
 
     //Welcome Page
+    ////////////////////////////////////////////////////////////////////////////
     connect(ui->inputButton, SIGNAL(clicked()), this, SLOT(openRaster()));
 
     //Raster DSS
-    connect(ui->selectSubset, SIGNAL(clicked()), this, SLOT()); //Launch popup for selecting the subset
+    ////////////////////////////////////////////////////////////////////////////
+    connect(ui->selectSubset, SIGNAL(clicked()), this, SLOT(selectSubsetDialog())); //Launch popup for selecting the subset
     connect(ui->areaTypeDrop, SIGNAL(currentIndexChanged(QString)), this, SLOT(handleAreaType(QString)));
     connect(ui->preserveDrop, SIGNAL(currentIndexChanged(int)), this, SLOT(basicPreviews()));
     connect(ui->columnSlider, SIGNAL(sliderReleased()), this, SLOT(setColumns()));
+
+    //Fill/No Data/Downsample Previews
+    ////////////////////////////////////////////////////////////////////////////
+    connect(ui->downSample, SIGNAL(triggered()), this, SLOT(showDownsample()));
 
 }
 
@@ -80,9 +88,9 @@ void Wizard::initialLoad()
     loadSRS();
 }
 
-//////////////////
+////////////////////////////////////////////////////////////////////////////////
 //Raster File I/O
-//////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 void Wizard::openRaster()
 {
@@ -116,9 +124,9 @@ void Wizard::saveRaster()
 }
 
 
-//////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //Raster DSS/Previews
-//////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 void Wizard::setColumns()
 {
@@ -254,8 +262,15 @@ void Wizard::loadSRS()
 
 }
 
+void Wizard::selectSubsetDialog()
+{
+    SubsetSelect *s = new SubsetSelect();
+    s->show();
+}
 
+////////////////////////////////////////////////////////////////////////////////
 //RESIZE EVENT
+////////////////////////////////////////////////////////////////////////////////
 
 //bool QMainWindow::event(QEvent *evt)
 //{
@@ -287,9 +302,20 @@ void Wizard::loadSRS()
 //    }
 //}
 
-//////////////
+////////////////////////////////////////////////////////////////////////////////
+// Fill/No Data/Downsample Previews
+////////////////////////////////////////////////////////////////////////////////
+
+void Wizard::showDownsample()
+{
+    Downsample *d = new Downsample();
+    d->show();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 //Navigation
-//////////////
+////////////////////////////////////////////////////////////////////////////////
 
 void Wizard::nextPage()
 {
@@ -338,6 +364,10 @@ void Wizard::switchPage(int new_page)
     ui->navNext->setEnabled(false); //This should always happen to ensure something or the correct something is selected
     emit pageChanged(new_page);
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// General Functions
+////////////////////////////////////////////////////////////////////////////////
 
 void Wizard::clearLayout(QLayout* layout, bool deleteWidgets)
 {
