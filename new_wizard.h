@@ -23,13 +23,13 @@ public:
     int getFormSize() {return formSize;}
     int getPage() {return page;}
 
-    //void emitDSS(int);
+    void emitDSS(int);
 
 
 
 signals:
     void pageChanged(int);
-    //void dssResized(int);
+    void dssResized(int);
     
 private:
     Ui::Wizard *ui;
@@ -71,6 +71,8 @@ private:
 
 private slots:
 
+    //void cleanUpTemps();
+
     //Opens raster
     void openRaster();
 
@@ -92,6 +94,10 @@ private slots:
 
     //Fill/No Data/Downsample Previews
     void showDownsample();
+
+protected:
+    void closeEvent(QCloseEvent *event);
+    void resizeEvent(QResizeEvent *event);
 };
 
 #endif // NEW_WIZARD_H

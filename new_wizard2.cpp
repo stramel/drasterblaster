@@ -68,6 +68,7 @@ void Wizard::autoConnect()
     connect(ui->areaTypeDrop, SIGNAL(currentIndexChanged(QString)), this, SLOT(handleAreaType(QString)));
     connect(ui->preserveDrop, SIGNAL(currentIndexChanged(int)), this, SLOT(basicPreviews()));
     connect(ui->columnSlider, SIGNAL(sliderReleased()), this, SLOT(setColumns()));
+    //connect(this, SIGNAL(dssResized(int)), this, SLOT(resizeDSS(int)));
 
     //Fill/No Data/Downsample Previews
     ////////////////////////////////////////////////////////////////////////////
@@ -88,25 +89,52 @@ void Wizard::initialLoad()
     loadSRS();
 }
 
+void Wizard::closeEvent(QCloseEvent *event)
+{
+    Wizard *w = (Wizard *) this;
+    if(w->page > 0)
+    {
+        for(int i=0; i< PROJCT; i++)
+        {
+            delete w->tList_proj.at(0);
+            tList_proj.removeAt(0);
+        }
+    }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //Raster File I/O
 ////////////////////////////////////////////////////////////////////////////////
 
 void Wizard::openRaster()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Raster Dataset"), "", tr("Raster Dataset (*.tif *.tiff)"));
-
-    if (fileName != "") {
-        inputRaster = shared_ptr<ProjectedRaster>(new ProjectedRaster(fileName.toStdString()));
-        if (!inputRaster->isReady()) {
-            //Error Opening File
-            //Emit ERROR SIGNAL HERE
-            return;
-        } else {
-            //Opened Successfully
-            ui->inputPath->setText(fileName);
-            ui->navNext->setEnabled(true);
+    QString fileName;
+    int tries = 0;
+    while(tries < 3)
+    {
+        if (ui->inputPath->text() != "")
+        {
+            fileName = QFileDialog::getOpenFileName(this, tr("Open Raster Dataset"), ui->inputPath->text() , tr("Raster Dataset (*.tif *.tiff)"));
         }
+        else
+        {
+            fileName = QFileDialog::getOpenFileName(this, tr("Open Raster Dataset"), "", tr("Raster Dataset (*.tif *.tiff)"));
+        }
+
+        if (fileName != "") {
+            inputRaster = shared_ptr<ProjectedRaster>(new ProjectedRaster(fileName.toStdString()));
+            if (!inputRaster->isReady()) {
+                //Error Opening File
+                //Emit ERROR SIGNAL HERE
+                tries++;
+            } else {
+                //Opened Successfully
+                ui->inputPath->setText(fileName);
+                ui->navNext->setEnabled(true);
+                return;
+            }
+        }
+        return;
     }
     //Error None Selected
     //Emite ERROR SIGNAL HERE
@@ -145,6 +173,11 @@ bool Wizard::basicPreviews()
 
     if (ui->scrollArea->layout() != 0)
     {
+        for(int i=0; i < PROJCT; i++)
+        {
+            delete tList_proj.at(0);
+            tList_proj.removeAt(0);
+        }
         clearLayout(ui->scrollArea->layout());
         delete ui->scrollArea->layout();
     }
@@ -171,7 +204,7 @@ bool Wizard::basicPreviews()
 //                    return false;
 //                }
 //                //Add other header and loop rest
-//                break;
+//                brehrak;
 //            case "Shape":
 //                break;
 //            case "Compromise":
@@ -193,10 +226,6 @@ bool Wizard::basicPreviews()
         {
             //ERROR generating previews
             return false;
-        }
-        else
-        {
-            total += increment;
         }
     }
     delete progress;
@@ -272,35 +301,21 @@ void Wizard::selectSubsetDialog()
 //RESIZE EVENT
 ////////////////////////////////////////////////////////////////////////////////
 
-//bool QMainWindow::event(QEvent *evt)
-//{
-//    if (evt->type() == QEvent::Resize)
-//    {
-//        QResizeEvent *re = (QResizeEvent *)evt;
-//        re->
-//        Wizard *w = new Wizard();
-//        w->emitDSS(re->size().width());
+void Wizard::resizeEvent(QResizeEvent *event)
+{
+    int newSize = event->size().width();
+    if ((formSize + 100 <= newSize || formSize - 100 >= newSize) && page == 1 )
+    {
+        formSize = newSize - 35;
+        basicPreviews();
+    }
+}
 
-//    }
-//    return true;
-//}
+void Wizard::emitDSS(int newSize)
+{
 
-//void Wizard::emitDSS(int x)
-//{
-//    if (page == 1)
-//        emit dssResized(x);
-//}
+}
 
-//void Wizard::resizeDSS(int newSize)
-//{
-//    if (formSize != newSize && page == 1)
-//    {
-//        formSize = newSize;
-//        clearLayout(ui->scrollArea->layout());
-//        delete ui->scrollArea->layout();
-//        basicPreviews();
-//    }
-//}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Fill/No Data/Downsample Previews
@@ -341,7 +356,7 @@ void Wizard::switchPage(int new_page)
     {
     case 0:
         ui->navPrevious->setEnabled(false);
-        ui->navNext->setEnabled(false);
+
         break;
     case 1: //Raster map projection basic previews
         ui->navPrevious->setEnabled(true);
@@ -361,7 +376,10 @@ void Wizard::switchPage(int new_page)
         ////Emit ERROR SIGNAL
         return;
     }
-    ui->navNext->setEnabled(false); //This should always happen to ensure something or the correct something is selected
+    if (ui->inputPath->text() == "")
+    {
+        ui->navNext->setEnabled(false);
+    }
     emit pageChanged(new_page);
 }
 
@@ -371,6 +389,7 @@ void Wizard::switchPage(int new_page)
 
 void Wizard::clearLayout(QLayout* layout, bool deleteWidgets)
 {
+
     while (QLayoutItem* item = layout->takeAt(0))
     {
         if (deleteWidgets)
@@ -382,4 +401,5 @@ void Wizard::clearLayout(QLayout* layout, bool deleteWidgets)
             clearLayout(childLayout, deleteWidgets);
         delete item;
     }
+
 }
