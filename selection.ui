@@ -30,6 +30,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
     <property name="text">
      <string>Raster Wizard</string>
     </property>
@@ -42,6 +45,12 @@
       <width>128</width>
       <height>128</height>
      </size>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="btnAdvanced">
@@ -81,7 +90,7 @@
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
    <property name="font">

@@ -39,6 +39,9 @@ private:
 
     int formSize;
 
+    //Order the Proj Codes
+    ProjCode OrderDSS[PROJCT];
+
     //Temporary Projections
     QList<QTemporaryFile *> tList_proj;
 

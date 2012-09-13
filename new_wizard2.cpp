@@ -171,6 +171,7 @@ bool Wizard::basicPreviews()
     int increment = 100 / PROJCT; //iterator
 
 
+    //Clears Layout of any previous remains
     if (ui->scrollArea->layout() != 0)
     {
         for(int i=0; i < PROJCT; i++)
@@ -192,41 +193,41 @@ bool Wizard::basicPreviews()
         {
             return false;
         }
-//        else if (ui->areaTypeDrop->currentText() == "Global")
-//        {
-//            switch (ui->preserveDrop->currentText())
-//            {
-//            case "Area":
-//                //Add header and loop specifics
-//                if (!generateDSSPreviews(grid, i))
-//                {
-//                    //ERROR generating previews
-//                    return false;
-//                }
-//                //Add other header and loop rest
-//                brehrak;
-//            case "Shape":
-//                break;
-//            case "Compromise":
-//                break;
-//            }
-//        }
-//        else if (ui->areaTypeDrop->currentText() == "Regional" ||
-//                 ui->areaTypeDrop->currentText() == "Continental")
-//        {
-//            switch (ui->preserveDrop->currentText())
-//            {
-//            case "Area":
-//                break;
-//            case "Shape":
-//                break;
-//            }
-//        }
-        else if (!generateDSSPreviews(grid, i))
+        else if (ui->areaTypeDrop->currentText() == "Global")
         {
-            //ERROR generating previews
-            return false;
+            switch (ui->preserveDrop->currentText())
+            {
+            case "Area":
+                //Add header and loop specifics
+                if (!generateDSSPreviews(grid, i))
+                {
+                    //ERROR generating previews
+                    return false;
+                }
+                //Add other header and loop rest
+                break;
+            case "Shape":
+                break;
+            case "Compromise":
+                break;
+            }
         }
+        else if (ui->areaTypeDrop->currentText() == "Regional" ||
+                 ui->areaTypeDrop->currentText() == "Continental")
+        {
+            switch (ui->preserveDrop->currentText())
+            {
+            case "Area":
+                break;
+            case "Shape":
+                break;
+            }
+        }
+//        else if (!generateDSSPreviews(grid, i))
+//        {
+//            //ERROR generating previews
+//            return false;
+//        }
     }
     delete progress;
     ui->scrollArea->setLayout(grid);
@@ -303,19 +304,13 @@ void Wizard::selectSubsetDialog()
 
 void Wizard::resizeEvent(QResizeEvent *event)
 {
-    int newSize = event->size().width();
+    int newSize = ui->scrollArea->size().width();
     if ((formSize + 100 <= newSize || formSize - 100 >= newSize) && page == 1 )
     {
-        formSize = newSize - 35;
+        formSize = newSize;
         basicPreviews();
     }
 }
-
-void Wizard::emitDSS(int newSize)
-{
-
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Fill/No Data/Downsample Previews
@@ -402,4 +397,176 @@ void Wizard::clearLayout(QLayout* layout, bool deleteWidgets)
         delete item;
     }
 
+}
+
+void Wizard::DSSPicker()
+{
+    double lr_x = in->ul_x + (in->pixel_size * in->cols);
+    double lr_y = in->ul_y + (in->pixel_size * in-> rows);
+    double geolr_x, geolr_y, geoul_x, geoul_y;
+
+    shared_ptr<Projection> projection = in->getProjection();
+    projection->inverse(lr_x, lr_y, geolr_x, geolr_y);
+    projection->inverse(in->ul_x, in->ul_y, geoul_x, geoul_y);
+
+    if (ui->areaTypeDrop->currentText() == "Global")
+    {
+        if (ui->areaTypeDrop->currentText() == "Area")
+        {
+            //Cylindrical Equal Area
+            // - Lambert
+            // - Behrmann
+            // - Peters
+            // - Gall
+            // - Trystan Edwards
+
+            //Others
+            // - Hammer-Aitoff
+            // - Hammer-Wagner
+            // - Sinusoidal
+            // - Quartic Authalic
+            // - Eckert IV
+            // - Eckert VI
+            // - Goode Homolosine
+            // - Wagner I
+            // - Wagner IV(Putins P2)
+            // - Mollweide
+        }
+        else if (ui->areaTypeDrop->currentText() == "Shape")
+        {
+            //Mercator
+        }
+        else //Compromise
+        {
+            //Robinson
+            // Other - Van der Griten
+        }
+    }
+    else if (ui->areaTypeDrop->currentText() == "Continental")
+    {
+        if (ui->areaTypeDrop->currentText() == "Shape")
+        {
+            if (() > 70 || () < -60) // NORTH POLE
+            {
+                //Stereo
+            }
+            else if (() > -60 && () < -20) //NORTH/SOUTH AMERICA
+            {
+                //Transverse Mercator
+            }
+            else if (() < 35 && () < 60) //AFRICA
+            {
+                //Transverse Mercator
+            }
+            else //ASIA and AUSTRALIA
+            {
+                //Lambert Conformal Conic
+            }
+        }
+        else //Area
+        {
+            if (() > 70 || () < -60) // NORTH POLE
+            {
+                //Lambert Azimuthal Equal Area
+            }
+            else if (() > -60 && () < -20) //NORTH/SOUTH AMERICA
+            {
+                //Cylindrical Equal Area
+            }
+            else if (() < 35 && () < 60) //AFRICA
+            {
+                //Cylindrical Equal Area
+            }
+            else //ASIA and AUSTRALIA
+            {
+                //Albers Equal Area Conic
+            }
+        }
+    }
+    else //Regional
+    {
+        if () //width >= height
+        {
+            if (ui->areaTypeDrop->currentText() == "Shape")
+            {
+                if (() > 54) // EXTREME NORTH
+                {
+                    //Stereo
+                }
+                else if (() > 18) // MID NORTH
+                {
+                    //Lambert Conformal Conic
+                }
+                else if (() > -18) // MID
+                {
+                    //Mercator
+                }
+                else if (() > -54) // MID SOUTH
+                {
+                    //Lambert Conformal Conic
+                }
+                else
+                {
+                    //Stereo
+                }
+            }
+            else //height > width
+            {
+                if (() > 54) // EXTREME NORTH
+                {
+                    //Lambert Azimuthal
+                }
+                else if (() > 18) // MID NORTH
+                {
+                    //Albers
+                }
+                else if (() > -18) // MID
+                {
+                    //Any Equal Area or Cylindrical Equal Area
+                }
+                else if (() > -54) // MID SOUTH
+                {
+                    //Albers
+                }
+                else
+                {
+                    //Lambert Azimuthal
+                }
+            }
+        }
+        else
+        {
+            if (ui->areaTypeDrop->currentText() == "Shape")
+            {
+                if (() > 54) // EXTREME NORTH
+                {
+                    //Stereo
+                }
+                else if (() > 18) // MID NORTH - MID SOUTH
+                {
+                    //Transverse Mercator
+                }
+                else
+                {
+                    //Stereo
+                }
+            }
+            else
+            {
+                if (() > 54) // EXTREME NORTH
+                {
+                    //Lambert Azimuthal
+                }
+                else if (() > 18) // MID NORTH
+                {
+                    //Cylindrical Equal Area
+                }
+
+                else
+                {
+                    //Lambert Azimuthal
+                }
+            }
+        }
+    }
 }
